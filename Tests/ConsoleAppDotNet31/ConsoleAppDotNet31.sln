@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppDotNet31", "ConsoleAppDotNet31.csproj", "{B3A7A1CD-6FE9-41B1-AB62-A993AE0C9C37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfberry.TelldusLive", "..\..\Wolfberry.TelldusLive\Wolfberry.TelldusLive.csproj", "{EC42BA7C-3F02-4CB8-A857-DE69F79BD45D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3A7A1CD-6FE9-41B1-AB62-A993AE0C9C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A7A1CD-6FE9-41B1-AB62-A993AE0C9C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A7A1CD-6FE9-41B1-AB62-A993AE0C9C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A7A1CD-6FE9-41B1-AB62-A993AE0C9C37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC42BA7C-3F02-4CB8-A857-DE69F79BD45D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC42BA7C-3F02-4CB8-A857-DE69F79BD45D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC42BA7C-3F02-4CB8-A857-DE69F79BD45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC42BA7C-3F02-4CB8-A857-DE69F79BD45D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {056E0538-717C-4A9C-803F-C319B883285D}
+	EndGlobalSection
+EndGlobal
