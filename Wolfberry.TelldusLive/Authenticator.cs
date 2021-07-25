@@ -1,0 +1,61 @@
+﻿using System.Net.Http;
+using System.Threading.Tasks;
+using TinyOAuth1;
+
+namespace Wolfberry.TelldusLive
+{
+	public class Authenticator
+	{
+		private readonly TinyOAuthConfig _tinyConfig;
+		private TinyOAuth _tinyOAuth;
+		private RequestTokenInfo _requestTokenInfo;
+        private readonly TelldusOAuth1Configuration _telldusConfiguration;
+        public HttpClient HttpClient { get; set; }
+
+        public Authenticator(TelldusOAuth1Configuration telldusConfiguration)
+        {
+            _telldusConfiguration = telldusConfiguration;
+			_tinyConfig = new TinyOAuthConfig
+			{
+				AccessTokenUrl = telldusConfiguration.AccessTokenUrl,
+				AuthorizeTokenUrl = telldusConfiguration.AuthorizeTokenUrl,
+				RequestTokenUrl = telldusConfiguration.RequestTokenUrl,
+				ConsumerKey = telldusConfiguration.ConsumerKey,
+				ConsumerSecret = telldusConfiguration.ConsumerKeySecret
+			};
+        }
+
+		/// <summary>
+		/// Currently not in use
+		/// </summary>
+		/// <returns></returns>
+		public async Task<string> GetAuthorizationUrlAsync()
+		{
+            _tinyOAuth = new TinyOAuth(_tinyConfig);
+			_requestTokenInfo = await _tinyOAuth.GetRequestTokenAsync();
+			var authorizationUrl = _tinyOAuth.GetAuthorizationUrl(_requestTokenInfo.RequestToken);
+
+			return authorizationUrl;
+		}
+
+		public void InitializeHttpClient()
+		{
+			HttpClient = new HttpClient(new TinyOAuthMessageHandler(
+                _tinyConfig, 
+                _telldusConfiguration.AccessToken, 
+                _telldusConfiguration.AccessTokenSecret));
+		}
+
+		/// <summary>
+		/// Currently not in use
+		/// </summary>
+		/// <returns></returns>
+		public async Task<AccessTokenInfo> FinalizeAuthorizationAsync()
+		{
+			var accessTokenInfo = await _tinyOAuth.GetAccessTokenAsync(_requestTokenInfo.RequestToken, _requestTokenInfo.RequestTokenSecret, "");
+
+			return accessTokenInfo;
+		}
+	}
+
+}
