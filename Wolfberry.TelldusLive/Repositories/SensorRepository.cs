@@ -1,17 +1,16 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Wolfberry.TelldusLive.Utils;
 using Wolfberry.TelldusLive.ViewModels;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
     public class SensorRepository
     {
-        private readonly TelldusClient _client;
+        private readonly ITelldusHttpClient _httpClient;
 
-        public SensorRepository(TelldusClient client)
+        public SensorRepository(ITelldusHttpClient httpClient)
         {
-            _client = client;
+            _httpClient = httpClient;
         }
 
         /// <summary>
@@ -23,9 +22,9 @@ namespace Wolfberry.TelldusLive.Repositories
         public async Task<IList<Sensor>> GetSensorsAsync(string format = Constraints.JsonFormat)
         {
             // TODO: Add all parameters
-            var requestUri = $"{_client.BaseUrl}/{format}/sensors/list?includeValues=1";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/sensors/list?includeValues=1";
 
-            var response = await _client.GetResponseAsType<SensorsResponse>(requestUri);
+            var response = await _httpClient.GetResponseAsType<SensorsResponse>(requestUri);
 
             return response.Sensor;
         }

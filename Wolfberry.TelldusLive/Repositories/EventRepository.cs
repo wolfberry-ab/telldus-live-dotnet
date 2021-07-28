@@ -1,30 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Wolfberry.TelldusLive.Utils;
 using Wolfberry.TelldusLive.ViewModels;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
-    public class EventRepository
+    public interface IEventRepository
     {
-        private readonly TelldusClient _client
-            ;
-
-        public EventRepository(TelldusClient client)
-        {
-            _client = client;
-        }
-
         /// <summary>
         /// Get events
         /// </summary>
         /// <param name="listOnly">Set to "1" or null</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
+        Task<EventsResponse> GetEventsAsync(string listOnly, string format = Constraints.JsonFormat);
+    }
+
+    public class EventRepository : IEventRepository
+    {
+        private readonly ITelldusHttpClient _httpClient;
+
+        public EventRepository(ITelldusHttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        /// <inheritdoc cref="IEventRepository"/>
         public async Task<EventsResponse> GetEventsAsync(string listOnly, string format = Constraints.JsonFormat)
         {
-            var requestUri = $"{_client.BaseUrl}/{format}/events/list";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/events/list";
 
             if (listOnly != null)
             {
@@ -36,7 +39,7 @@ namespace Wolfberry.TelldusLive.Repositories
                 requestUri += $"?listOnly={listOnly}";
             }
 
-            var response = await _client.GetResponseAsType<EventsResponse>(requestUri);
+            var response = await _httpClient.GetResponseAsType<EventsResponse>(requestUri);
 
             return response;
         }

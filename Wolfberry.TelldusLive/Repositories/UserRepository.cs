@@ -7,27 +7,27 @@ namespace Wolfberry.TelldusLive.Repositories
 {
     public class UserRepository
     {
-        private readonly TelldusClient _client;
+        private readonly ITelldusHttpClient _httpClient;
 
-        public UserRepository(TelldusClient client)
+        public UserRepository(ITelldusHttpClient httpClient)
         {
-            _client = client;
+            _httpClient = httpClient;
         }
 
         public async Task<PhonesResponse> GetPhonesAsync(string format = Constraints.JsonFormat)
         {
-            var requestUri = $"{_client.BaseUrl}/{format}/user/listPhones";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/user/listPhones";
 
-            var response = await _client.GetResponseAsType<PhonesResponse>(requestUri);
+            var response = await _httpClient.GetResponseAsType<PhonesResponse>(requestUri);
 
             return response;
         }
 
         public async Task<ProfileResponse> GetProfileAsync(string format = Constraints.JsonFormat)
         {
-            var requestUri = $"{_client.BaseUrl}/{format}/user/profile";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/user/profile";
 
-            var response = await _client.GetResponseAsType<ProfileResponse>(requestUri);
+            var response = await _httpClient.GetResponseAsType<ProfileResponse>(requestUri);
 
             return response;
         }
@@ -42,9 +42,9 @@ namespace Wolfberry.TelldusLive.Repositories
         public async Task<StatusResponse> SendPushTest(string phoneId, string message, string format = Constraints.JsonFormat)
         {
             var encodedMessage = Uri.EscapeDataString(message);
-            var requestUri = $"{_client.BaseUrl}/{format}/user/sendPushTest?phoneId={phoneId}&message={encodedMessage}";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/user/sendPushTest?phoneId={phoneId}&message={encodedMessage}";
 
-            var response = await _client.GetResponseAsType<StatusResponse>(requestUri);
+            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
 
             return response;
         }

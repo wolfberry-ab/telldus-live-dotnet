@@ -2,10 +2,32 @@
 using System.Threading.Tasks;
 using TinyOAuth1;
 
-namespace Wolfberry.TelldusLive
+namespace Wolfberry.TelldusLive.Authentication
 {
-	public class Authenticator
-	{
+    /// <summary>
+    /// Handles the authentication
+    /// </summary>
+    public interface IAuthenticator
+    {
+        HttpClient HttpClient { get; set; }
+
+        /// <summary>
+        /// Currently not in use
+        /// </summary>
+        /// <returns></returns>
+        Task<string> GetAuthorizationUrlAsync();
+
+        void InitializeHttpClient();
+
+        /// <summary>
+        /// Currently not in use
+        /// </summary>
+        /// <returns></returns>
+        Task<AccessTokenInfo> FinalizeAuthorizationAsync();
+    }
+
+    public class Authenticator : IAuthenticator
+    {
 		private readonly TinyOAuthConfig _tinyConfig;
 		private TinyOAuth _tinyOAuth;
 		private RequestTokenInfo _requestTokenInfo;
@@ -25,10 +47,7 @@ namespace Wolfberry.TelldusLive
 			};
         }
 
-		/// <summary>
-		/// Currently not in use
-		/// </summary>
-		/// <returns></returns>
+		/// <inheritdoc cref="IAuthenticator"/>
 		public async Task<string> GetAuthorizationUrlAsync()
 		{
             _tinyOAuth = new TinyOAuth(_tinyConfig);
@@ -46,10 +65,7 @@ namespace Wolfberry.TelldusLive
                 _telldusConfiguration.AccessTokenSecret));
 		}
 
-		/// <summary>
-		/// Currently not in use
-		/// </summary>
-		/// <returns></returns>
+        /// <inheritdoc cref="IAuthenticator"/>
 		public async Task<AccessTokenInfo> FinalizeAuthorizationAsync()
 		{
 			var accessTokenInfo = await _tinyOAuth.GetAccessTokenAsync(_requestTokenInfo.RequestToken, _requestTokenInfo.RequestTokenSecret, "");

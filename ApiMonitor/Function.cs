@@ -1,5 +1,6 @@
 using System.Net;
 using System.Threading.Tasks;
+using ApiTest;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -9,6 +10,7 @@ using Microsoft.Azure.WebJobs.Extensions.OpenApi.Core.Enums;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Wolfberry.TelldusLive;
+using Wolfberry.TelldusLive.Authentication;
 
 namespace ApiMonitor
 {
@@ -40,8 +42,8 @@ namespace ApiMonitor
                 AccessTokenSecret = "01008b2537a3e30b99998e927f488565"
             };
 
-            var authenticator = new Authenticator(config);
-            var client = new TelldusClient(authenticator);
+            IAuthenticator authenticator = new Authenticator(config);
+            ITelldusHttpClient client = new TelldusHttpClient(authenticator);
             return await TelldusApiRouter.Dispatch(client, resource, resourceParameter);
         }
     }

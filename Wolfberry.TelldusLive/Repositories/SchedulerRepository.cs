@@ -1,12 +1,17 @@
 ﻿namespace Wolfberry.TelldusLive.Repositories
 {
-    public class SchedulerRepository
+    public interface ISchedulerRepository
     {
-        private readonly TelldusClient _client;
 
-        public SchedulerRepository(TelldusClient client)
+    }
+
+    public class SchedulerRepository : ISchedulerRepository
+    {
+        private readonly ITelldusHttpClient _httpClient;
+
+        public SchedulerRepository(ITelldusHttpClient httpClient)
         {
-            _client = client;
+            _httpClient = httpClient;
         }
 
         // scheduler/jobList

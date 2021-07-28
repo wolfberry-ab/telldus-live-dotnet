@@ -1,10 +1,13 @@
 ﻿using System.Threading.Tasks;
+using Wolfberry.TelldusLive.Authentication;
 using Wolfberry.TelldusLive.Utils;
-using Wolfberry.TelldusLive.ViewModels;
 
 namespace Wolfberry.TelldusLive
 {
-    public class TelldusClient
+    /// <summary>
+    /// Handles HTTP calls
+    /// </summary>
+    public interface ITelldusHttpClient
     {
         /// <summary>
         /// The actual call should be performed at: https://api.telldus.com/{format}/{function}
@@ -12,10 +15,18 @@ namespace Wolfberry.TelldusLive
         ///  {format} is the returned format and should be either json or xml
         ///  {function} is the function to call.
         /// </summary>
-        public string BaseUrl { get; } = "http://api.telldus.com";
-        private readonly Authenticator _authenticator;
+        string BaseUrl { get; }
 
-        public TelldusClient(Authenticator authenticator)
+        Task<T> GetResponseAsType<T>(string url);
+    }
+
+    public class TelldusHttpClient : ITelldusHttpClient
+    {
+        /// <inheritdoc cref="ITelldusHttpClient"/>
+        public string BaseUrl { get; } = "http://api.telldus.com";
+        private readonly IAuthenticator _authenticator;
+
+        public TelldusHttpClient(IAuthenticator authenticator)
         {
             _authenticator = authenticator;
             _authenticator.InitializeHttpClient();

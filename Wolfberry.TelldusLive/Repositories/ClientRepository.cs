@@ -3,15 +3,8 @@ using Wolfberry.TelldusLive.ViewModels;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
-    public class ClientRepository
+    public interface IClientRepository
     {
-        private readonly TelldusClient _client;
-
-        public ClientRepository(TelldusClient client)
-        {
-            _client = client;
-        }
-
         /// <summary>
         /// Returns a list of clients owned by the current user (e.g. of type "TellStick ZNet Lite v2").
         /// </summary>
@@ -20,17 +13,30 @@ namespace Wolfberry.TelldusLive.Repositories
         /// latestversion, suntime, timezone, transports and tzoffset</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
+        Task<ClientsResponse> GetClientsAsync(string extras, string format = Constraints.JsonFormat);
+    }
+
+    public class ClientRepository : IClientRepository
+    {
+        private readonly ITelldusHttpClient _httpClient;
+
+        public ClientRepository(ITelldusHttpClient httpClient)
+        {
+            _httpClient = httpClient;
+        }
+
+        /// <inheritdoc cref="IClientRepository"/>
         public async Task<ClientsResponse> GetClientsAsync(string extras, string format = Constraints.JsonFormat)
         {
 
-            var requestUri = $"{_client.BaseUrl}/{format}/clients/list";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/clients/list";
 
             if (extras != null)
             {
                 requestUri += $"?extras={extras}";
             }
 
-            var response = await _client.GetResponseAsType<ClientsResponse>(requestUri);
+            var response = await _httpClient.GetResponseAsType<ClientsResponse>(requestUri);
 
             return response;
         }

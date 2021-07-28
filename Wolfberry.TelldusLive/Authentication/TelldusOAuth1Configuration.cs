@@ -1,4 +1,4 @@
-﻿namespace Wolfberry.TelldusLive
+﻿namespace Wolfberry.TelldusLive.Authentication
 {
     public class TelldusOAuth1Configuration
     {
