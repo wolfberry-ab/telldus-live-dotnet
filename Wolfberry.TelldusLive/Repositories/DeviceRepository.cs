@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Wolfberry.TelldusLive.ViewModels;
 
 namespace Wolfberry.TelldusLive.Repositories
@@ -8,10 +7,14 @@ namespace Wolfberry.TelldusLive.Repositories
     {
         Task<StatusResponse> BellAsync(string deviceId, string format = Constraints.JsonFormat);
 
-        Task<StatusResponse> DimAsync(
-            string deviceId, 
-            [Range(0, 255)] int level,
-            string format = Constraints.JsonFormat);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="level">0-255</param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat);
 
         Task<StatusResponse> DownAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> LearnAsync(string deviceId, string format = Constraints.JsonFormat);
@@ -44,10 +47,7 @@ namespace Wolfberry.TelldusLive.Repositories
 
         // TODO: device/command
 
-        public async Task<StatusResponse> DimAsync(
-            string deviceId, 
-            [Range(0, 255)] int level,
-            string format = Constraints.JsonFormat)
+        public async Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/dim?id={deviceId}&level={level}";
 
