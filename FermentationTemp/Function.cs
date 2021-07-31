@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
+using FermentationSensors.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -25,10 +26,10 @@ namespace FermentationSensors
             In = OpenApiSecurityLocationType.Query)]
         [OpenApiResponseWithBody(statusCode: HttpStatusCode.OK, 
             contentType: "text/plain", 
-            bodyType: typeof(string), 
+            bodyType: typeof(SensorsResponse), 
             Description = "Sensor response")]
         public static async Task<IActionResult> Run(
-            [HttpTrigger(AuthorizationLevel.Function, 
+            [HttpTrigger(AuthorizationLevel.Anonymous, 
                 "get", 
                 Route = null)] HttpRequest req,
             ILogger log)
@@ -68,7 +69,11 @@ namespace FermentationSensors
 
             log.LogInformation($"Returning {selectedSensors.Count} sensors");
 
-            return new OkObjectResult(selectedSensors);
+            var response = new SensorsResponse
+            {
+                Sensors = selectedSensors
+            };
+            return new OkObjectResult(response);
         }
     }
 }
