@@ -16,7 +16,9 @@ namespace Wolfberry.TelldusLive.Repositories
         /// latestversion, suntime, timezone, transports and tzoffset</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
-        Task<ClientsResponse> GetClientsAsync(string extras, string format = Constraints.JsonFormat);
+        Task<ClientsResponse> GetClientsAsync(
+            string extras = null,
+            string format = Constraints.JsonFormat);
 
         /// <summary>
         /// Get client information
@@ -103,7 +105,9 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         /// <inheritdoc cref="IClientRepository"/>
-        public async Task<ClientsResponse> GetClientsAsync(string extras, string format = Constraints.JsonFormat)
+        public async Task<ClientsResponse> GetClientsAsync(
+            string extras = null, 
+            string format = Constraints.JsonFormat)
         {
 
             var requestUri = $"{_httpClient.BaseUrl}/{format}/clients/list";
