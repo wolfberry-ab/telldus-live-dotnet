@@ -39,7 +39,7 @@ namespace ApiTest
                     userRepository = new UserRepository(httpClient);
                     var phoneId = resourceParameter.Split(",")[0];
                     var message = resourceParameter.Split(",")[1];
-                    status = await userRepository.SendPushTest(phoneId, message);
+                    status = await userRepository.SendPushTestAsync(phoneId, message);
                     return new OkObjectResult(status);
                 case "device/on":
                     deviceRepository = new DeviceRepository(httpClient);

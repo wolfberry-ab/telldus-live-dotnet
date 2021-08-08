@@ -25,11 +25,11 @@ namespace Demo.Console
         {
             UserRepository userRepository;
             StatusResponse status;
-            DeviceRepository deviceRepository;
             string resourceParameter = null;
             // TODO: Remove resourceParameter from repository API:s
 
             await CallClientRepository();
+            await CallDeviceRepository();
 
             return; 
 
@@ -58,18 +58,31 @@ namespace Demo.Console
             resourceParameter = $"{phones.Phone.First().DeviceId},hej";
             var phoneId = resourceParameter.Split(",")[0];
             var message = resourceParameter.Split(",")[1];
-            status = await userRepository.SendPushTest(phoneId, message);
+            status = await userRepository.SendPushTestAsync(phoneId, message);
             Print(status);
-            
-            // deviceon":
+
+        }
+
+        private async Task CallDeviceRepository()
+        {
+            StatusResponse status;
+            DeviceRepository deviceRepository = new DeviceRepository(_httpClient);
+
+            const bool includeIgnored = true;
+            const string supportedMethods = null;
+            const string extras = null;
+            var devices = await deviceRepository.GetDevicesAsync(includeIgnored, supportedMethods, extras);
+            Print(devices, "GetDevices");
+            var onOffDeviceId = devices.Device
+                .Single(x => "N1 ELLEN".Equals(x.Name))
+                .Id;
+
+            status = await deviceRepository.TurnOnAsync(onOffDeviceId);
+            Print(status, "TurnOnAsync");
+
             deviceRepository = new DeviceRepository(_httpClient);
-            status = await deviceRepository.TurnOnAsync(resourceParameter);
-            Print(status);
-            
-            // deviceoff":
-            deviceRepository = new DeviceRepository(_httpClient);
-            status = await deviceRepository.TurnOffAsync(resourceParameter);
-            Print(status);
+            status = await deviceRepository.TurnOffAsync(onOffDeviceId);
+            Print(status, "TurnOffAsync");
         }
 
         private async Task CallClientRepository()
@@ -84,17 +97,17 @@ namespace Demo.Console
 
             var firstClientId = clients.Client.First().Id;
 
-            var clientInfo = await clientRepository.GetClientInfo(firstClientId, extras: extras);
+            var clientInfo = await clientRepository.GetClientInfoAsync(firstClientId, extras: extras);
             Print(clientInfo, "Client Info");
             try
             {
 
                 const string clientId = "xxx";
                 const string uuid = "yyy";
-                var registration = await clientRepository.Register(clientId, uuid);
+                var registration = await clientRepository.RegisterAsync(clientId, uuid);
                 Print(registration, "Register");
 
-                var removal = await clientRepository.Remove(clientId);
+                var removal = await clientRepository.RemoveAsync(clientId);
                 Print(removal, "Remove");
             }
             catch (Exception e)
@@ -104,27 +117,27 @@ namespace Demo.Console
 
             const double longitude = 13.19;
             const double latitude = 55.70;
-            status = await clientRepository.SetCoordinates(firstClientId,
+            status = await clientRepository.SetCoordinatesAsync(firstClientId,
                                                                 longitude,
                                                                 latitude);
             Print(status, "SetCoordinates");
 
             const string name = "Stickan V1";
-            status = await clientRepository.SetName(firstClientId, name);
+            status = await clientRepository.SetNameAsync(firstClientId, name);
             Print(status, "SetName");
 
             const bool enablePush = true;
-            status = await clientRepository.EnablePush(firstClientId, enablePush);
+            status = await clientRepository.EnablePushAsync(firstClientId, enablePush);
             Print(status, "EnablePush");
 
             const string timezone = "Europe/Stockholm";
-            status = await clientRepository.SetTimezone(firstClientId, timezone);
+            status = await clientRepository.SetTimezoneAsync(firstClientId, timezone);
             Print(status, "SetTimezone");
 
             try
             {
                 const string email = "info@wolfberry.se";
-                status = await clientRepository.Transfer(firstClientId, email);
+                status = await clientRepository.TransferAsync(firstClientId, email);
                 Print(status, "Transfer");
             }
             catch (Exception e)

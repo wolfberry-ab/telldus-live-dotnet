@@ -39,7 +39,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="message">Special characters will automatically be URI escaped</param>
         /// <param name="format"></param>
         /// <returns></returns>
-        public async Task<StatusResponse> SendPushTest(string phoneId, string message, string format = Constraints.JsonFormat)
+        public async Task<StatusResponse> SendPushTestAsync(string phoneId, string message, string format = Constraints.JsonFormat)
         {
             var encodedMessage = Uri.EscapeDataString(message);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/user/sendPushTest?phoneId={phoneId}&message={encodedMessage}";

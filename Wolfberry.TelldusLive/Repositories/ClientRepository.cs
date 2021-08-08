@@ -26,7 +26,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="extras">Optional</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
-        Task<ClientInfoResponse> GetClientInfo(
+        Task<ClientInfoResponse> GetClientInfoAsync(
             string clientId,
             string uuid = null,
             string code = null,
@@ -39,7 +39,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="clientId"></param>
         /// <param name="uuid"></param>
         /// <returns></returns>
-        Task<object> Register(string clientId, string uuid);
+        Task<object> RegisterAsync(string clientId, string uuid);
 
         /// <summary>
         /// Removes a client from the user. The client needs to be activated again in order to be used.
@@ -47,7 +47,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// </summary>
         /// <param name="clientId"></param>
         /// <returns></returns>
-        Task<object> Remove(string clientId);
+        Task<object> RemoveAsync(string clientId);
 
         /// <summary>
         /// Sets the coordinates where the client is located.
@@ -58,7 +58,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="latitude"></param>
         /// <param name="format"></param>
         /// <returns></returns>
-        Task<StatusResponse> SetCoordinates(
+        Task<StatusResponse> SetCoordinatesAsync(
             string clientId, 
             double longitude, 
             double latitude,
@@ -70,22 +70,22 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="clientId"></param>
         /// <param name="name"></param>
         /// <returns></returns>
-        Task<StatusResponse> SetName(
+        Task<StatusResponse> SetNameAsync(
             string clientId, 
             string name,
             string format = Constraints.JsonFormat);
 
-        Task<StatusResponse> EnablePush(
+        Task<StatusResponse> EnablePushAsync(
             string clientId, 
             bool enablePush,
             string format = Constraints.JsonFormat);
 
-        Task<StatusResponse> SetTimezone(
+        Task<StatusResponse> SetTimezoneAsync(
             string clientId, 
             string timezone,
             string format = Constraints.JsonFormat);
 
-        Task<StatusResponse> Transfer(
+        Task<StatusResponse> TransferAsync(
             string clientId,
             string email,
             string format = Constraints.JsonFormat);
@@ -116,7 +116,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<ClientInfoResponse> GetClientInfo(string clientId, 
+        public async Task<ClientInfoResponse> GetClientInfoAsync(string clientId, 
             string uuid = null, 
             string code = null, 
             string extras = null, 
@@ -144,17 +144,17 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<object> Register(string clientId, string uuid)
+        public async Task<object> RegisterAsync(string clientId, string uuid)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<object> Remove(string clientId)
+        public async Task<object> RemoveAsync(string clientId)
         {
             throw new System.NotImplementedException();
         }
 
-        public async Task<StatusResponse> SetCoordinates(string clientId, 
+        public async Task<StatusResponse> SetCoordinatesAsync(string clientId, 
                                                         double longitude, 
                                                         double latitude, 
                                                         string format = Constraints.JsonFormat)
@@ -169,7 +169,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<StatusResponse> SetName(
+        public async Task<StatusResponse> SetNameAsync(
             string clientId, 
             string name,
             string format = Constraints.JsonFormat)
@@ -182,7 +182,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<StatusResponse> EnablePush(
+        public async Task<StatusResponse> EnablePushAsync(
             string clientId, 
             bool enablePush, 
             string format = Constraints.JsonFormat)
@@ -195,7 +195,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<StatusResponse> SetTimezone(
+        public async Task<StatusResponse> SetTimezoneAsync(
             string clientId, 
             string timezone, 
             string format = Constraints.JsonFormat)
@@ -208,7 +208,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<StatusResponse> Transfer(
+        public async Task<StatusResponse> TransferAsync(
             string clientId,
             string email,
             string format = Constraints.JsonFormat)

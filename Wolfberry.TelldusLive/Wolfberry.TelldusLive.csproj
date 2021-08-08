@@ -19,8 +19,4 @@
     <PackageReference Include="TinyOAuth1" Version="1.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ViewModels\Device\" />
-  </ItemGroup>
-
 </Project>

@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Wolfberry.TelldusLive.ViewModels;
+using Wolfberry.TelldusLive.ViewModels.Device;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
@@ -12,13 +14,25 @@ namespace Wolfberry.TelldusLive.Repositories
         /// </summary>
         /// <param name="deviceId"></param>
         /// <param name="level">0-255</param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat);
 
         Task<StatusResponse> DownAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> LearnAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> RemoveAsync(string deviceId, string format = Constraints.JsonFormat);
+
+        /// <summary>
+        /// Rename device
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="name"></param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<StatusResponse> SetNameAsync(
+            string deviceId,
+            string name,
+            string format = Constraints.JsonFormat);
         Task<StatusResponse> StopAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> TurnOnAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> TurnOffAsync(string deviceId, string format = Constraints.JsonFormat);
@@ -91,7 +105,18 @@ namespace Wolfberry.TelldusLive.Repositories
 
         // TODO: device/setIgnore
 
-        // TODO: device/setName
+        public async Task<StatusResponse> SetNameAsync(
+            string deviceId,
+            string name,
+            string format = Constraints.JsonFormat)
+        {
+            var encodedName = Uri.EscapeDataString(name);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setName?id={deviceId}&name={encodedName}";
+
+            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
+
+            return response;
+        }
 
         // TODO: device/setModel
 
@@ -135,6 +160,31 @@ namespace Wolfberry.TelldusLive.Repositories
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/up?id={deviceId}";
 
             var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
+
+            return response;
+        }
+
+        public async Task<DevicesResponse> GetDevicesAsync(
+            bool includeIgnored = false,
+            string supportedMethods = null, 
+            string extras = null,
+            string format = Constraints.JsonFormat)
+        {
+            var includeIgnoredInteger = includeIgnored ? 1 : 0;
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/devices/list?includeIgnored={includeIgnoredInteger}";
+
+            // TODO: Test this parameter
+            if (supportedMethods != null)
+            {
+                requestUri += $"&supportedMethods={supportedMethods}";
+            }
+
+            if (extras != null)
+            {
+                requestUri += $"&extras={extras}";
+            }
+
+            var response = await _httpClient.GetResponseAsType<DevicesResponse>(requestUri);
 
             return response;
         }
