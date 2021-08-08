@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Wolfberry.TelldusLive.ViewModels;
+using Wolfberry.TelldusLive.ViewModels.Event;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
@@ -13,8 +13,24 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<EventsResponse> GetEventsAsync(string listOnly, string format = Constraints.JsonFormat);
+
+        /// <summary>
+        /// Get event groups
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<EventGroupsResponse> GetEventGroupListAsync(string format = Constraints.JsonFormat);
+
+        /// <summary>
+        /// Get info about an event
+        /// </summary>
+        /// <param name="eventId"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<EventInfoResponse> GetEventInfoAsync(string eventId, string format = Constraints.JsonFormat);
     }
 
+    /// <inheritdoc cref="IEventRepository"/>
     public class EventRepository : IEventRepository
     {
         private readonly ITelldusHttpClient _httpClient;
@@ -23,8 +39,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             _httpClient = httpClient;
         }
-
-        /// <inheritdoc cref="IEventRepository"/>
+        
         public async Task<EventsResponse> GetEventsAsync(string listOnly, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/events/list";
@@ -40,6 +55,26 @@ namespace Wolfberry.TelldusLive.Repositories
             }
 
             var response = await _httpClient.GetResponseAsType<EventsResponse>(requestUri);
+
+            return response;
+        }
+
+        public async Task<EventGroupsResponse> GetEventGroupListAsync(string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/groupList";
+
+            var response = await _httpClient.GetResponseAsType<EventGroupsResponse>(requestUri);
+
+            // TODO: Handle possible error responses
+
+            return response;
+        }
+
+        public async Task<EventInfoResponse> GetEventInfoAsync(string eventId, string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/info?id={eventId}";
+
+            var response = await _httpClient.GetResponseAsType<EventInfoResponse>(requestUri);
 
             return response;
         }

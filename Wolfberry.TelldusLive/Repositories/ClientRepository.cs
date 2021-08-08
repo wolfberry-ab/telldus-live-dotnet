@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.ViewModels;
+using Wolfberry.TelldusLive.ViewModels.Client;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
@@ -91,6 +92,7 @@ namespace Wolfberry.TelldusLive.Repositories
             string format = Constraints.JsonFormat);
     }
 
+    /// <inheritdoc cref="IClientRepository"/>
     public class ClientRepository : IClientRepository
     {
         private readonly ITelldusHttpClient _httpClient;

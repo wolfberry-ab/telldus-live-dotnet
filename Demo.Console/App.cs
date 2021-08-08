@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.VisualBasic.CompilerServices;
 using Newtonsoft.Json;
 using Wolfberry.TelldusLive;
 using Wolfberry.TelldusLive.Repositories;
@@ -28,8 +29,9 @@ namespace Demo.Console
             string resourceParameter = null;
             // TODO: Remove resourceParameter from repository API:s
 
-            await CallClientRepository();
-            await CallDeviceRepository();
+            //await CallClientRepository();
+            //await CallDeviceRepository();
+            await CallEventRepository();
 
             return; 
 
@@ -37,12 +39,7 @@ namespace Demo.Console
             var sensorRepository = new SensorRepository(_httpClient);
             var sensors = await sensorRepository.GetSensorsAsync();
             Print(sensors);
-            
-            // events
-            var eventRepository = new EventRepository(_httpClient);
-            var events = await eventRepository.GetEventsAsync(resourceParameter);
-            Print(events);
-            
+
             // userhones":
             userRepository = new UserRepository(_httpClient);
             var phones = await userRepository.GetPhonesAsync();
@@ -61,6 +58,21 @@ namespace Demo.Console
             status = await userRepository.SendPushTestAsync(phoneId, message);
             Print(status);
 
+        }
+
+        private async Task CallEventRepository()
+        {
+            const string resourceParameter = null;
+            IEventRepository eventRepository = new EventRepository(_httpClient);
+            var events = await eventRepository.GetEventsAsync(resourceParameter);
+            Print(events);
+
+            var eventGroups = await eventRepository.GetEventGroupListAsync();
+            Print(eventGroups, "GetEventGroupLists");
+
+            const string eventId = "785305";
+            var eventInfo = await eventRepository.GetEventInfoAsync(eventId);
+            Print(eventInfo, "GetEventInfo");
         }
 
         private async Task CallDeviceRepository()

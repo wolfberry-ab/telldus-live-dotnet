@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Wolfberry.TelldusLive.ViewModels
+namespace Wolfberry.TelldusLive.ViewModels.Client
 {
     public class ClientsResponse
     {

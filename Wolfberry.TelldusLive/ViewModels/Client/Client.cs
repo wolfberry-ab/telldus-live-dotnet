@@ -1,4 +1,4 @@
-﻿namespace Wolfberry.TelldusLive.ViewModels
+﻿namespace Wolfberry.TelldusLive.ViewModels.Client
 {
     public class Client
     {

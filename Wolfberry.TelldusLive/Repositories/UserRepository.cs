@@ -5,7 +5,37 @@ using Wolfberry.TelldusLive.ViewModels.User;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
-    public class UserRepository
+    public interface IUserRepository
+    {
+        /// <summary>
+        /// Get registered phones
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<PhonesResponse> GetPhonesAsync(string format = Constraints.JsonFormat);
+
+        /// <summary>
+        /// Get user profile
+        /// </summary>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<ProfileResponse> GetProfileAsync(string format = Constraints.JsonFormat);
+
+        /// <summary>
+        /// Send push message to device
+        /// </summary>
+        /// <param name="phoneId"></param>
+        /// <param name="message">Special characters will automatically be URI escaped</param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> SendPushTestAsync(
+            string phoneId,
+            string message,
+            string format = Constraints.JsonFormat);
+    }
+
+    /// <inheritdoc cref="IUserRepository"/>
+    public class UserRepository : IUserRepository
     {
         private readonly ITelldusHttpClient _httpClient;
 
@@ -32,14 +62,10 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        /// <summary>
-        /// Send push message to device
-        /// </summary>
-        /// <param name="phoneId"></param>
-        /// <param name="message">Special characters will automatically be URI escaped</param>
-        /// <param name="format"></param>
-        /// <returns></returns>
-        public async Task<StatusResponse> SendPushTestAsync(string phoneId, string message, string format = Constraints.JsonFormat)
+        public async Task<StatusResponse> SendPushTestAsync(
+            string phoneId, 
+            string message, 
+            string format = Constraints.JsonFormat)
         {
             var encodedMessage = Uri.EscapeDataString(message);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/user/sendPushTest?phoneId={phoneId}&message={encodedMessage}";
