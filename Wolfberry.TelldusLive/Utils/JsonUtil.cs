@@ -8,5 +8,10 @@ namespace Wolfberry.TelldusLive.Utils
         {
             return JsonConvert.DeserializeObject<T>(value);
         }
+
+        public static string Serialize(object data)
+        {
+            return JsonConvert.SerializeObject(data);
+        }
     }
 }

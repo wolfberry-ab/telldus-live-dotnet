@@ -73,6 +73,17 @@ namespace Demo.Console
             const string eventId = "785305";
             var eventInfo = await eventRepository.GetEventInfoAsync(eventId);
             Print(eventInfo, "GetEventInfo");
+
+            try
+            {
+                const string actionId = "dummy";
+                var status = await eventRepository.RemoveActionAsync(actionId);
+                Print(status, "RemoveAction");
+            }
+            catch (Exception)
+            {
+                Print("{}", "RemoveAction");
+            }
         }
 
         private async Task CallDeviceRepository()

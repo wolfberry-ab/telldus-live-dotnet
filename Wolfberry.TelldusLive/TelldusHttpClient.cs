@@ -18,8 +18,11 @@ namespace Wolfberry.TelldusLive
         string BaseUrl { get; }
 
         Task<T> GetResponseAsType<T>(string url);
+
+        Task<string> GetAsJsonAsync(string uri);
     }
 
+    /// <inheritdoc cref="ITelldusHttpClient"/>
     public class TelldusHttpClient : ITelldusHttpClient
     {
         /// <inheritdoc cref="ITelldusHttpClient"/>
@@ -32,15 +35,16 @@ namespace Wolfberry.TelldusLive
             _authenticator.InitializeHttpClient();
         }
 
-        private async Task<string> GetAsJsonStringAsync(string uri)
+        public async Task<string> GetAsJsonAsync(string uri)
         {
             var response = await _authenticator.HttpClient.GetAsync(uri);
-            return await response.Content.ReadAsStringAsync();
+            var json = await response.Content.ReadAsStringAsync();
+            return json;
         }
 
         public async Task<T> GetResponseAsType<T>(string url)
         {
-            var responseJson = await GetAsJsonStringAsync(url);
+            var responseJson = await GetAsJsonAsync(url);
             var response = JsonUtil.Deserialize<T>(responseJson);
             return response;
         }

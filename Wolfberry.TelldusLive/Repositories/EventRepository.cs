@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Wolfberry.TelldusLive.Utils;
+using Wolfberry.TelldusLive.ViewModels;
 using Wolfberry.TelldusLive.ViewModels.Event;
 
 namespace Wolfberry.TelldusLive.Repositories
@@ -28,6 +30,14 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format"></param>
         /// <returns></returns>
         Task<EventInfoResponse> GetEventInfoAsync(string eventId, string format = Constraints.JsonFormat);
+
+        /// <summary>
+        /// Remove an action
+        /// </summary>
+        /// <param name="actionId"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> RemoveActionAsync(string actionId, string format = Constraints.JsonFormat);
     }
 
     /// <inheritdoc cref="IEventRepository"/>
@@ -76,6 +86,22 @@ namespace Wolfberry.TelldusLive.Repositories
 
             var response = await _httpClient.GetResponseAsType<EventInfoResponse>(requestUri);
 
+            return response;
+        }
+
+        public async Task<StatusResponse> RemoveActionAsync(string actionId, string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/removeAction?id={actionId}";
+
+            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
+
+            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
+            if (errorMessage != null)
+            {
+                throw new RepositoryException(errorMessage);
+            }
+
+            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
             return response;
         }
     }
