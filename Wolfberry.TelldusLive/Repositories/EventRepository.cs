@@ -75,7 +75,7 @@ namespace Wolfberry.TelldusLive.Repositories
 
             var response = await _httpClient.GetResponseAsType<EventGroupsResponse>(requestUri);
 
-            // TODO: Handle possible error responses
+            // TODO: Handle possible error responses (404, time out)
 
             return response;
         }
@@ -84,8 +84,15 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/event/info?id={eventId}";
 
-            var response = await _httpClient.GetResponseAsType<EventInfoResponse>(requestUri);
+            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
 
+            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
+            if (errorMessage != null)
+            {
+                throw new RepositoryException(errorMessage);
+            }
+
+            var response = JsonUtil.Deserialize<EventInfoResponse>(responseJson);
             return response;
         }
 

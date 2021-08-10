@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.VisualBasic.CompilerServices;
 using Newtonsoft.Json;
 using Wolfberry.TelldusLive;
 using Wolfberry.TelldusLive.Repositories;
@@ -89,7 +88,7 @@ namespace Demo.Console
         private async Task CallDeviceRepository()
         {
             StatusResponse status;
-            DeviceRepository deviceRepository = new DeviceRepository(_httpClient);
+            IDeviceRepository deviceRepository = new DeviceRepository(_httpClient);
 
             const bool includeIgnored = true;
             const string supportedMethods = null;

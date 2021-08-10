@@ -37,6 +37,12 @@ namespace Wolfberry.TelldusLive.Repositories
         Task<StatusResponse> TurnOnAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> TurnOffAsync(string deviceId, string format = Constraints.JsonFormat);
         Task<StatusResponse> UpAsync(string deviceId, string format = Constraints.JsonFormat);
+
+        Task<DevicesResponse> GetDevicesAsync(
+            bool includeIgnored = false,
+            string supportedMethods = null,
+            string extras = null,
+            string format = Constraints.JsonFormat);
     }
 
     public class DeviceRepository : IDeviceRepository
