@@ -38,6 +38,8 @@ namespace Wolfberry.TelldusLive
         public async Task<string> GetAsJsonAsync(string uri)
         {
             var response = await _authenticator.HttpClient.GetAsync(uri);
+            // The status code is not used in Telldus Live API, both OK and error
+            // responses are sent as JSON in the response body
             var json = await response.Content.ReadAsStringAsync();
             return json;
         }

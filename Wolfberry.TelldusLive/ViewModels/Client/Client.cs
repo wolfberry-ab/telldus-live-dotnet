@@ -3,6 +3,9 @@
     public class Client
     {
         public string Id { get; set; }
+        /// <summary>
+        /// According to https://datatracker.ietf.org/doc/html/rfc4122
+        /// </summary>
         public string Uuid { get; set; }
         public string Name { get; set; }
         public int Online { get; set; }

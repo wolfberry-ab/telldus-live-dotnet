@@ -4,6 +4,9 @@
     {
         public string Id { get; set; }
         public string Ip { get; set; }
+        /// <summary>
+        /// According to https://datatracker.ietf.org/doc/html/rfc4122
+        /// </summary>
         public string Uuid { get; set; }
         public string Name { get; set; }
         public string Online { get; set; }

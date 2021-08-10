@@ -66,6 +66,18 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         // TODO: device/command
+        //TURNON	1
+        //TURNOFF	2
+        //BELL	4
+        //TOGGLE	8
+        //DIM	16
+        //LEARN	32
+        //EXECUTE	64
+        //UP	128
+        //DOWN	256
+        //STOP	512
+        //RGB	1024
+        //THERMOSTAT	2048
 
         public async Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat)
         {

@@ -2,6 +2,9 @@
 {
     public class ProfileResponse
     {
+        /// <summary>
+        /// According to https://datatracker.ietf.org/doc/html/rfc4122
+        /// </summary>
         public string Uuid { get; set; }
         public string Firstname { get; set; }
         public string Lastname { get; set; }
