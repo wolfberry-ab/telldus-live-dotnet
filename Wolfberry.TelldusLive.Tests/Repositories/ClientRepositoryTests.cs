@@ -2,8 +2,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NSubstitute;
+using Wolfberry.TelldusLive.Models.Client;
 using Wolfberry.TelldusLive.Repositories;
-using Wolfberry.TelldusLive.ViewModels.Client;
 using Xunit;
 
 namespace Wolfberry.TelldusLive.Tests.Repositories

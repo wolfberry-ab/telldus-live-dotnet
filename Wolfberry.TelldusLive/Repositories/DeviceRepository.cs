@@ -1,50 +1,11 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Wolfberry.TelldusLive.ViewModels;
-using Wolfberry.TelldusLive.ViewModels.Device;
+using Wolfberry.TelldusLive.Models;
+using Wolfberry.TelldusLive.Models.Device;
+using Wolfberry.TelldusLive.Utils;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
-    public interface IDeviceRepository
-    {
-        Task<StatusResponse> BellAsync(string deviceId, string format = Constraints.JsonFormat);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="deviceId"></param>
-        /// <param name="level">0-255</param>
-        /// <param name="format">json (default) or xml</param>
-        /// <returns></returns>
-        Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat);
-
-        Task<StatusResponse> DownAsync(string deviceId, string format = Constraints.JsonFormat);
-        Task<StatusResponse> LearnAsync(string deviceId, string format = Constraints.JsonFormat);
-        Task<StatusResponse> RemoveAsync(string deviceId, string format = Constraints.JsonFormat);
-
-        /// <summary>
-        /// Rename device
-        /// </summary>
-        /// <param name="deviceId"></param>
-        /// <param name="name"></param>
-        /// <param name="format">json (default) or xml</param>
-        /// <returns></returns>
-        Task<StatusResponse> SetNameAsync(
-            string deviceId,
-            string name,
-            string format = Constraints.JsonFormat);
-        Task<StatusResponse> StopAsync(string deviceId, string format = Constraints.JsonFormat);
-        Task<StatusResponse> TurnOnAsync(string deviceId, string format = Constraints.JsonFormat);
-        Task<StatusResponse> TurnOffAsync(string deviceId, string format = Constraints.JsonFormat);
-        Task<StatusResponse> UpAsync(string deviceId, string format = Constraints.JsonFormat);
-
-        Task<DevicesResponse> GetDevicesAsync(
-            bool includeIgnored = false,
-            string supportedMethods = null,
-            string extras = null,
-            string format = Constraints.JsonFormat);
-    }
-
     public class DeviceRepository : IDeviceRepository
     {
         private readonly ITelldusHttpClient _httpClient;
@@ -54,7 +15,31 @@ namespace Wolfberry.TelldusLive.Repositories
             _httpClient = httpClient;
         }
 
-        // TODO: device/add
+        // TODO: Test
+        public async Task<StatusResponse> AddAsync(
+            string clientId, 
+            string name, 
+            string transport, 
+            string protocol,
+            string model, 
+            string parameters, 
+            string format = Constraints.JsonFormat)
+        {
+            var encodedName = Uri.EscapeDataString(name);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/add?clientId={clientId}";
+            requestUri += $"&name={encodedName}&transport={transport}&protocol={protocol}&model={model}&parameters={parameters}";
+
+            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
+
+            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
+            if (errorMessage != null)
+            {
+                throw new RepositoryException(errorMessage);
+            }
+
+            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
+            return response;
+        }
 
         public async Task<StatusResponse> BellAsync(string deviceId, string format = Constraints.JsonFormat)
         {
@@ -65,19 +50,24 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        // TODO: device/command
-        //TURNON	1
-        //TURNOFF	2
-        //BELL	4
-        //TOGGLE	8
-        //DIM	16
-        //LEARN	32
-        //EXECUTE	64
-        //UP	128
-        //DOWN	256
-        //STOP	512
-        //RGB	1024
-        //THERMOSTAT	2048
+        // TODO: test
+        public async Task<StatusResponse> SendCommandAsync(
+            string deviceId,
+            DeviceMethod method,
+            string value = null,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/command?id={deviceId}&method={method}";
+
+            if (value != null)
+            {
+                requestUri += $"&value={value}";
+            }
+
+            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
+
+            return response;
+        }
 
         public async Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat)
         {

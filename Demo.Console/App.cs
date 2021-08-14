@@ -3,8 +3,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Wolfberry.TelldusLive;
+using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Repositories;
-using Wolfberry.TelldusLive.ViewModels;
 
 namespace Demo.Console
 {
@@ -29,8 +29,8 @@ namespace Demo.Console
             // TODO: Remove resourceParameter from repository API:s
 
             //await CallClientRepository();
-            //await CallDeviceRepository();
-            await CallEventRepository();
+            await CallDeviceRepository();
+            //await CallEventRepository();
 
             return; 
 
@@ -87,8 +87,8 @@ namespace Demo.Console
 
         private async Task CallDeviceRepository()
         {
-            StatusResponse status;
             IDeviceRepository deviceRepository = new DeviceRepository(_httpClient);
+            StatusResponse status = null;
 
             const bool includeIgnored = true;
             const string supportedMethods = null;
@@ -105,6 +105,16 @@ namespace Demo.Console
             deviceRepository = new DeviceRepository(_httpClient);
             status = await deviceRepository.TurnOffAsync(onOffDeviceId);
             Print(status, "TurnOffAsync");
+
+            try
+            {
+                const string invalidClientId = "xxx";
+                status = await deviceRepository.AddAsync(invalidClientId, "name", "transport", "zwave", "model", null);
+            }
+            catch (Exception e)
+            {
+                Print( e.ToString(), "AddDevice");
+            }
         }
 
         private async Task CallClientRepository()
@@ -156,16 +166,10 @@ namespace Demo.Console
             status = await clientRepository.SetTimezoneAsync(firstClientId, timezone);
             Print(status, "SetTimezone");
 
-            try
-            {
-                const string email = "info@wolfberry.se";
-                status = await clientRepository.TransferAsync(firstClientId, email);
-                Print(status, "Transfer");
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e);
-            }
+            const string email = "info@wolfberry.se";
+            const string invalidClientId = "asdf";
+            status = await clientRepository.TransferAsync(invalidClientId, email);
+            Print(status, "Transfer");
         }
 
         private static void Print(object data, string description = "")

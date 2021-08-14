@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Wolfberry.TelldusLive;
+using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Repositories;
-using Wolfberry.TelldusLive.ViewModels;
 
 namespace ApiTest
 {

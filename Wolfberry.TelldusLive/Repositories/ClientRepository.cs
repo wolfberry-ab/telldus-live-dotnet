@@ -1,99 +1,12 @@
 ﻿using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using Wolfberry.TelldusLive.ViewModels;
-using Wolfberry.TelldusLive.ViewModels.Client;
+using Wolfberry.TelldusLive.Models;
+using Wolfberry.TelldusLive.Models.Client;
+using Wolfberry.TelldusLive.Utils;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
-    public interface IClientRepository
-    {
-        /// <summary>
-        /// Returns a list of clients owned by the current user (e.g. of type "TellStick ZNet Lite v2").
-        /// </summary>
-        /// <param name="extras">(optional) A comma-delimited list of extra information to fetch for each
-        /// returned client. Currently supported fields are: coordinate, features, insurance,
-        /// latestversion, suntime, timezone, transports and tzoffset</param>
-        /// <param name="format">json (default) or xml</param>
-        /// <returns></returns>
-        Task<ClientsResponse> GetClientsAsync(
-            string extras = null,
-            string format = Constraints.JsonFormat);
-
-        /// <summary>
-        /// Get client information
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <param name="uuid">Optional</param>
-        /// <param name="code">Optional</param>
-        /// <param name="extras">Optional</param>
-        /// <param name="format">json (default) or xml</param>
-        /// <returns></returns>
-        Task<ClientInfoResponse> GetClientInfoAsync(
-            string clientId,
-            string uuid = null,
-            string code = null,
-            string extras = null,
-            string format = Constraints.JsonFormat);
-
-        /// <summary>
-        /// Register an unregistered client to the calling user. Not yet implemented.
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <param name="uuid"></param>
-        /// <returns></returns>
-        Task<object> RegisterAsync(string clientId, string uuid);
-
-        /// <summary>
-        /// Removes a client from the user. The client needs to be activated again in order to be used.
-        /// Not yet implemented.
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <returns></returns>
-        Task<object> RemoveAsync(string clientId);
-
-        /// <summary>
-        /// Sets the coordinates where the client is located.
-        /// This can be used for calculating for example sunset and sunrise times.
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <param name="longitude"></param>
-        /// <param name="latitude"></param>
-        /// <param name="format"></param>
-        /// <returns></returns>
-        Task<StatusResponse> SetCoordinatesAsync(
-            string clientId, 
-            double longitude, 
-            double latitude,
-            string format = Constraints.JsonFormat);
-
-        /// <summary>
-        /// Rename client
-        /// </summary>
-        /// <param name="clientId"></param>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        Task<StatusResponse> SetNameAsync(
-            string clientId, 
-            string name,
-            string format = Constraints.JsonFormat);
-
-        Task<StatusResponse> EnablePushAsync(
-            string clientId, 
-            bool enablePush,
-            string format = Constraints.JsonFormat);
-
-        Task<StatusResponse> SetTimezoneAsync(
-            string clientId, 
-            string timezone,
-            string format = Constraints.JsonFormat);
-
-        Task<StatusResponse> TransferAsync(
-            string clientId,
-            string email,
-            string format = Constraints.JsonFormat);
-    }
-
     /// <inheritdoc cref="IClientRepository"/>
     public class ClientRepository : IClientRepository
     {
@@ -150,14 +63,41 @@ namespace Wolfberry.TelldusLive.Repositories
             return response;
         }
 
-        public async Task<object> RegisterAsync(string clientId, string uuid)
+        public async Task<StatusResponse> RegisterAsync(
+            string clientId, 
+            string uuid,
+            string format = Constraints.JsonFormat)
         {
-            throw new System.NotImplementedException();
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/register?id={clientId}&uuid={uuid}";
+
+            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
+
+            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
+            if (errorMessage != null)
+            {
+                throw new RepositoryException(errorMessage);
+            }
+
+            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
+            return response;
         }
 
-        public async Task<object> RemoveAsync(string clientId)
+        public async Task<StatusResponse> RemoveAsync(
+            string clientId,
+            string format = Constraints.JsonFormat)
         {
-            throw new System.NotImplementedException();
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/remove?id={clientId}";
+
+            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
+
+            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
+            if (errorMessage != null)
+            {
+                throw new RepositoryException(errorMessage);
+            }
+
+            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
+            return response;
         }
 
         public async Task<StatusResponse> SetCoordinatesAsync(string clientId, 
@@ -219,7 +159,19 @@ namespace Wolfberry.TelldusLive.Repositories
             string email,
             string format = Constraints.JsonFormat)
         {
-            throw new NotImplementedException();
+            var encodedEmail = Uri.EscapeDataString(email);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/transfer?id={clientId}&email={encodedEmail}";
+
+            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
+
+            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
+            if (errorMessage != null)
+            {
+                throw new RepositoryException(errorMessage);
+            }
+
+            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
+            return response;
         }
     }
 }

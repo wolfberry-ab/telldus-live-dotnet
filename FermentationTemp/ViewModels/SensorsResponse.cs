@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Wolfberry.TelldusLive.ViewModels;
+﻿using System.Collections.Generic;
+using Wolfberry.TelldusLive.Models;
 
 namespace FermentationSensors.ViewModels
 {

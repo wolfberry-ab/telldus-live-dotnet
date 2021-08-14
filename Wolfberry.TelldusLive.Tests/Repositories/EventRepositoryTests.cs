@@ -1,9 +1,9 @@
 ﻿using System.Threading.Tasks;
 using NSubstitute;
 using NSubstitute.ReturnsExtensions;
+using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Repositories;
 using Wolfberry.TelldusLive.Utils;
-using Wolfberry.TelldusLive.ViewModels;
 using Xunit;
 
 namespace Wolfberry.TelldusLive.Tests.Repositories

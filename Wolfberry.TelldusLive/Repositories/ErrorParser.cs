@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Utils;
-using Wolfberry.TelldusLive.ViewModels;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
