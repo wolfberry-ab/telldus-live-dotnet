@@ -28,9 +28,9 @@ namespace Demo.Console
             string resourceParameter = null;
             // TODO: Remove resourceParameter from repository API:s
 
-            //await CallClientRepository();
+            await CallClientRepository();
             await CallDeviceRepository();
-            //await CallEventRepository();
+            await CallEventRepository();
 
             return; 
 
@@ -115,6 +115,13 @@ namespace Demo.Console
             {
                 Print( e.ToString(), "AddDevice");
             }
+
+            var deviceIdWithHistory = "4281891";
+            var history = await deviceRepository.GetHistoryAsync(deviceIdWithHistory);
+            Print(history, "GetHistory");
+
+            var info = await deviceRepository.GetDeviceInfo(onOffDeviceId);
+            Print(info, "GetDeviceInfo");
         }
 
         private async Task CallClientRepository()
@@ -158,18 +165,32 @@ namespace Demo.Console
             status = await clientRepository.SetNameAsync(firstClientId, name);
             Print(status, "SetName");
 
-            const bool enablePush = true;
-            status = await clientRepository.EnablePushAsync(firstClientId, enablePush);
-            Print(status, "EnablePush");
+            try
+            {
+                const bool enablePush = true;
+                status = await clientRepository.EnablePushAsync(firstClientId, enablePush);
+                Print(status, "EnablePush");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "EnablePush");
+            }
 
             const string timezone = "Europe/Stockholm";
             status = await clientRepository.SetTimezoneAsync(firstClientId, timezone);
             Print(status, "SetTimezone");
 
-            const string email = "info@wolfberry.se";
-            const string invalidClientId = "asdf";
-            status = await clientRepository.TransferAsync(invalidClientId, email);
-            Print(status, "Transfer");
+            try
+            {
+                const string email = "info@wolfberry.se";
+                const string invalidClientId = "asdf";
+                status = await clientRepository.TransferAsync(invalidClientId, email);
+                Print(status, "Transfer");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "Transfer");
+            }
         }
 
         private static void Print(object data, string description = "")
@@ -180,7 +201,7 @@ namespace Demo.Console
             System.Console.ResetColor();
             System.Console.WriteLine();
 
-            string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+            var json = JsonConvert.SerializeObject(data, Formatting.Indented);
             System.Console.WriteLine(json);
         }
     }

@@ -6,13 +6,11 @@ using Wolfberry.TelldusLive.Utils;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
-    public class DeviceRepository : IDeviceRepository
+    public class DeviceRepository : BaseRepository, IDeviceRepository
     {
-        private readonly ITelldusHttpClient _httpClient;
-
-        public DeviceRepository(ITelldusHttpClient httpClient)
+        public DeviceRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
-            _httpClient = httpClient;
+            // Intentionally left blank
         }
 
         // TODO: Test
@@ -45,9 +43,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/bell?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         // TODO: test
@@ -64,49 +60,98 @@ namespace Wolfberry.TelldusLive.Repositories
                 requestUri += $"&value={value}";
             }
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> DimAsync(string deviceId, int level, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/dim?id={deviceId}&level={level}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> DownAsync(string deviceId, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/down?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<HistoryResponse> GetHistoryAsync(
+            string deviceId,
+            int? fromTimestamp = null,
+            int? toTimestamp = null,
+            bool? lastFirst = null,
+            string extras = null,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/history?id={deviceId}";
+
+            if (fromTimestamp != null)
+            {
+                requestUri += $"&from={fromTimestamp}";
+            }
+
+            if (toTimestamp != null)
+            {
+                requestUri += $"&to={toTimestamp}";
+            }
+
+            if (lastFirst != null)
+            {
+                var lastFirstInteger = (bool) lastFirst ? 1 : 0;
+                requestUri += $"&lastFirst={lastFirstInteger}";
+            }
+
+            if (extras != null)
+            {
+                requestUri += $"&extras={extras}";
+            }
+
+            return await GetOrThrow<HistoryResponse>(requestUri);
+        }
+
+        public async Task<DeviceResponse> GetDeviceInfo(
+            string deviceId,
+            string uuid = null,
+            string supportedMethods = null,
+            string extras = null,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/info?id={deviceId}";
+
+            if (uuid != null)
+            {
+                requestUri += $"&uuid={uuid}";
+            }
+
+            if (supportedMethods != null)
+            {
+                requestUri += $"&supportedMethods={supportedMethods}";
+            }
+
+            if (extras != null)
+            {
+                requestUri += $"&extras={extras}";
+            }
+
+            var response = await _httpClient.GetResponseAsType<DeviceResponse>(requestUri);
 
             return response;
         }
-
-        // TODO: device/history
-
-        // TODO: device/info
 
         public async Task<StatusResponse> LearnAsync(string deviceId, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/learn?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> RemoveAsync(string deviceId, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/remove?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         // TODO: device/rgb
@@ -121,9 +166,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var encodedName = Uri.EscapeDataString(name);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setName?id={deviceId}&name={encodedName}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         // TODO: device/setModel
@@ -138,9 +181,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/stop?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         // TODO: device/thermostat
@@ -149,27 +190,21 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/turnOn?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> TurnOffAsync(string deviceId, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/turnOff?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> UpAsync(string deviceId, string format = Constraints.JsonFormat)
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/up?id={deviceId}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<DevicesResponse> GetDevicesAsync(

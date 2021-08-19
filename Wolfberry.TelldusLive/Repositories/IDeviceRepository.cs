@@ -66,15 +66,47 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Send down command to device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> DownAsync(
             string deviceId, 
             string format = Constraints.JsonFormat);
 
-        // TODO: history
+        /// <summary>
+        /// Get device state history. Telldus API is in BETA (2021-08-14).
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="fromTimestamp">Timestamp in seconds</param>
+        /// <param name="toTimestamp">Timestamp in seconds</param>
+        /// <param name="lastFirst">1 or 0</param>
+        /// <param name="extras">A comma-delimited list of extra information to fetch for each returned device. Currently supported fields are: timezone and tzoffset</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<HistoryResponse> GetHistoryAsync(
+            string deviceId,
+            int? fromTimestamp = null,
+            int? toTimestamp = null,
+            bool? lastFirst = null,
+            string extras = null,
+            string format = Constraints.JsonFormat);
 
-        // TODO: info
+        /// <summary>
+        /// Get device information
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="uuid">Optional. Use this for newly created devices without id</param>
+        /// <param name="supportedMethods">	The methods supported by the calling application</param>
+        /// <param name="extras">Optional. A comma-delimited list of extra information to fetch for each
+        /// returned device. Currently supported fields are: coordinate, metadata, timezone, transport,
+        /// and tzoffset</param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<DeviceResponse> GetDeviceInfo(
+            string deviceId,
+            string uuid = null,
+            string supportedMethods = null,
+            string extras = null,
+            string format = Constraints.JsonFormat);
 
         /// <summary>
         /// Send a special learn command to some devices that need a special

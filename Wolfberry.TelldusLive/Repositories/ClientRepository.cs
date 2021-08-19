@@ -3,18 +3,15 @@ using System.Globalization;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.Client;
-using Wolfberry.TelldusLive.Utils;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
     /// <inheritdoc cref="IClientRepository"/>
-    public class ClientRepository : IClientRepository
+    public class ClientRepository : BaseRepository, IClientRepository
     {
-        private readonly ITelldusHttpClient _httpClient;
-
-        public ClientRepository(ITelldusHttpClient httpClient)
+        public ClientRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
-            _httpClient = httpClient;
+            // Intentionally left blank
         }
 
         /// <inheritdoc cref="IClientRepository"/>
@@ -70,16 +67,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/client/register?id={clientId}&uuid={uuid}";
 
-            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
-
-            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
-            if (errorMessage != null)
-            {
-                throw new RepositoryException(errorMessage);
-            }
-
-            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> RemoveAsync(
@@ -88,16 +76,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var requestUri = $"{_httpClient.BaseUrl}/{format}/client/remove?id={clientId}";
 
-            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
-
-            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
-            if (errorMessage != null)
-            {
-                throw new RepositoryException(errorMessage);
-            }
-
-            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> SetCoordinatesAsync(string clientId, 
@@ -110,9 +89,7 @@ namespace Wolfberry.TelldusLive.Repositories
             requestUri += $"&longitude={longitude.ToString(CultureInfo.InvariantCulture)}";
             requestUri += $"&latitude={latitude.ToString(CultureInfo.InvariantCulture)}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> SetNameAsync(
@@ -123,9 +100,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var encodedName = Uri.EscapeDataString(name);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setName?id={clientId}&name={encodedName}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> EnablePushAsync(
@@ -136,9 +111,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var enableInteger = enablePush ? 1 : 0;
             var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setPush?id={clientId}&enable={enableInteger}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> SetTimezoneAsync(
@@ -149,9 +122,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var encodedTimezone = Uri.EscapeDataString(timezone);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setTimezone?id={clientId}&timezone={encodedTimezone}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
 
         public async Task<StatusResponse> TransferAsync(
@@ -162,16 +133,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var encodedEmail = Uri.EscapeDataString(email);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/client/transfer?id={clientId}&email={encodedEmail}";
 
-            var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
-
-            var errorMessage = ErrorParser.GetOrCreateErrorMessage(responseJson);
-            if (errorMessage != null)
-            {
-                throw new RepositoryException(errorMessage);
-            }
-
-            var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
     }
 }

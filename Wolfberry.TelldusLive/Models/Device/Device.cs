@@ -62,7 +62,7 @@ namespace Wolfberry.TelldusLive.Models.Device
         /// <summary>
         /// Untested parameter. Extras parameter parameters
         /// </summary>
-        public List<object> Parameter { get; set; }
+        public List<Parameter> Parameter { get; set; }
         /// <summary>
         /// Extras parameter transport. E.g. "zwave" or "433".
         /// </summary>

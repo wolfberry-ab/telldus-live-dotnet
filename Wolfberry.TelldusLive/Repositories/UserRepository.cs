@@ -6,13 +6,11 @@ using Wolfberry.TelldusLive.Models.User;
 namespace Wolfberry.TelldusLive.Repositories
 {
     /// <inheritdoc cref="IUserRepository"/>
-    public class UserRepository : IUserRepository
+    public class UserRepository : BaseRepository, IUserRepository
     {
-        private readonly ITelldusHttpClient _httpClient;
-
-        public UserRepository(ITelldusHttpClient httpClient)
+        public UserRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
-            _httpClient = httpClient;
+            // Intentionally left blank
         }
 
         public async Task<PhonesResponse> GetPhonesAsync(string format = Constraints.JsonFormat)
@@ -41,9 +39,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var encodedMessage = Uri.EscapeDataString(message);
             var requestUri = $"{_httpClient.BaseUrl}/{format}/user/sendPushTest?phoneId={phoneId}&message={encodedMessage}";
 
-            var response = await _httpClient.GetResponseAsType<StatusResponse>(requestUri);
-
-            return response;
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
     }
 }
