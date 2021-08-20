@@ -170,7 +170,6 @@ namespace Wolfberry.TelldusLive.Repositories
             string format = Constraints.JsonFormat);
 
 
-        // TODO: contact Telldus. Invalid deviceId gives success response
         /// <summary>
         /// Set device model
         /// </summary>

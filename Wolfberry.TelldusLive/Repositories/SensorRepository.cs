@@ -87,5 +87,56 @@ namespace Wolfberry.TelldusLive.Repositories
 
             return await GetOrThrow<SensorHistoryResponse>(requestUri);
         }
+
+        public async Task<StatusResponse> RemoveHistoryAsync(
+            string sensorId,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/sensor/removeHistory?id={sensorId}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> RemoveValueAsync(
+            string sensorId,
+            string timeUuid,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/sensor/removeValue?id={sensorId}";
+
+            requestUri += $"&TimeUUID={timeUuid}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> ResetMaxMin(
+            string sensorId,
+            string type = null,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/sensor/resetMaxMin?id={sensorId}";
+
+            if (type == null)
+            {
+                type = string.Empty;
+            }
+
+            requestUri += $"&type={type}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> SetKeepHistoryAsync(
+            string sensorId,
+            bool keepHistory,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/sensor/setKeepHistory?id={sensorId}";
+
+            var keepHistoryInteger = keepHistory ? 1 : 0;
+            requestUri += $"&keepHistory={keepHistoryInteger}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
     }
 }

@@ -31,6 +31,9 @@ namespace Demo.Console
 
         private async Task CallSensorRepository()
         {
+            const string invalidSensorId = "invalidSensor";
+            StatusResponse status;
+
             ISensorRepository sensorRepository = new SensorRepository(_httpClient);
             var sensors = await sensorRepository.GetSensorsAsync();
             Print(sensors, "GetSensors");
@@ -40,10 +43,8 @@ namespace Demo.Console
             var sensorInfo = await sensorRepository.GetSensorInfoAsync(firstSensor.Id, true);
             Print(sensorInfo, "GetSensorInfo");
 
-            StatusResponse status;
             try
             {
-                const string invalidSensorId = "invalidSensor";
                 const string name = "sensorY";
                 status = await sensorRepository.SetNameAsync(invalidSensorId, name);
                 Print(status, "SetName");
@@ -56,6 +57,47 @@ namespace Demo.Console
             var sensorIdWithHistory = "1545389717";
             var history = await sensorRepository.GetHistoryAsync(sensorIdWithHistory, true, true, true);
             Print(history, "GetHistory");
+
+            try
+            {
+                status = await sensorRepository.RemoveHistoryAsync(invalidSensorId);
+                Print(status, "RemoveHistory");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveHistory");
+            }
+
+            try
+            {
+                const string timeUuid = "timeuiid";
+                status = await sensorRepository.RemoveValueAsync(invalidSensorId, timeUuid);
+                Print(status, "RemoveValue");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveValue");
+            }
+
+            try
+            {
+                status = await sensorRepository.ResetMaxMin(invalidSensorId, string.Empty);
+                Print(status, "ResetMaxMin");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "ResetMaxMin");
+            }
+
+            try
+            {
+                status = await sensorRepository.SetKeepHistoryAsync(sensorIdWithHistory, true);
+                Print(status, "SetKeepHistory");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetKeepHistory");
+            }
         }
 
         private async Task CallEventRepository()
