@@ -30,7 +30,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Send bell command to device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> BellAsync(
             string deviceId, 
@@ -99,9 +99,9 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="extras">Optional. A comma-delimited list of extra information to fetch for each
         /// returned device. Currently supported fields are: coordinate, metadata, timezone, transport,
         /// and tzoffset</param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
-        Task<DeviceResponse> GetDeviceInfo(
+        Task<DeviceResponse> GetDeviceInfoAsync(
             string deviceId,
             string uuid = null,
             string supportedMethods = null,
@@ -113,7 +113,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// learn-command to be used from TellStick
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> LearnAsync(
             string deviceId, 
@@ -123,18 +123,40 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Remove device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> RemoveAsync(
             string deviceId, 
             string format = Constraints.JsonFormat);
 
-        // TODO: rgb
+        /// <summary>
+        /// Set RGB color on device (device method <see cref="DeviceMethod.Rgb"/>)
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="red">Amount of red, 0 - 255</param>
+        /// <param name="green">Amount of green, 0 - 255</param>
+        /// <param name="blue">Amount of blue, 0 - 255</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<StatusResponse> SetRgbAsync(string deviceId,
+            int red,
+            int green,
+            int blue,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setIgnore
+        /// <summary>
+        /// Mark a device as ignore or not. Ignored devices will not be shown in the devices/list
+        /// if not explicitly set to be shown.
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="ignore">true to ignore, otherwise false</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<StatusResponse> IgnoreAsync(
+            string deviceId,
+            bool ignore,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setName
-        
         /// <summary>
         /// Rename device
         /// </summary>
@@ -148,31 +170,98 @@ namespace Wolfberry.TelldusLive.Repositories
             string format = Constraints.JsonFormat);
 
 
-        // TODO: setModel
+        // TODO: contact Telldus. Invalid deviceId gives success response
+        /// <summary>
+        /// Set device model
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="model"></param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<StatusResponse> SetModelAsync(
+            string deviceId,
+            string model,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setMetadata
+        /// <summary>
+        /// Set or remove metadata parameter for a device.
+        /// </summary>
+        /// <param name="deviceId">Device to modify</param>
+        /// <param name="parameter">Parameter to set or remove</param>
+        /// <param name="value">Empty string to remove, non-empty string to set parameter</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<StatusResponse> SetMetadataAsync(
+            string deviceId,
+            string parameter,
+            string value,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setProtocol
+        /// <summary>
+        /// Set device protocol.
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="protocol"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> SetProtocolAsync(
+            string deviceId,
+            string protocol,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setParameter
+        /// <summary>
+        /// Set device parameter
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> SetParameterAsync(
+            string deviceId,
+            string parameter,
+            string value,
+            string format = Constraints.JsonFormat);
 
         /// <summary>
         /// Stop device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> StopAsync(
             string deviceId, 
             string format = Constraints.JsonFormat);
 
-        // TODO: thermostat
+        /// <summary>
+        /// Set the setpoitn temperature and/or change the thermostat mode
+        /// </summary>
+        /// <param name="deviceId"></param>
+        /// <param name="mode">E.g. "heat"</param>
+        /// <param name="temperature">Optional. The temperature for the setpoint.
+        /// If this is not set, only the mode is changed</param>
+        /// <param name="scale">optional) The scale used. If the parameter temperature is
+        /// set then this parameter is required.
+        /// Accepted values are: 0: Celcius 1: Fahrenheit</param>
+        /// <param name="changeMode">Set this to 1 if the current mode should be switched.
+        /// Setting this to 0 will only update the setpoint temperature
+        /// 0: Only update the setpoint temperature
+        /// 1: Update the temperature(if set) and switch the mode.</param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> SetThermostatAsync(
+            string deviceId,
+            string mode,
+            string temperature,
+            int? scale,
+            int changeMode,
+            string format = Constraints.JsonFormat);
 
         /// <summary>
         /// Turn on device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> TurnOnAsync(
             string deviceId, 
@@ -182,7 +271,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Turn off device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> TurnOffAsync(
             string deviceId, 
@@ -192,7 +281,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Send up command to device
         /// </summary>
         /// <param name="deviceId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> UpAsync(
             string deviceId, 
@@ -204,7 +293,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="includeIgnored"></param>
         /// <param name="supportedMethods"></param>
         /// <param name="extras"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<DevicesResponse> GetDevicesAsync(
             bool includeIgnored = false,

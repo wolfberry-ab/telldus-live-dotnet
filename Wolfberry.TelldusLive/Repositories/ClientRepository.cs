@@ -97,8 +97,8 @@ namespace Wolfberry.TelldusLive.Repositories
             string name,
             string format = Constraints.JsonFormat)
         {
-            var encodedName = Uri.EscapeDataString(name);
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setName?id={clientId}&name={encodedName}";
+            var escapedName = Uri.EscapeDataString(name);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setName?id={clientId}&name={escapedName}";
 
             return await GetOrThrow<StatusResponse>(requestUri);
         }
@@ -119,8 +119,8 @@ namespace Wolfberry.TelldusLive.Repositories
             string timezone, 
             string format = Constraints.JsonFormat)
         {
-            var encodedTimezone = Uri.EscapeDataString(timezone);
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setTimezone?id={clientId}&timezone={encodedTimezone}";
+            var escapedTimezone = Uri.EscapeDataString(timezone);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/setTimezone?id={clientId}&timezone={escapedTimezone}";
 
             return await GetOrThrow<StatusResponse>(requestUri);
         }
@@ -130,8 +130,8 @@ namespace Wolfberry.TelldusLive.Repositories
             string email,
             string format = Constraints.JsonFormat)
         {
-            var encodedEmail = Uri.EscapeDataString(email);
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/transfer?id={clientId}&email={encodedEmail}";
+            var escapedEmail = Uri.EscapeDataString(email);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/client/transfer?id={clientId}&email={escapedEmail}";
 
             return await GetOrThrow<StatusResponse>(requestUri);
         }

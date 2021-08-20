@@ -19,7 +19,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <summary>
         /// Get event groups
         /// </summary>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<EventGroupsResponse> GetEventGroupListAsync(
             string format = Constraints.JsonFormat);
@@ -28,7 +28,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Get info about an event
         /// </summary>
         /// <param name="eventId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<EventInfoResponse> GetEventInfoAsync(
             string eventId, 
@@ -38,7 +38,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Remove an action
         /// </summary>
         /// <param name="actionId"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> RemoveActionAsync(
             string actionId, 

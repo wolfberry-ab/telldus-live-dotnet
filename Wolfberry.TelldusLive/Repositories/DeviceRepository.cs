@@ -23,9 +23,10 @@ namespace Wolfberry.TelldusLive.Repositories
             string parameters, 
             string format = Constraints.JsonFormat)
         {
-            var encodedName = Uri.EscapeDataString(name);
+            var escapedName = Uri.EscapeDataString(name);
+            // NOTE: the only route that use "clientId" as parameter name instead of "id"
             var requestUri = $"{_httpClient.BaseUrl}/{format}/device/add?clientId={clientId}";
-            requestUri += $"&name={encodedName}&transport={transport}&protocol={protocol}&model={model}&parameters={parameters}";
+            requestUri += $"&name={escapedName}&transport={transport}&protocol={protocol}&model={model}&parameters={parameters}";
 
             var responseJson = await _httpClient.GetAsJsonAsync(requestUri);
 
@@ -111,7 +112,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return await GetOrThrow<HistoryResponse>(requestUri);
         }
 
-        public async Task<DeviceResponse> GetDeviceInfo(
+        public async Task<DeviceResponse> GetDeviceInfoAsync(
             string deviceId,
             string uuid = null,
             string supportedMethods = null,
@@ -154,28 +155,88 @@ namespace Wolfberry.TelldusLive.Repositories
             return await GetOrThrow<StatusResponse>(requestUri);
         }
 
-        // TODO: device/rgb
+        public async Task<StatusResponse> SetRgbAsync(string deviceId,
+            int red,
+            int green,
+            int blue,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/rgb?id={deviceId}";
 
-        // TODO: device/setIgnore
+            requestUri += $"&red={red}&green={green}&blue={blue}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> IgnoreAsync(
+            string deviceId,
+            bool ignore,
+            string format = Constraints.JsonFormat)
+        {
+            var ignoreInteger = ignore ? 1 : 0;
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setIgnore?id={deviceId}&ignore={ignoreInteger}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
 
         public async Task<StatusResponse> SetNameAsync(
             string deviceId,
             string name,
             string format = Constraints.JsonFormat)
         {
-            var encodedName = Uri.EscapeDataString(name);
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setName?id={deviceId}&name={encodedName}";
+            var escapedName = Uri.EscapeDataString(name);
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setName?id={deviceId}&name={escapedName}";
 
             return await GetOrThrow<StatusResponse>(requestUri);
         }
 
-        // TODO: device/setModel
+        public async Task<StatusResponse> SetModelAsync(
+            string deviceId,
+            string model,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setModel?id={deviceId}&model={model}";
 
-        // TODO: device/setMetadata
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
 
-        // TODO: device/setProtocol
+        public async Task<StatusResponse> SetMetadataAsync(
+            string deviceId,
+            string parameter,
+            string value,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setMetadata?id={deviceId}";
 
-        // TODO: device/setParameter
+            requestUri += $"&parameter={parameter}&value={value}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> SetProtocolAsync(
+            string deviceId,
+            string protocol,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setProtocol?id={deviceId}";
+
+            requestUri += $"&protocol={protocol}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> SetParameterAsync(
+            string deviceId,
+            string parameter,
+            string value,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/setParameter?id={deviceId}";
+
+            requestUri += $"&parameter={parameter}&value={value}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
 
         public async Task<StatusResponse> StopAsync(string deviceId, string format = Constraints.JsonFormat)
         {
@@ -184,7 +245,30 @@ namespace Wolfberry.TelldusLive.Repositories
             return await GetOrThrow<StatusResponse>(requestUri);
         }
 
-        // TODO: device/thermostat
+        public async Task<StatusResponse> SetThermostatAsync(
+            string deviceId,
+            string mode,
+            string temperature,
+            int? scale,
+            int changeMode,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/thermostat?id={deviceId}&mode={mode}";
+
+            requestUri += $"&changeMode={changeMode}";
+
+            if (temperature != null)
+            {
+                requestUri += $"&temperature={temperature}";
+            }
+
+            if (scale != null)
+            {
+                requestUri += $"&scale={scale}";
+            }
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
 
         public async Task<StatusResponse> TurnOnAsync(string deviceId, string format = Constraints.JsonFormat)
         {

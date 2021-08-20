@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Wolfberry.TelldusLive.Models;
+using Wolfberry.TelldusLive.Models.Sensor;
 
 namespace FermentationSensors.ViewModels
 {

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
+using Wolfberry.TelldusLive.Models.Sensor;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
@@ -14,13 +15,52 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <returns></returns>
         Task<IList<Sensor>> GetSensorsAsync(string format = Constraints.JsonFormat);
 
-        // TODO: info
 
-        // TODO: setIgnore
+        /// <summary>
+        /// Get sensor information. Max poll time is once per 10 minutes.
+        /// </summary>
+        /// <param name="sensorId"></param>
+        /// <param name="includeUnit"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<SensorResponse> GetSensorInfoAsync(
+            string sensorId, 
+            bool includeUnit, 
+            string format = Constraints.JsonFormat);
 
-        // TODO: setNAme
+        /// <summary>
+        /// Mark a sensor as ignored or not. Ignored sensors are not shown in the sensor list
+        /// if not explicitly set to be shown.
+        /// </summary>
+        /// <param name="sensorId"></param>
+        /// <param name="ignore"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> IgnoreAsync(
+            string sensorId,
+            bool ignore,
+            string format = Constraints.JsonFormat);
 
-        // TODO: history
+        /// <summary>
+        /// Rename a sensor
+        /// </summary>
+        /// <param name="sensorId"></param>
+        /// <param name="name"></param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<StatusResponse> SetNameAsync(
+            string sensorId,
+            string name,
+            string format = Constraints.JsonFormat);
+
+        Task<SensorHistoryResponse> GetHistoryAsync(
+            string sensorId,
+            bool includeKey,
+            bool includeUnit,
+            bool includeHumanReadableDate,
+            int? fromTimestamp = null,
+            int? toTimestamp = null,
+            string format = Constraints.JsonFormat);
 
         // TODO: removeHistory
 

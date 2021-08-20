@@ -23,47 +23,46 @@ namespace Demo.Console
 
         public async Task Run()
         {
-            UserRepository userRepository;
-            StatusResponse status;
-            string resourceParameter = null;
-            // TODO: Remove resourceParameter from repository API:s
+            //await CallClientRepository();
+            //await CallDeviceRepository();
+            //await CallEventRepository();
+            await CallSensorRepository();
+        }
 
-            await CallClientRepository();
-            await CallDeviceRepository();
-            await CallEventRepository();
-
-            return; 
-
-            // sensors
-            var sensorRepository = new SensorRepository(_httpClient);
+        private async Task CallSensorRepository()
+        {
+            ISensorRepository sensorRepository = new SensorRepository(_httpClient);
             var sensors = await sensorRepository.GetSensorsAsync();
-            Print(sensors);
+            Print(sensors, "GetSensors");
 
-            // userhones":
-            userRepository = new UserRepository(_httpClient);
-            var phones = await userRepository.GetPhonesAsync();
-            Print(phones);
-            
-            // userrofile":
-            userRepository = new UserRepository(_httpClient);
-            var profile = await userRepository.GetProfileAsync();
-            Print(profile);
-            
-            // userushTest":
-            userRepository = new UserRepository(_httpClient);
-            resourceParameter = $"{phones.Phone.First().DeviceId},hej";
-            var phoneId = resourceParameter.Split(",")[0];
-            var message = resourceParameter.Split(",")[1];
-            status = await userRepository.SendPushTestAsync(phoneId, message);
-            Print(status);
+            var firstSensor = sensors.First();
 
+            var sensorInfo = await sensorRepository.GetSensorInfoAsync(firstSensor.Id, true);
+            Print(sensorInfo, "GetSensorInfo");
+
+            StatusResponse status;
+            try
+            {
+                const string invalidSensorId = "invalidSensor";
+                const string name = "sensorY";
+                status = await sensorRepository.SetNameAsync(invalidSensorId, name);
+                Print(status, "SetName");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetName");
+            }
+
+            var sensorIdWithHistory = "1545389717";
+            var history = await sensorRepository.GetHistoryAsync(sensorIdWithHistory, true, true, true);
+            Print(history, "GetHistory");
         }
 
         private async Task CallEventRepository()
         {
-            const string resourceParameter = null;
+            const string listOnly = null;
             IEventRepository eventRepository = new EventRepository(_httpClient);
-            var events = await eventRepository.GetEventsAsync(resourceParameter);
+            var events = await eventRepository.GetEventsAsync(listOnly);
             Print(events);
 
             var eventGroups = await eventRepository.GetEventGroupListAsync();
@@ -108,7 +107,7 @@ namespace Demo.Console
 
             try
             {
-                const string invalidClientId = "xxx";
+                const string invalidClientId = "invalidClient";
                 status = await deviceRepository.AddAsync(invalidClientId, "name", "transport", "zwave", "model", null);
             }
             catch (Exception e)
@@ -120,8 +119,78 @@ namespace Demo.Console
             var history = await deviceRepository.GetHistoryAsync(deviceIdWithHistory);
             Print(history, "GetHistory");
 
-            var info = await deviceRepository.GetDeviceInfo(onOffDeviceId);
+            var info = await deviceRepository.GetDeviceInfoAsync(onOffDeviceId);
             Print(info, "GetDeviceInfo");
+
+            try
+            {
+                status = await deviceRepository.SetRgbAsync(deviceIdWithHistory, 100, 155, 240);
+                Print(status, "SetRgb");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetRgb");
+            }
+            const string invalidDeviceId = "invalidDevice";
+
+            // NOTE: The route might return success even if the deviceId is invalid
+            try
+            {
+                const string model = "yyy";
+                status = await deviceRepository.SetModelAsync(invalidDeviceId, model);
+                Print(status, "SetModel");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetModel");
+            }
+
+            try
+            {
+                const bool ignore = false;
+                status = await deviceRepository.IgnoreAsync(invalidDeviceId, ignore);
+                Print(status, "SetIgnore");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetIgnore");
+            }
+
+            try
+            {
+                const string parameter = "test";
+                const string value = "test";
+                status = await deviceRepository.SetMetadataAsync(invalidDeviceId, parameter, value);
+                Print(status, "SetMetadata");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetMetadata");
+            }
+
+            try
+            {
+                const string protocol = "zwave";
+                status = await deviceRepository.SetProtocolAsync(invalidDeviceId, protocol);
+                Print(status, "SetProtocol");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetProtocol");
+            }
+
+            try
+            {
+                const string mode = "heat";
+                const string temperature = "20.0";
+                const int changeMode = 1;
+                status = await deviceRepository.SetThermostatAsync(invalidDeviceId, mode, temperature, null, changeMode);
+                Print(status, "SetThermostat");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetThermostat");
+            }
         }
 
         private async Task CallClientRepository()
@@ -141,7 +210,7 @@ namespace Demo.Console
             try
             {
 
-                const string clientId = "xxx";
+                const string clientId = "invalidClient";
                 const string uuid = "yyy";
                 var registration = await clientRepository.RegisterAsync(clientId, uuid);
                 Print(registration, "Register");

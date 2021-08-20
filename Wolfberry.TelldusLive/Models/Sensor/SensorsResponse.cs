@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Wolfberry.TelldusLive.Models
+namespace Wolfberry.TelldusLive.Models.Sensor
 {
     public class SensorsResponse
     {
