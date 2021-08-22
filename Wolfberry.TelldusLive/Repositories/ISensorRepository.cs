@@ -102,7 +102,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// </summary>
         /// <param name="sensorId"></param>
         /// <param name="keepHistory">true to save, false to disable. Disable history will not remove existing data.</param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetKeepHistoryAsync(
             string sensorId,

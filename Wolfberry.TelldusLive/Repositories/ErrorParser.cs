@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
+using System.Text.RegularExpressions;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Utils;
 
@@ -24,10 +25,22 @@ namespace Wolfberry.TelldusLive.Repositories
                 });
             }
 
-            var jObject = JObject.Parse(json);
+            JObject jObject;
+
+            try
+            {
+                // Will fail if not an object (error responses are objects)
+                // If the json starts with array it will cause a read exception
+                jObject = JObject.Parse(json);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+
             var found = jObject.TryGetValue("Error", 
-                                                StringComparison.InvariantCultureIgnoreCase, 
-                                                out var errorMessage);
+                    StringComparison.InvariantCultureIgnoreCase, 
+                    out var errorMessage);
 
             return found 
                 ? errorMessage.ToString() 

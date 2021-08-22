@@ -26,7 +26,90 @@ namespace Demo.Console
             //await CallClientRepository();
             //await CallDeviceRepository();
             //await CallEventRepository();
-            await CallSensorRepository();
+            //await CallSensorRepository();
+            await CallUserRepository();
+        }
+
+        private async Task CallUserRepository()
+        {
+            IUserRepository userRepository = new UserRepository(_httpClient);
+            StatusResponse status;
+
+            var history = await userRepository.GetSmsHistoryAsync();
+            Print(history, "GetSmsHistory");
+
+            var uela = await userRepository.GetEulaAsync();
+            Print(uela, "GetEula");
+
+            status = await userRepository.AcceptEulaAsync(2);
+            Print(status, "AcceptEula");
+
+            try
+            {
+                const string invalidCode = "invalidCode";
+                status = await userRepository.ActivateCouponAsync(invalidCode);
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "ActivateCoupon");
+            }
+            // Intentionally inactivated
+            //status = await userRepository.ChangeEmailAsync("telldus@wolfberry.se");
+            //Print(status, "ChangeEmail");
+
+            //const string locale = "auto";
+            //status = await userRepository.ChangeLocaleAsync(locale);
+            //Print(status, "ChangeLocale");
+
+            //const string currentPassword = "invalidPassword";
+            //const string newPassword = "newPassword";
+            //status = await userRepository.ChangePasswordAsync(currentPassword, newPassword);
+
+            try
+            {
+                const string invalidPushToken = "invalidPushToken";
+                status = await userRepository.DeletePushTokenAsync(invalidPushToken);
+                Print(status, "DeletePushToken");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "DeletePushToken");
+            }
+
+            try
+            {
+                status = await userRepository.RegisterPushTokenAsync(null, null, null, null, null, null, null);
+                Print(status, "RegisterPushToken");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RegisterPushToken");
+            }
+
+            try
+            {
+                status = await userRepository.SendPushTestAsync(null, null);
+                Print(status, "SendPushTest");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SendPushTest");
+            }
+
+            const string firstName = "Mikael";
+            const string lastName = "Johansson";
+            status = await userRepository.SetNameAsync(firstName, lastName);
+            Print(status, "SetName");
+
+            try
+            {
+                status = await userRepository.UnregisterPushToken(null);
+                Print(status, "UnregisterPushToken");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "UnregisterPushToken");
+            }
         }
 
         private async Task CallSensorRepository()

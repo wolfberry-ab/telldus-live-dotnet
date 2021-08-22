@@ -13,7 +13,6 @@ namespace Wolfberry.TelldusLive.Repositories
             // Intentionally left blank
         }
 
-        // TODO: Test
         public async Task<StatusResponse> AddAsync(
             string clientId, 
             string name, 
@@ -47,7 +46,6 @@ namespace Wolfberry.TelldusLive.Repositories
             return await GetOrThrow<StatusResponse>(requestUri);
         }
 
-        // TODO: test
         public async Task<StatusResponse> SendCommandAsync(
             string deviceId,
             DeviceMethod method,
@@ -300,7 +298,6 @@ namespace Wolfberry.TelldusLive.Repositories
             var includeIgnoredInteger = includeIgnored ? 1 : 0;
             var requestUri = $"{_httpClient.BaseUrl}/{format}/devices/list?includeIgnored={includeIgnoredInteger}";
 
-            // TODO: Test this parameter
             if (supportedMethods != null)
             {
                 requestUri += $"&supportedMethods={supportedMethods}";
