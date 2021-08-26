@@ -26,7 +26,7 @@ namespace Wolfberry.TelldusLive.Repositories
             {
                 requestUri += $"?extras={extras}";
             }
-
+            // TODO: remove all calls to GetResponseAsType
             var response = await _httpClient.GetResponseAsType<ClientsResponse>(requestUri);
 
             return response;

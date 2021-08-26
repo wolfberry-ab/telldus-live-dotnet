@@ -27,7 +27,57 @@ namespace Demo.Console
             //await CallDeviceRepository();
             //await CallEventRepository();
             //await CallSensorRepository();
-            await CallUserRepository();
+            //await CallUserRepository();
+            await CallSchedulerRepository();
+        }
+
+        private async Task CallSchedulerRepository()
+        {
+            ISchedulerRepository schedulerRepository = new SchedulerRepository(_httpClient);
+            StatusResponse status;
+
+            var jobs = await schedulerRepository.GetJobsAsync();
+            Print(jobs, "ListJobs");
+
+            var firstJob = jobs.Job.First();
+            var jobInfo = await schedulerRepository.GetJobAsync(firstJob.Id);
+            Print(jobInfo, "JobInfo");
+
+            const string invalidJobId = "invalidJobId";
+            try
+            {
+                status = await schedulerRepository.RemoveJobAsync(invalidJobId);
+                Print(status, "RemoveJob");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveJob");
+            }
+
+            try
+            {
+                const string invalidDeviceId = "invalidDeviceId";
+                status = await schedulerRepository.SetJobAsync(
+                    null, 
+                    invalidDeviceId, 
+                    null, 
+                    null,
+                    null, 
+                    1, 
+                    2, 
+                    3, 
+                    4, 
+                    5, 
+                    6, 
+                    7, 
+                    true, 
+                    "1");
+                Print(status, "SetJobAsync");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetJobAsync");
+            }
         }
 
         private async Task CallUserRepository()
