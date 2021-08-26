@@ -28,7 +28,38 @@ namespace Demo.Console
             //await CallEventRepository();
             //await CallSensorRepository();
             //await CallUserRepository();
-            await CallSchedulerRepository();
+            //await CallSchedulerRepository();
+            await CallGroupRepository();
+        }
+
+        private async Task CallGroupRepository()
+        {
+            StatusResponse status;
+            IGroupRepository groupRepository = new GroupRepository(_httpClient);
+
+            const string invalidClientId = "invalidClientId";
+
+            try
+            {
+                const string name = "groupName";
+                const string devices = "1,2,3,4";
+                status = await groupRepository.AddGroupAsync(invalidClientId, name, devices);
+                Print(status, "AddGroup");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "AddGroup");
+            }
+
+            try
+            {
+                const string invalidGroupId = "invalidGroupId";
+                status = await groupRepository.RemoveGroupAsync(invalidGroupId);
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveGroup");
+            }
         }
 
         private async Task CallSchedulerRepository()
@@ -58,19 +89,19 @@ namespace Demo.Console
             {
                 const string invalidDeviceId = "invalidDeviceId";
                 status = await schedulerRepository.SetJobAsync(
-                    null, 
-                    invalidDeviceId, 
+                    null,
+                    invalidDeviceId,
                     null, 
                     null,
-                    null, 
-                    1, 
-                    2, 
+                    null,
+                    1,
+                    2,
                     3, 
-                    4, 
-                    5, 
-                    6, 
-                    7, 
-                    true, 
+                    4,
+                    5,
+                    6,
+                    7,
+                    true,
                     "1");
                 Print(status, "SetJobAsync");
             }
@@ -88,8 +119,8 @@ namespace Demo.Console
             var history = await userRepository.GetSmsHistoryAsync();
             Print(history, "GetSmsHistory");
 
-            var uela = await userRepository.GetEulaAsync();
-            Print(uela, "GetEula");
+            var eula = await userRepository.GetEulaAsync();
+            Print(eula, "GetEula");
 
             status = await userRepository.AcceptEulaAsync(2);
             Print(status, "AcceptEula");

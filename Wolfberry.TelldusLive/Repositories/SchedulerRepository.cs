@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
-using Wolfberry.TelldusLive.Models.Device;
 using Wolfberry.TelldusLive.Models.Scheduler;
 
 namespace Wolfberry.TelldusLive.Repositories
