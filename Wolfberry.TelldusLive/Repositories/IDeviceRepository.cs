@@ -201,7 +201,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// </summary>
         /// <param name="deviceId"></param>
         /// <param name="protocol"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetProtocolAsync(
             string deviceId,
@@ -214,7 +214,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="deviceId"></param>
         /// <param name="parameter"></param>
         /// <param name="value"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetParameterAsync(
             string deviceId,
@@ -246,7 +246,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Setting this to 0 will only update the setpoint temperature
         /// 0: Only update the setpoint temperature
         /// 1: Update the temperature(if set) and switch the mode.</param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetThermostatAsync(
             string deviceId,

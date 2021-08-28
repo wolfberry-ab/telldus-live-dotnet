@@ -25,11 +25,11 @@ namespace Demo.Console
         {
             //await CallClientRepository();
             //await CallDeviceRepository();
-            //await CallEventRepository();
+            await CallEventRepository();
             //await CallSensorRepository();
             //await CallUserRepository();
             //await CallSchedulerRepository();
-            await CallGroupRepository();
+            //await CallGroupRepository();
         }
 
         private async Task CallGroupRepository()
@@ -284,9 +284,65 @@ namespace Demo.Console
                 var status = await eventRepository.RemoveActionAsync(actionId);
                 Print(status, "RemoveAction");
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                Print("{}", "RemoveAction");
+                Print(e.ToString(), "RemoveAction");
+            }
+
+            try
+            {
+                const string invalidConditionId = "invalid";
+                var status = await eventRepository.RemoveConditionAsync(invalidConditionId);
+                Print(status, "RemoveCondition");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveCondition");
+            }
+
+            try
+            {
+                const string invalidEventId = "invalid";
+                var status = await eventRepository.RemoveEventAsync(invalidEventId);
+                Print(status, "RemoveEvent");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveEvent");
+            }
+
+            try
+            {
+                const string invalidGroupId = "invalid";
+                var status = await eventRepository.RemoveGroupAsync(invalidGroupId);
+                Print(status, "RemoveGroup");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveGroup");
+            }
+
+            try
+            {
+                const string invalidTriggerId = "invalid";
+                var status = await eventRepository.RemoveTriggerAsync(invalidTriggerId);
+                Print(status, "RemoveTrigger");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "RemoveTrigger");
+            }
+
+            try
+            {
+                const string invalidId = "invalid";
+                var status = await eventRepository.SetBlockHeaterTriggerAsync(
+                    invalidId, invalidId, invalidId, 1, 1);
+                Print(status, "SetBlockHeaterTrigger");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetBlockHeaterTrigger");
             }
         }
 

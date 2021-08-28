@@ -7,13 +7,11 @@ using Wolfberry.TelldusLive.Utils;
 namespace Wolfberry.TelldusLive.Repositories
 {
     /// <inheritdoc cref="IEventRepository"/>
-    public class EventRepository : IEventRepository
+    public class EventRepository : BaseRepository, IEventRepository
     {
-        private readonly ITelldusHttpClient _httpClient;
-
-        public EventRepository(ITelldusHttpClient httpClient)
+        public EventRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
-            _httpClient = httpClient;
+            // Intentionally left blank
         }
         
         public async Task<EventsResponse> GetEventsAsync(string listOnly, string format = Constraints.JsonFormat)
@@ -76,6 +74,58 @@ namespace Wolfberry.TelldusLive.Repositories
 
             var response = JsonUtil.Deserialize<StatusResponse>(responseJson);
             return response;
+        }
+
+        public async Task<StatusResponse> RemoveConditionAsync(
+            string conditionId,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/removeCondition?id={conditionId}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> RemoveEventAsync(
+            string eventId,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/removeEvent?id={eventId}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> RemoveGroupAsync(
+            string groupId,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/removeGroup?id={groupId}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> RemoveTriggerAsync(
+            string triggerId,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/removeTrigger?id={triggerId}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
+        }
+
+        public async Task<StatusResponse> SetBlockHeaterTriggerAsync(
+            string triggerId,
+            string eventId,
+            string sensorId,
+            int hour,
+            int minute,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setBlockHeaterTrigger?id={triggerId}";
+
+            requestUri += $"&eventId={eventId}&sensorId={sensorId}";
+            requestUri += $"&hour={hour}&minute={minute}";
+
+            return await GetOrThrow<StatusResponse>(requestUri);
         }
     }
 }

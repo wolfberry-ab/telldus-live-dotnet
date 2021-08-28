@@ -101,7 +101,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Remove linked account
         /// </summary>
         /// <param name="provider"></param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> RemoveLinkedAccountAsync(
             string provider,
