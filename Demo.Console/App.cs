@@ -333,9 +333,10 @@ namespace Demo.Console
                 Print(e.ToString(), "RemoveTrigger");
             }
 
+            const string invalidId = "invalid";
+
             try
             {
-                const string invalidId = "invalid";
                 var status = await eventRepository.SetBlockHeaterTriggerAsync(
                     invalidId, invalidId, invalidId, 1, 1);
                 Print(status, "SetBlockHeaterTrigger");
@@ -343,6 +344,65 @@ namespace Demo.Console
             catch (Exception e)
             {
                 Print(e.ToString(), "SetBlockHeaterTrigger");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetDeviceActionAsync(
+                    invalidId, invalidId, invalidId, DeviceMethod.Thermostat, null,
+                    1, 10, "repeat");
+                Print(status, "SetDeviceAction");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetDeviceAction");
+            }
+
+            try
+            {
+                const string invalidGroup = "invalidGroup";
+                var status = await eventRepository.SetDeviceConditionAsync(
+                    invalidId, invalidId, invalidGroup, invalidId, DeviceMethod.Bell);
+                Print(status, "SetDeviceCondition");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetDeviceCondition");
+            }
+
+            try
+            {
+                const string emailAddress = "mail@mail.com";
+                const string message = "Hi";
+                var status = await eventRepository.SetEmailActionAsync(
+                        invalidId, invalidId, emailAddress, message, 10, "repeat");
+                Print(status, "SetEmailAction");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetEmailAction");
+            }
+
+            try
+            {
+                const string removeGroupId = "00000000-0000-0000-0000-000000000000";
+                const string description = "A test event";
+                var status = await eventRepository.SetEventAsync(invalidId, removeGroupId, description, true);
+                Print(status, "SetEvent");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetEvent");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetGroupAsync(invalidId, "Fail to update");
+                Print(status, "SetGroup");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetGroup");
             }
         }
 

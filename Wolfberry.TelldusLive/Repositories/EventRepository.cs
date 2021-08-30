@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Web;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.Event;
 using Wolfberry.TelldusLive.Utils;
@@ -112,7 +113,7 @@ namespace Wolfberry.TelldusLive.Repositories
             return await GetOrThrow<StatusResponse>(requestUri);
         }
 
-        public async Task<StatusResponse> SetBlockHeaterTriggerAsync(
+        public async Task<CreatedResponse> SetBlockHeaterTriggerAsync(
             string triggerId,
             string eventId,
             string sensorId,
@@ -120,12 +121,177 @@ namespace Wolfberry.TelldusLive.Repositories
             int minute,
             string format = Constraints.JsonFormat)
         {
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setBlockHeaterTrigger?id={triggerId}";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setBlockHeaterTrigger?eventId={eventId}";
 
-            requestUri += $"&eventId={eventId}&sensorId={sensorId}";
+            requestUri += $"&sensorId={sensorId}";
             requestUri += $"&hour={hour}&minute={minute}";
 
-            return await GetOrThrow<StatusResponse>(requestUri);
+            if (triggerId != null)
+            {
+                // Update existing trigger
+                requestUri += $"&id={triggerId}";
+            }
+
+            return await GetOrThrow<CreatedResponse>(requestUri);
+        }
+
+        public async Task<CreatedResponse> SetDeviceActionAsync(
+            string actionId,
+            string eventId,
+            string deviceId,
+            DeviceMethod method,
+            string value,
+            int repeats,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat)
+        {
+
+            if (repeats < 1 || repeats > 10)
+            {
+                throw new ArgumentException($"Parameter repeat must be 1-10. Value is {repeats}");
+            }
+
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setDeviceAction?eventId={eventId}";
+
+            requestUri += $"&deviceID={deviceId}";
+            requestUri += $"&method={(int)method}";
+
+            if (value != null)
+            {
+                requestUri += $"&value={value}";
+            }
+
+            requestUri += $"&repeats={repeats}&delay={delayInSeconds}&delayPolicy={delayPolicy}";
+
+            if (actionId != null)
+            {
+                // Update existing action
+                requestUri += $"&id={actionId}";
+            }
+
+            return await GetOrThrow<CreatedResponse>(requestUri);
+        }
+
+        public async Task<CreatedResponse> SetDeviceConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string deviceId,
+            DeviceMethod method,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setDeviceCondition?eventId={eventId}";
+
+            requestUri += $"&group={group}";
+            requestUri += $"&deviceId={deviceId}&method={(int)method}";
+
+            if (conditionId != null)
+            {
+                // Update existing condition
+                requestUri += $"&id={conditionId}";
+            }
+
+            return await GetOrThrow<CreatedResponse>(requestUri);
+        }
+
+        public async Task<CreatedResponse> SetDeviceTriggerAsync(
+            string triggerId,
+            string eventId,
+            string deviceId,
+            DeviceMethod method,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setDeviceTrigger?eventId={eventId}";
+
+            requestUri += $"&deviceId={deviceId}";
+            requestUri += $"&method={(int)method}";
+
+            if (triggerId != null)
+            {
+                // Update existing trigger
+                requestUri += $"&id={triggerId}";
+            }
+
+            return await GetOrThrow<CreatedResponse>(requestUri);
+        }
+
+        public async Task<CreatedResponse> SetEmailActionAsync(
+            string actionId,
+            string eventId,
+            string emailAddress,
+            string message,
+            int? delay,
+            string delayPolicy,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setEmailAction?eventId={eventId}";
+
+            var escapedEmailAddress = Uri.EscapeDataString(emailAddress);
+            requestUri += $"&address={escapedEmailAddress}";
+
+            var escapedMessage = Uri.EscapeDataString(message);
+            requestUri += $"&message={escapedMessage}";
+
+            if (delay != null)
+            {
+                requestUri += $"&delay={delay}";
+            }
+
+            requestUri += $"&delayPolicy={delayPolicy}";
+
+            if (actionId != null)
+            {
+                // Update existing action
+                requestUri += $"&id={actionId}";
+            }
+
+            return await GetOrThrow<CreatedResponse>(requestUri);
+        }
+
+        public async Task<CreatedResponse> SetEventAsync(
+            string eventId,
+            string group,
+            string description,
+            bool active,
+            int minRepeatInterval = 30,
+            string format = Constraints.JsonFormat)
+        {
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/event/setEvent?group={group}";
+
+            if (eventId != null)
+            {
+                // Update existing event
+                requestUri += $"&id={eventId}";
+            }
+
+            var escapedDescription = Uri.EscapeDataString(description);
+            requestUri += $"&description={escapedDescription}";
+
+            requestUri += $"&minRepeatInterval={minRepeatInterval}";
+
+            var activeNumber = active ? 1 : 0;
+            requestUri += $"&active={activeNumber}";
+
+            return await GetOrThrow<CreatedResponse>(requestUri);
+        }
+
+        public async Task<CreatedResponse> SetGroupAsync (
+            string groupId,
+            string name,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setGroup");
+
+            if (groupId != null)
+            {
+                urlBuilder.AddQuery("id", groupId);
+            }
+
+            urlBuilder.AddAsEscapedQuery("name", name);
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
         }
     }
 }

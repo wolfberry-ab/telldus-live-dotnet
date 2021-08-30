@@ -52,7 +52,7 @@ namespace Wolfberry.TelldusLive.Repositories
             string value = null,
             string format = Constraints.JsonFormat)
         {
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/command?id={deviceId}&method={method}";
+            var requestUri = $"{_httpClient.BaseUrl}/{format}/device/command?id={deviceId}&method={(int)method}";
 
             if (value != null)
             {
