@@ -289,6 +289,132 @@ namespace Wolfberry.TelldusLive.Repositories
             }
 
             urlBuilder.AddAsEscapedQuery("name", name);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetModeActionAsync(
+            string actionId,
+            string eventId,
+            string objectId,
+            string objectType,
+            string modeId,
+            bool setAlways,
+            int? delay,
+            string delayPolicy,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setModeAction");
+
+            if (actionId != null)
+            {
+                urlBuilder.AddQuery("id", actionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddQuery("objectId", objectId);
+            urlBuilder.AddQuery("objectType", objectType);
+            urlBuilder.AddQuery("modeId", modeId);
+            urlBuilder.AddQueryAsInt("setAlways", setAlways);
+
+            if (delay != null)
+            {
+                urlBuilder.AddQuery("delay", delay.ToString());
+            }
+            urlBuilder.AddQuery("delayPolicy", delayPolicy);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetModeConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string objectId,
+            string objectType,
+            string modeId,
+            bool equalTo = true,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setModeCondition");
+
+            if (conditionId != null)
+            {
+                urlBuilder.AddQuery("id", conditionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+
+            if (group != null)
+            {
+                urlBuilder.AddQuery("group", group);
+            }
+
+            urlBuilder.AddQuery("objectId", objectId);
+            urlBuilder.AddQuery("objectType", objectType);
+            urlBuilder.AddQuery("modeId", modeId);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetModeTriggerAsync(
+            string triggerId,
+            string eventId,
+            string objectType,
+            string objectId,
+            string modeId,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setModeTrigger");
+
+            if (triggerId != null)
+            {
+                urlBuilder.AddQuery("id", triggerId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddQuery("objectType", objectType);
+            urlBuilder.AddQuery("objectId", objectId);
+            urlBuilder.AddQuery("modeId", modeId);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetPushTriggerAsync(
+            string actionId,
+            string eventId,
+            string phoneId,
+            string message,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setPushAction");
+
+            if (actionId != null)
+            {
+                urlBuilder.AddQuery("id", actionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddQuery("phoneId", phoneId);
+            urlBuilder.AddAsEscapedQuery("message", message);
+
+            if (delayInSeconds != null)
+            {
+                urlBuilder.AddQuery("delay", delayInSeconds.ToString());
+            }
+
+            urlBuilder.AddQuery("delayPolicy", delayPolicy);
+
             var url = urlBuilder.Build();
 
             return await GetOrThrow<CreatedResponse>(url);

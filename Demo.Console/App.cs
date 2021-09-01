@@ -404,6 +404,56 @@ namespace Demo.Console
             {
                 Print(e.ToString(), "SetGroup");
             }
+
+            try
+            {
+                const string objectType = "room";
+                var status = await eventRepository.SetModeActionAsync(
+                    invalidId, invalidId, invalidId, objectType, invalidId, true, 10,
+                    "repeat");
+                Print(status, "SetModeAction");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetModeAction");
+            }
+
+            try
+            {
+                const string group = "group";
+                const string objectType = "room";
+                var status = await eventRepository.SetModeConditionAsync(
+                    invalidId, invalidId, group, invalidId, objectType, invalidId, true);
+                Print(status, "SetModeCondition");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetModeCondition");
+            }
+
+            try
+            {
+                const string objectType = "room";
+                var status = await eventRepository.SetModeTriggerAsync(
+                    invalidId, invalidId, objectType, invalidId, invalidId);
+                Print(status, "SetModeTrigger");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetModeTrigger");
+            }
+
+            try
+            {
+                const string message = "Hi there";
+                var status = await eventRepository.SetPushTriggerAsync(
+                    invalidId, invalidId, invalidId, message, 10, "restart");
+                Print(status, "SetPushTrigger");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetPushTrigger");
+            }
         }
 
         private async Task CallDeviceRepository()

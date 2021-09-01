@@ -217,13 +217,95 @@ namespace Wolfberry.TelldusLive.Repositories
             string name,
             string format = Constraints.JsonFormat);
 
-        // TODO: setModeAction
+        /// <summary>
+        /// Create or update a mode action
+        /// </summary>
+        /// <param name="actionId">Action ID. Set to null to create a new.</param>
+        /// <param name="eventId">The event to add the action to</param>
+        /// <param name="objectId">The ID of the object to change</param>
+        /// <param name="objectType">The type of object. Only room is currently supported.</param>
+        /// <param name="modeId">Mode ID</param>
+        /// <param name="setAlways">Set mode again even if it's already set</param>
+        /// <param name="delay">Number of seconds before running the action. Requires Premium.</param>
+        /// <param name="delayPolicy">Only valid if a delay is set.
+        /// "restart" restarts the timer, "continue" second activation is ignored and first
+        /// timer continues to run.</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetModeActionAsync(
+            string actionId,
+            string eventId,
+            string objectId,
+            string objectType,
+            string modeId,
+            bool setAlways,
+            int? delay,
+            string delayPolicy,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setModeCondition
+        /// <summary>
+        /// Create or update a condition to an event
+        /// </summary>
+        /// <param name="conditionId">Condition ID. Set to null to create new.</param>
+        /// <param name="eventId">Event ID to add the trigger to</param>
+        /// <param name="group">The condition group to add this condition to.
+        /// All conditions in a group must be true for the action to happen.
+        /// If this is not set or null a new group will be created.</param>
+        /// <param name="objectId">The object ID to query</param>
+        /// <param name="objectType">The type of object. Only room is currently supported.</param>
+        /// <param name="modeId">The mode the object must be set to</param>
+        /// <param name="equalTo">ModeId must match (as opposed to Mode can be anything but modeId)</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetModeConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string objectId,
+            string objectType,
+            string modeId,
+            bool equalTo = true,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setModeTrigger
+        /// <summary>
+        /// Create or update a mode as trigger to an event
+        /// </summary>
+        /// <param name="triggerId">Trigger ID. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the trigger to</param>
+        /// <param name="objectType">Which type of object to listen for. Currently only room is supported</param>
+        /// <param name="objectId">The id for the object to listen for. For rooms this is the room id</param>
+        /// <param name="modeId">Mode ID</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetModeTriggerAsync(
+            string triggerId,
+            string eventId,
+            string objectType,
+            string objectId,
+            string modeId,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setPushAction
+        /// <summary>
+        /// Create or update a "push to mobile device" action
+        /// </summary>
+        /// <param name="actionId"></param>
+        /// <param name="eventId"></param>
+        /// <param name="phoneId">ID of mobile device</param>
+        /// <param name="message"></param>
+        /// <param name="delayInSeconds">Delay in seconds before executing the action. Requires Premium.</param>
+        /// <param name="delayPolicy">Only valid if a delay is set.
+        /// "restart" restarts the timer, "continue" second activation is ignored and first
+        /// timer continues to run.</param>
+        /// <param name="format"></param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetPushTriggerAsync(
+            string actionId,
+            string eventId,
+            string phoneId,
+            string message,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat);
 
         // TODO: setSMSAction
 

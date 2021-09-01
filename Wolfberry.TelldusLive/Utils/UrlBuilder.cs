@@ -43,5 +43,11 @@ namespace Wolfberry.TelldusLive.Utils
             _uriBuilder.Query = _query.ToString();
             return _uriBuilder.ToString();
         }
+
+        public void AddQueryAsInt(string name, bool value)
+        {
+            var intValue = value ? 1 : 0;
+            AddQuery(name, intValue.ToString());
+        }
     }
 }

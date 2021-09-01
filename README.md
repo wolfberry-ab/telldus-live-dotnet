@@ -1,12 +1,12 @@
-# Telldus Live API Client written in .NET (C#)
+# Telldus Live .NET Library
 
-This is a client for [Telldus Live API](https://api.telldus.com) with full feature support of the public API.
+This is a library for [Telldus Live API](https://api.telldus.com) with full feature support of the public API.
 It allows you to manage clients (smart home hub/gateway/controller), devices, events, groups, scheduler, sensors and your user accounts.
-
-It can be used to control any Telldus Live compatible gateway, device and sensors.
 
 It's written in C# (targeting netstandard2.0) and is available as open-source and as NuGet. Since it can be used
 in .NET Core it can be run from any platform where .NET Core runtime can execute (Windows, Mac & Linux).
+
+The library fits well in a command line app, back-ends or anything else.
 
 ## Getting started
 
