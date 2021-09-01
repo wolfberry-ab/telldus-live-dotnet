@@ -13,7 +13,7 @@ The library fits well in command line applications, back-ends, web apps, ...
 - Create an account and setup your system at: https://live.telldus.com/default/index
 - Create credentials at https://api.telldus.com/.
 - Install the NuGet package into your project.
-- Example of
+- Example code:
  ```c#
  // Enter credentials from your Telldus Live API account
  var config = new TelldusOAuth1Configuration
