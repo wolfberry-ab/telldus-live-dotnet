@@ -296,7 +296,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="delayPolicy">Only valid if a delay is set.
         /// "restart" restarts the timer, "continue" second activation is ignored and first
         /// timer continues to run.</param>
-        /// <param name="format"></param>
+        /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<CreatedResponse> SetPushTriggerAsync(
             string actionId,
@@ -307,22 +307,195 @@ namespace Wolfberry.TelldusLive.Repositories
             string delayPolicy,
             string format = Constraints.JsonFormat);
 
-        // TODO: setSMSAction
+        /// <summary>
+        /// Create or update an SMS Action
+        /// </summary>
+        /// <param name="actionId">Action ID to update. Set to null to create new.</param>
+        /// <param name="eventId">Event ID to add the action to</param>
+        /// <param name="to">The phone number in international format (e.g. +46708334455 for Sweden)</param>
+        /// <param name="message">Message to send. Max 160 characters.</param>
+        /// <param name="flash">true if it's a flash message, otherwise false</param>
+        /// <param name="delayInSeconds">Delay in seconds before executing the action. Requires Premium.</param>
+        /// <param name="delayPolicy">Only valid if a delay is set.
+        /// "restart" restarts the timer, "continue" second activation is ignored and first
+        /// timer continues to run.</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetSmsActionAsync(
+            string actionId,
+            string eventId,
+            string to,
+            string message,
+            bool flash,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setSensorCondition
+        /// <summary>
+        /// Create or update sensor condition
+        /// </summary>
+        /// <param name="conditionId">Condition ID to update. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the condition to</param>
+        /// <param name="group">The condition group to add this condition to.
+        /// All conditions in a group must be true for the action to happen.
+        /// If this is not set or null a new group will be created.</param>
+        /// <param name="sensorId">Sensor ID to query</param>
+        /// <param name="value">Value to trigger on</param>
+        /// <param name="edge">Rising, equal or falling edge</param>
+        /// <param name="valueType">The type of the value.
+        /// Can be barpress (barometric pressure), co (carbon monoxide),
+        /// co2 (carbon dioxide), dewp (dew point), genmeter (generic meter),
+        /// humidity, loudness, lum (luminance), moisture, particulatematter2.5,
+        /// rrate (rain rate), rtot (total rain), temp (temperature), uv (UV index),
+        /// volume, watt (power), wavg (wind average), wgust (wind gust), weight and unknown</param>
+        /// <param name="scale">Optional. Scale unit type</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetSensorConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string sensorId,
+            bool value,
+            Edge edge,
+            string valueType,
+            string scale = null,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setSensorTrigger
+        /// <summary>
+        /// Create or update sensor trigger
+        /// </summary>
+        /// <param name="triggerId">Trigger ID to update. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the trigger to</param>
+        /// <param name="sensorId">Sensor ID to monitor</param>
+        /// <param name="value">The value to trigger on</param>
+        /// <param name="edge">Any value of <see cref="Edge"/></param>
+        /// <param name="valueType">The type of the value.
+        /// Can be barpress (barometric pressure), co (carbon monoxide),
+        /// co2 (carbon dioxide), dewp (dew point), genmeter (generic meter),
+        /// humidity, loudness, lum (luminance), moisture, particulatematter2.5,
+        /// rrate (rain rate), rtot (total rain), temp (temperature), uv (UV index),
+        /// volume, watt (power), wavg (wind average), wgust (wind gust), weight and unknown</param>
+        /// <param name="scale">Optional. Scale unit type</param>
+        /// <param name="reloadValue">Optional. This value sets how much the value must drift
+        /// before the trigger could be triggered again. This is useful for sensors that swings
+        /// in the temperature. Default value is one degree.
+        /// Example: If the trigger is set to 25 degree and reloadValue is 1, then the
+        /// temperature needs to reach below 24 or above 26 for this trigger to trigger again.
+        /// Must be in the interval 0.1 - 15</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetSensorTriggerAsync(
+            string triggerId,
+            string eventId,
+            string sensorId,
+            string value,
+            Edge edge,
+            string valueType,
+            string scale = null,
+            int reloadValue = 1,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setSuntimeCondition
+        /// <summary>
+        /// Create or update the sun as condition to an event
+        /// </summary>
+        /// <param name="conditionId">Condition ID. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the condition to</param>
+        /// <param name="group">The condition group to add this condition to.
+        /// All conditions in a group must be true for the action to happen.
+        /// If this is not set or null a new group will be created.</param>
+        /// <param name="sunStatus">See <see cref="SunStatus"/></param>
+        /// <param name="sunriseOffset">Number of minutes before or after the sunrise</param>
+        /// <param name="sunsetOffset">Number of minutes before or after the sunset</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetSuntimeConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            SunStatus sunStatus,
+            int sunriseOffset,
+            int sunsetOffset,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setSuntimeTrigger
+        /// <summary>
+        /// Create or update suntime trigger to an event
+        /// </summary>
+        /// <param name="triggerId">Trigger ID to update. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the trigger to</param>
+        /// <param name="clientId">The id of the client to use the sunset/sunrise time from</param>
+        /// <param name="sunStatus">See <see cref="SunStatus"/></param>
+        /// <param name="offset">Minutes before (positive number) or after (use negative number) sunrise/sunset</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetSuntimeTriggerAsync(
+            string triggerId,
+            string eventId,
+            string clientId,
+            SunStatus sunStatus,
+            int offset,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setTimeCondition
+        /// <summary>
+        /// Create or update time condition to an event
+        /// </summary>
+        /// <param name="conditionId">Condition ID to update. Set null to create new</param>
+        /// <param name="eventId">Event ID to set condition to</param>
+        /// <param name="group">The condition group to add this condition to.
+        /// All conditions in a group must be true for the action to happen.
+        /// If this is not set or null a new group will be created.</param>
+        /// <param name="fromHour">0-23</param>
+        /// <param name="fromMinute">0-59</param>
+        /// <param name="toHour">0-23</param>
+        /// <param name="toMinute">0-59</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetTimeConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            int fromHour,
+            int fromMinute,
+            int toHour,
+            int toMinute,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setTimeTrigger
+        /// <summary>
+        /// Create or update URL action
+        /// </summary>
+        /// <param name="actionId">Action ID to update. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the action to</param>
+        /// <param name="urlCallback">URL to call on trigger</param>
+        /// <param name="delayInSeconds">Delay in seconds before executing the action. Requires Premium.</param>
+        /// <param name="delayPolicy">Only valid if a delay is set.
+        /// "restart" restarts the timer, "continue" second activation is ignored and first
+        /// timer continues to run.</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetUrlActionAsync(
+            string actionId,
+            string eventId,
+            string urlCallback,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat);
 
-        // TODO: setURLAction
-
-        // TODO: setWeekdaysCondition
+        /// <summary>
+        /// Create or update weekday condition
+        /// </summary>
+        /// <param name="conditionId">Condition ID to update. Set to null to create new</param>
+        /// <param name="eventId">Event ID to add the condition to</param>
+        /// <param name="group">The condition group to add this condition to.
+        /// All conditions in a group must be true for the action to happen.
+        /// If this is not set or null a new group will be created.</param>
+        /// <param name="weekdays">A comma separated list of weekdays. 1 is monday. Example: 1,2,3,4</param>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
+        Task<CreatedResponse> SetWeekdayConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string weekdays,
+            string format = Constraints.JsonFormat);
     }
 }

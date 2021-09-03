@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Wolfberry.TelldusLive;
 using Wolfberry.TelldusLive.Models;
+using Wolfberry.TelldusLive.Models.Event;
 using Wolfberry.TelldusLive.Repositories;
 
 namespace Demo.Console
@@ -453,6 +454,74 @@ namespace Demo.Console
             catch (Exception e)
             {
                 Print(e.ToString(), "SetPushTrigger");
+            }
+
+            try
+            {
+                const string message = "Hi there";
+                var status = await eventRepository.SetSmsActionAsync(
+                    invalidId, invalidId, "46708445588", message, true, 10, "restart");
+                Print(status, "SetSmsAction");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetSmsAction");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetSensorConditionAsync(
+                    invalidId, invalidId,"group", invalidId, true, 
+                    Edge.Equal, "temp");
+                Print(status, "SetSensorCondition");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetSensorCondition");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetSensorTriggerAsync(
+                    invalidId, invalidId, invalidId, "10", Edge.Equal, "temp");
+                Print(status, "SetSensorTrigger");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetSensorTrigger");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetTimeConditionAsync(
+                    invalidId, invalidId, "group", 1, 59, 2,59);
+                Print(status, "SetTimeCondition");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetTimeCondition");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetUrlActionAsync(
+                    invalidId, invalidId, "http://localhost", 10, "restart");
+                Print(status, "SetUrlAction");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetUrlAction");
+            }
+
+            try
+            {
+                var status = await eventRepository.SetWeekdayConditionAsync(
+                    invalidId, invalidId, "group", "2,3,4");
+                Print(status, "SetWeekdayCondition");
+            }
+            catch (Exception e)
+            {
+                Print(e.ToString(), "SetWeekdayCondition");
             }
         }
 

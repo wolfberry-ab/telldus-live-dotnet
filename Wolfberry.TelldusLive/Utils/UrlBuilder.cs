@@ -29,6 +29,16 @@ namespace Wolfberry.TelldusLive.Utils
         }
 
         /// <summary>
+        /// Add query parameter
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="value"></param>
+        public void AddQuery(string name, int value)
+        {
+            _query[name] = value.ToString();
+        }
+
+        /// <summary>
         /// Add query parameter and automatically Uri escape the value
         /// </summary>
         /// <param name="name">Name of query parameter</param>
@@ -44,7 +54,7 @@ namespace Wolfberry.TelldusLive.Utils
             return _uriBuilder.ToString();
         }
 
-        public void AddQueryAsInt(string name, bool value)
+        public void AddQuery(string name, bool value)
         {
             var intValue = value ? 1 : 0;
             AddQuery(name, intValue.ToString());

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using System.Web;
+using Newtonsoft.Json.Linq;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.Event;
 using Wolfberry.TelldusLive.Utils;
@@ -317,7 +318,7 @@ namespace Wolfberry.TelldusLive.Repositories
             urlBuilder.AddQuery("objectId", objectId);
             urlBuilder.AddQuery("objectType", objectType);
             urlBuilder.AddQuery("modeId", modeId);
-            urlBuilder.AddQueryAsInt("setAlways", setAlways);
+            urlBuilder.AddQuery("setAlways", setAlways);
 
             if (delay != null)
             {
@@ -410,10 +411,256 @@ namespace Wolfberry.TelldusLive.Repositories
 
             if (delayInSeconds != null)
             {
-                urlBuilder.AddQuery("delay", delayInSeconds.ToString());
+                urlBuilder.AddQuery("delay", delayInSeconds.Value);
             }
 
             urlBuilder.AddQuery("delayPolicy", delayPolicy);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetSmsActionAsync(
+            string actionId,
+            string eventId,
+            string to,
+            string message,
+            bool flash,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setSMSAction");
+
+            if (actionId != null)
+            {
+                urlBuilder.AddQuery("id", actionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            // TODO: Add phone number validation
+            urlBuilder.AddQuery("to", to);
+            urlBuilder.AddAsEscapedQuery("message", message);
+            urlBuilder.AddQuery("flash", flash);
+
+            if (delayInSeconds != null)
+            {
+                urlBuilder.AddQuery("delay", delayInSeconds.Value);
+            }
+
+            urlBuilder.AddQuery("delayPolicy", delayPolicy);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetSensorConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string sensorId,
+            bool value,
+            Edge edge,
+            string valueType,
+            string scale = null,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setSensorCondition");
+
+            if (conditionId != null)
+            {
+                urlBuilder.AddQuery("id", conditionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+
+            if (group != null)
+            {
+                urlBuilder.AddQuery("group", group);
+            }
+
+            urlBuilder.AddQuery("sensorId", sensorId);
+            urlBuilder.AddQuery("value", value);
+            urlBuilder.AddQuery("edge", (int) edge);
+            urlBuilder.AddQuery("valueType", valueType);
+
+            if (scale != null)
+            {
+                urlBuilder.AddQuery("scale", scale);
+            }
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetSensorTriggerAsync(
+            string triggerId,
+            string eventId,
+            string sensorId,
+            string value,
+            Edge edge,
+            string valueType,
+            string scale = null,
+            int reloadValue = 1,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setSensorTrigger");
+
+            if (triggerId != null)
+            {
+                urlBuilder.AddQuery("id", triggerId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddQuery("sensorId", sensorId);
+            urlBuilder.AddQuery("value", value);
+            urlBuilder.AddQuery("edge", (int) edge);
+            urlBuilder.AddQuery("valueType", valueType);
+            urlBuilder.AddQuery("reloadValue", reloadValue);
+
+            if (scale != null)
+            {
+                urlBuilder.AddQuery("scale", scale);
+            }
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetSuntimeConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            SunStatus sunStatus,
+            int sunriseOffset,
+            int sunsetOffset,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setSuntimeCondition");
+
+            if (conditionId != null)
+            {
+                urlBuilder.AddQuery("id", conditionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddQuery("group", group);
+            urlBuilder.AddQuery("sunStatus", (int)sunStatus);
+            urlBuilder.AddQuery("sunriseOffset", sunriseOffset);
+            urlBuilder.AddQuery("sunsetOffset", sunsetOffset);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetSuntimeTriggerAsync(
+            string triggerId,
+            string eventId,
+            string clientId,
+            SunStatus sunStatus,
+            int offset,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setSuntimeTrigger");
+
+            if (triggerId != null)
+            {
+                urlBuilder.AddQuery("id", triggerId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddQuery("clientId", clientId);
+            urlBuilder.AddQuery("sunStatus", (int)sunStatus);
+            urlBuilder.AddQuery("offset", offset);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetTimeConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            int fromHour,
+            int fromMinute,
+            int toHour,
+            int toMinute,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setTimeCondition");
+
+            if (conditionId != null)
+            {
+                urlBuilder.AddQuery("id", conditionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            // TODO: What is the correct format of a group? What is a group?
+            urlBuilder.AddQuery("group", group);
+            urlBuilder.AddQuery("fromHour", fromHour);
+            urlBuilder.AddQuery("fromMinute", fromMinute);
+            urlBuilder.AddQuery("toHour", toHour);
+            urlBuilder.AddQuery("toMinute", toMinute);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetUrlActionAsync(
+            string actionId,
+            string eventId,
+            string urlCallback,
+            int? delayInSeconds,
+            string delayPolicy,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setURLAction");
+
+            if (actionId != null)
+            {
+                urlBuilder.AddQuery("id", actionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+
+            urlBuilder.AddAsEscapedQuery("url", urlCallback);
+
+            if (delayInSeconds != null)
+            {
+                urlBuilder.AddQuery("delay", delayInSeconds.Value);
+            }
+
+            urlBuilder.AddQuery("delayPolicy", delayPolicy);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<CreatedResponse>(url);
+        }
+
+        public async Task<CreatedResponse> SetWeekdayConditionAsync(
+            string conditionId,
+            string eventId,
+            string group,
+            string weekdays,
+            string format = Constraints.JsonFormat)
+        {
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/event/setWeekdaysCondition");
+
+            if (conditionId != null)
+            {
+                urlBuilder.AddQuery("id", conditionId);
+            }
+
+            urlBuilder.AddQuery("eventId", eventId);
+            urlBuilder.AddAsEscapedQuery("group", group);
+            urlBuilder.AddQuery("weekdays", weekdays);
 
             var url = urlBuilder.Build();
 
