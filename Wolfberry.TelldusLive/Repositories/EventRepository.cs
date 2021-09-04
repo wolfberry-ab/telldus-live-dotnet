@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Web;
-using Newtonsoft.Json.Linq;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.Event;
 using Wolfberry.TelldusLive.Utils;
@@ -11,28 +9,28 @@ namespace Wolfberry.TelldusLive.Repositories
     /// <inheritdoc cref="IEventRepository"/>
     public class EventRepository : BaseRepository, IEventRepository
     {
+        // TODO: Use UrlBuilder for all requests
+
         public EventRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
             // Intentionally left blank
         }
         
-        public async Task<EventsResponse> GetEventsAsync(string listOnly, string format = Constraints.JsonFormat)
+        public async Task<EventsResponse> GetEventsAsync(
+            bool eventsOnly,
+            string format = Constraints.JsonFormat)
         {
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/events/list";
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/events/list");
 
-            if (listOnly != null)
+            if (eventsOnly)
             {
-                const string listOnlyValue = "1";
-                if (!listOnlyValue.Equals(listOnly))
-                {
-                    throw new ArgumentException("listOnly parameter can only be \"1\" or null");
-                }
-                requestUri += $"?listOnly={listOnly}";
+                // Can only be 1 or not set at all
+                urlBuilder.AddQuery("listOnly", 1);
             }
 
-            var response = await _httpClient.GetResponseAsType<EventsResponse>(requestUri);
+            var url = urlBuilder.Build();
 
-            return response;
+            return await GetOrThrow<EventsResponse>(url);
         }
 
         public async Task<EventGroupsResponse> GetEventGroupListAsync(string format = Constraints.JsonFormat)

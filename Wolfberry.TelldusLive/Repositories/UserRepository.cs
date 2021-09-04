@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
+using Wolfberry.TelldusLive.Models.Event;
 using Wolfberry.TelldusLive.Models.User;
+using Wolfberry.TelldusLive.Utils;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
     /// <inheritdoc cref="IUserRepository"/>
     public class UserRepository : BaseRepository, IUserRepository
     {
+        // TODO: Use UrlBuilder for all requests
+
         public UserRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
             // Intentionally left blank
@@ -150,10 +154,14 @@ namespace Wolfberry.TelldusLive.Repositories
             string message, 
             string format = Constraints.JsonFormat)
         {
-            var escapedMessage = Uri.EscapeDataString(message);
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/user/sendPushTest?phoneId={phoneId}&message={escapedMessage}";
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/user/sendPushTest");
 
-            return await GetOrThrow<StatusResponse>(requestUri);
+            urlBuilder.AddQuery("phoneId", phoneId);
+            urlBuilder.AddQuery("message", message);
+
+            var url = urlBuilder.Build();
+
+            return await GetOrThrow<StatusResponse>(url);
         }
 
         public async Task<StatusResponse> SetNameAsync(

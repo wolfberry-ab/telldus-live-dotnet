@@ -9,11 +9,12 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <summary>
         /// Get all events
         /// </summary>
-        /// <param name="listOnly">Set to "1" or null</param>
+        /// <param name="eventsOnly">Set to true to only list events
+        /// (ignore triggers, conditions and actions), set to false to list all</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<EventsResponse> GetEventsAsync(
-            string listOnly, 
+            bool eventsOnly,
             string format = Constraints.JsonFormat);
 
         /// <summary>

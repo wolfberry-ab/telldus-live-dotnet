@@ -5,15 +5,18 @@ using System.Web;
 namespace Wolfberry.TelldusLive.Utils
 {
     /// <summary>
-    /// Simplifies the creation of URLs
+    /// Simplifies the creation of URLs.
+    /// Note that :433 will be added to the host address if https:// is used
     /// </summary>
     public class UrlBuilder
     {
         private readonly UriBuilder _uriBuilder;
         private readonly NameValueCollection _query;
+        private readonly string _url;
 
         public UrlBuilder(string url)
         {
+            _url = url;
             _uriBuilder = new UriBuilder(url);
             _query = HttpUtility.ParseQueryString(_uriBuilder.Query);
         }
@@ -48,7 +51,9 @@ namespace Wolfberry.TelldusLive.Utils
             _query[name] = Uri.EscapeDataString(value);
         }
 
-        public string Build()
+        // TODO: Fix so that escaped strings are not double esecaped
+        // Messages like "New alarm!" is now received as "New%20alarm%21"
+        public string UriBuild()
         {
             _uriBuilder.Query = _query.ToString();
             return _uriBuilder.ToString();
@@ -58,6 +63,23 @@ namespace Wolfberry.TelldusLive.Utils
         {
             var intValue = value ? 1 : 0;
             AddQuery(name, intValue.ToString());
+        }
+
+        public string Build()
+        {
+            var url = _url;
+            var i = 0;
+            foreach (string key in _query)
+            {
+                url += i == 0
+                    ? "?" 
+                    : "&";
+                
+                url += $"{key}={Uri.EscapeDataString(_query[key])}";
+                i++;
+            }
+
+            return url;
         }
     }
 }

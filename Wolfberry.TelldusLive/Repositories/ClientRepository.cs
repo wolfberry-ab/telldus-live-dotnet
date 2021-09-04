@@ -9,6 +9,8 @@ namespace Wolfberry.TelldusLive.Repositories
     /// <inheritdoc cref="IClientRepository"/>
     public class ClientRepository : BaseRepository, IClientRepository
     {
+        // TODO: Use UrlBuilder for all requests
+
         public ClientRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
             // Intentionally left blank

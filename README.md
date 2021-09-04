@@ -32,7 +32,7 @@ var authenticator = new Authenticator(config);
 var client = new TelldusHttpClient(authenticator);
 
 // Example of turning on a device (e.g. a wall socket)
-var deviceRepository = new DeviceRepository(_httpClient);
+var deviceRepository = new DeviceRepository(client);
 var status = await deviceRepository.TurnOnAsync(onOffDeviceId);
 ```
 

@@ -5,6 +5,8 @@ namespace Wolfberry.TelldusLive.Repositories
 {
     public class GroupRepository : BaseRepository, IGroupRepository
     {
+        // TODO: Use UrlBuilder for all requests
+
         public GroupRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
             // Intentionally left blank

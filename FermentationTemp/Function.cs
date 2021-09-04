@@ -62,8 +62,8 @@ namespace FermentationSensors
             IAuthenticator authenticator = new Authenticator(config);
             ITelldusHttpClient client = new TelldusHttpClient(authenticator);
             ISensorRepository sensorRepository = new SensorRepository(client);
-            var sensors = await sensorRepository.GetSensorsAsync();
-            var selectedSensors = sensors
+            var sensorsResponse = await sensorRepository.GetSensorsAsync(true, true);
+            var selectedSensors = sensorsResponse.Sensors
                 .Where(x => sensorIds.Contains(x.Id))
                 .ToList();
 

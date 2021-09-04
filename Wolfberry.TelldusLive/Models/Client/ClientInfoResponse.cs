@@ -14,7 +14,11 @@
         public int Extensions { get; set; }
         public string Version { get; set; }
         public string Type { get; set; }
-
-        // TODO: Check if missing attributes when using extras parameter
+        public double Longitude { get; set; }
+        public double Latitude { get; set; }
+        public int Sunrise { get; set; }
+        public int Sunset { get; set; }
+        public string Timezone { get; set; }
+        public int TzOffset { get; set; }
     }
 }

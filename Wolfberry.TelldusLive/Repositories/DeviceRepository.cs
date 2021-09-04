@@ -8,6 +8,8 @@ namespace Wolfberry.TelldusLive.Repositories
 {
     public class DeviceRepository : BaseRepository, IDeviceRepository
     {
+        // TODO: Use UrlBuilder for all requests
+
         public DeviceRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
             // Intentionally left blank

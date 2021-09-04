@@ -21,11 +21,11 @@ namespace ApiTest
                     return new OkObjectResult(clients);
                 case "sensors":
                     var sensorRepository = new SensorRepository(httpClient);
-                    var sensors = await sensorRepository.GetSensorsAsync();
-                    return new OkObjectResult(sensors);
+                    var response = await sensorRepository.GetSensorsAsync(true, true);
+                    return new OkObjectResult(response);
                 case "events":
                     var eventRepository = new EventRepository(httpClient);
-                    var events = await eventRepository.GetEventsAsync(resourceParameter);
+                    var events = await eventRepository.GetEventsAsync(false);
                     return new OkObjectResult(events);
                 case "user/phones":
                     userRepository = new UserRepository(httpClient);

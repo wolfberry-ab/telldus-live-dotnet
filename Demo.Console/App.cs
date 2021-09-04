@@ -24,9 +24,12 @@ namespace Demo.Console
 
         public async Task Run()
         {
+            var userRepository = new UserRepository(_httpClient);
+            await userRepository.SendPushTestAsync("934156", "New alarm!");
+
             //await CallClientRepository();
             //await CallDeviceRepository();
-            await CallEventRepository();
+            //await CallEventRepository();
             //await CallSensorRepository();
             //await CallUserRepository();
             //await CallSchedulerRepository();
@@ -200,10 +203,10 @@ namespace Demo.Console
             StatusResponse status;
 
             ISensorRepository sensorRepository = new SensorRepository(_httpClient);
-            var sensors = await sensorRepository.GetSensorsAsync();
-            Print(sensors, "GetSensors");
+            var response = await sensorRepository.GetSensorsAsync(true, true);
+            Print(response, "GetSensors");
 
-            var firstSensor = sensors.First();
+            var firstSensor = response.Sensors.First();
 
             var sensorInfo = await sensorRepository.GetSensorInfoAsync(firstSensor.Id, true);
             Print(sensorInfo, "GetSensorInfo");
@@ -267,9 +270,8 @@ namespace Demo.Console
 
         private async Task CallEventRepository()
         {
-            const string listOnly = null;
             IEventRepository eventRepository = new EventRepository(_httpClient);
-            var events = await eventRepository.GetEventsAsync(listOnly);
+            var events = await eventRepository.GetEventsAsync(true);
             Print(events);
 
             var eventGroups = await eventRepository.GetEventGroupListAsync();

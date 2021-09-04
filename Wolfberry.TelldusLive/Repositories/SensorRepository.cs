@@ -1,27 +1,49 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.Sensor;
+using Wolfberry.TelldusLive.Utils;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
     public class SensorRepository : BaseRepository, ISensorRepository
     {
+        // TODO: Use UrlBuilder for all requests
+
         public SensorRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
             // Intentionally left blank
         }
 
         /// <inheritdoc cref="ISensorRepository"/>
-        public async Task<IList<Sensor>> GetSensorsAsync(string format = Constraints.JsonFormat)
+        public async Task<SensorsResponse> GetSensorsAsync(
+            bool includeIgnored,
+            bool includeValues,
+            bool? includeScale = null,
+            bool? includeUnit = null,
+            string format = Constraints.JsonFormat)
         {
-            // TODO: Add all parameters
-            var requestUri = $"{_httpClient.BaseUrl}/{format}/sensors/list?includeValues=1";
+            var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/sensors/list");
 
-            var response = await _httpClient.GetResponseAsType<SensorsResponse>(requestUri);
+            urlBuilder.AddQuery("includeIgnored", includeIgnored);
+            urlBuilder.AddQuery("includeValues", includeValues);
 
-            return response.Sensor;
+            // TODO: Throw exception on invalid combinations of parameters
+
+            if (includeScale != null)
+            {
+                urlBuilder.AddQuery("includeScale", includeScale.Value);
+            }
+
+            if (includeUnit != null)
+            {
+                urlBuilder.AddQuery("includeUnit", includeUnit.Value);
+            }
+
+            var url = urlBuilder.Build();
+
+            var response = await GetOrThrow<TelldusSensorsResponse>(url);
+            return new SensorsResponse(response.Sensor);
         }
 
         public async Task<SensorResponse> GetSensorInfoAsync(

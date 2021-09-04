@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.Sensor;
 
@@ -8,12 +7,20 @@ namespace Wolfberry.TelldusLive.Repositories
     public interface ISensorRepository
     {
         /// <summary>
-        /// Returns a list of all sensors associated with the current user
-        /// https://api.telldus.net/explore/sensors/list
+        /// Get a list of sensors associated with the current user
         /// </summary>
+        /// <param name="includeIgnored">Include ignored sensors or not</param>
+        /// <param name="includeValues">Include last values for sensor or not</param>
+        /// <param name="includeScale">Include scale for values. Require includeValues is true</param>
+        /// <param name="includeUnit">Include unit for values. Require includeScale is true</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
-        Task<IList<Sensor>> GetSensorsAsync(string format = Constraints.JsonFormat);
+        Task<SensorsResponse> GetSensorsAsync(
+            bool includeIgnored,
+            bool includeValues,
+            bool? includeScale = null,
+            bool? includeUnit = null,
+            string format = Constraints.JsonFormat);
 
 
         /// <summary>

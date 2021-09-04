@@ -7,6 +7,7 @@ namespace Wolfberry.TelldusLive.Repositories
 {
     public class SchedulerRepository : BaseRepository, ISchedulerRepository
     {
+        // TODO: Use UrlBuilder for all requests
 
         public SchedulerRepository(ITelldusHttpClient httpClient) : base(httpClient)
         {
