@@ -41,6 +41,9 @@ jobs:
     - name: Test & Coverage
       run: dotnet test --no-build --verbosity normal --framework net5.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
 
+    - name: Create NuGet
+      run: dotnet pack -c Release -o out
+
     # - name: Publish code coverage
     #   uses: coverallsapp/github-action@master
     #   with:
