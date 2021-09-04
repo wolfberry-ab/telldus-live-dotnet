@@ -1,5 +1,4 @@
-﻿using System;
-using Wolfberry.TelldusLive.Utils;
+﻿using Wolfberry.TelldusLive.Utils;
 using Xunit;
 
 namespace Wolfberry.TelldusLive.Tests.Utils
