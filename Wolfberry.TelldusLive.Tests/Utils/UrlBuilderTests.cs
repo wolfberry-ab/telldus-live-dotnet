@@ -30,9 +30,9 @@ namespace Wolfberry.TelldusLive.Tests.Utils
             urlBuilder.AddQuery("method", "push");
             urlBuilder.AddQuery("playSound", true);
 
-            var url = urlBuilder.CustomBuild();
+            var url = urlBuilder.Build();
 
-            var expectedUrl = $"{urlWithoutParameters}?id={id}&message={Uri.EscapeDataString(message)}";
+            var expectedUrl = $"{urlWithoutParameters}?id={id}&message=New%20alarm%21";
             expectedUrl += "&delay=1&method=push&playSound=1";
             Assert.Equal(expectedUrl, url);
         }
