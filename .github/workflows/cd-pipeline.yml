@@ -1,4 +1,4 @@
-name: CI Pipeline
+name: CD Pipeline
 
 on:
   push:
@@ -41,17 +41,14 @@ jobs:
       id: vars
       run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
 
-    - name: Check output
-      env:
-        RELEASE_VERSION: $(echo ${{ steps.vars.outputs.tag }} | sed -e "s/v//gI")
-      run: |
-        echo $RELEASE_VERSION
-        echo ${{ steps.vars.outputs.tag }}
+    - name: Set env
+      run: echo "RELEASE_VERSION=$(echo ${{ steps.vars.outputs.tag }} | sed -e "s/v//gI)" >> $GITHUB_ENV
 
     - name: Test
       run: |
         echo $RELEASE_VERSION
         echo ${{ env.RELEASE_VERSION }}
+        echo ${{ steps.vars.outputs.tag }}
 
     - name: Build
       run: dotnet build --no-restore --configuration Release
