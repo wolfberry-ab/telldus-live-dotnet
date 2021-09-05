@@ -37,18 +37,13 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
 
-    - name: Set output
+    - name: Set release version
       id: vars
       run: echo ::set-output name=release_version::$(echo ${GITHUB_REF#refs/*/} | sed -e "s/v//gI")
 
-    # - name: Set env
-    #   run: echo "RELEASE_VERSION=$(echo ${{ steps.vars.outputs.tag }} | sed -e "s/v//gI")" >> $GITHUB_ENV
-
-    - name: Test
+    - name: Debug info
       run: |
-        echo $RELEASE_VERSION
-        echo ${{ env.RELEASE_VERSION }}
-        echo ${{ steps.vars.outputs.release_version }}
+        echo Preparing release version: ${{ steps.vars.outputs.release_version }}
 
     - name: Build
       run: dotnet build --no-restore --configuration Release
@@ -57,7 +52,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal --framework net5.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
 
     - name: Create NuGet
-      run: dotnet pack -c Release -o out
+      run: dotnet pack -p:PackageVersion=2${{ steps.vars.outputs.release_version }} -c Release -o out
 
     # - name: Publish code coverage
     #   uses: coverallsapp/github-action@master
