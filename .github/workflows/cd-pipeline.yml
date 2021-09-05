@@ -39,16 +39,16 @@ jobs:
 
     - name: Set output
       id: vars
-      run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
+      run: echo ::set-output name=release_version::$(echo ${GITHUB_REF#refs/*/} | sed -e "s/v//gI")
 
-    - name: Set env
-      run: echo "RELEASE_VERSION=$(echo ${{ steps.vars.outputs.tag }} | sed -e "s/v//gI)" >> $GITHUB_ENV
+    # - name: Set env
+    #   run: echo "RELEASE_VERSION=$(echo ${{ steps.vars.outputs.tag }} | sed -e "s/v//gI")" >> $GITHUB_ENV
 
     - name: Test
       run: |
         echo $RELEASE_VERSION
         echo ${{ env.RELEASE_VERSION }}
-        echo ${{ steps.vars.outputs.tag }}
+        echo ${{ steps.vars.outputs.release_version }}
 
     - name: Build
       run: dotnet build --no-restore --configuration Release
