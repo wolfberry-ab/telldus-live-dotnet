@@ -5,13 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfberry.TelldusLive", "Wolfberry.TelldusLive\Wolfberry.TelldusLive.csproj", "{241E511E-2F2F-4910-98FB-B07F83FEC289}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Demo.AzureFunction", "ApiMonitor\Demo.AzureFunction.csproj", "{EFE03B96-496F-4AAE-B2B8-A5BDCDD80DF9}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FermentationSensors", "FermentationTemp\FermentationSensors.csproj", "{A434A2D7-08CE-4358-A671-08AB912C5AD3}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Console", "Demo.Console\Demo.Console.csproj", "{819E7993-2FC7-4E5A-891F-37DCAD6A2C64}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wolfberry.TelldusLive.Tests", "Wolfberry.TelldusLive.Tests\Wolfberry.TelldusLive.Tests.csproj", "{9575D4DB-500D-4E26-BDFC-58221AAA0C67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfberry.TelldusLive.Tests", "Wolfberry.TelldusLive.Tests\Wolfberry.TelldusLive.Tests.csproj", "{9575D4DB-500D-4E26-BDFC-58221AAA0C67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,18 +17,6 @@ Global
 		{241E511E-2F2F-4910-98FB-B07F83FEC289}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{241E511E-2F2F-4910-98FB-B07F83FEC289}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{241E511E-2F2F-4910-98FB-B07F83FEC289}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EFE03B96-496F-4AAE-B2B8-A5BDCDD80DF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EFE03B96-496F-4AAE-B2B8-A5BDCDD80DF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EFE03B96-496F-4AAE-B2B8-A5BDCDD80DF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EFE03B96-496F-4AAE-B2B8-A5BDCDD80DF9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A434A2D7-08CE-4358-A671-08AB912C5AD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A434A2D7-08CE-4358-A671-08AB912C5AD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A434A2D7-08CE-4358-A671-08AB912C5AD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A434A2D7-08CE-4358-A671-08AB912C5AD3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{819E7993-2FC7-4E5A-891F-37DCAD6A2C64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{819E7993-2FC7-4E5A-891F-37DCAD6A2C64}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{819E7993-2FC7-4E5A-891F-37DCAD6A2C64}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{819E7993-2FC7-4E5A-891F-37DCAD6A2C64}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9575D4DB-500D-4E26-BDFC-58221AAA0C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9575D4DB-500D-4E26-BDFC-58221AAA0C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9575D4DB-500D-4E26-BDFC-58221AAA0C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
