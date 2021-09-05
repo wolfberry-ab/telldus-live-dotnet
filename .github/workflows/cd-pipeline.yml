@@ -39,7 +39,7 @@ jobs:
 
     - name: Set env
       run: |
-        "TAG_VERSION=${GITHUB_REF#refs/*/}"
+        TAG_VERSION=${GITHUB_REF#refs/*/}
         echo $TAG_VERSION
         VERSION=$(echo $TAG_VERSION | sed -e "s/v//gI")
         echo $VERSION
