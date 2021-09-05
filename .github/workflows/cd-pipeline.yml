@@ -1,6 +1,9 @@
 name: CI Pipeline
 
 on:
+  push:
+    tags:
+      - 'v*.*.*'
   release:
     types:
       - created
