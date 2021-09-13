@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 using NSubstitute;
 using Wolfberry.TelldusLive.Models.Client;
 using Wolfberry.TelldusLive.Repositories;
@@ -24,10 +25,12 @@ namespace Wolfberry.TelldusLive.Tests.Repositories
                     }
                 }
             };
-            const string url = "http://dummy.url";
+            const string url = "https://wolfberry.se:443/api";
             var telldusClient = Substitute.For<ITelldusHttpClient>();
-            telldusClient.GetResponseAsType<ClientsResponse>(url)
-                .ReturnsForAnyArgs(mockedClients);
+            telldusClient.BaseUrl
+                .Returns(url);
+            telldusClient.GetAsJsonAsync(default)
+                .ReturnsForAnyArgs(JsonConvert.SerializeObject(mockedClients));
 
             IClientRepository repository = new ClientRepository(telldusClient);
 

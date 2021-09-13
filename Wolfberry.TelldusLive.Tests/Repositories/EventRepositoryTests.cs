@@ -21,6 +21,8 @@ namespace Wolfberry.TelldusLive.Tests.Repositories
             };
             var mockedResponseJson = JsonUtil.Serialize(mockedResponse);
             var telldusClient = Substitute.For<ITelldusHttpClient>();
+            telldusClient.BaseUrl
+                .Returns(MockedUrl);
             telldusClient.GetAsJsonAsync(MockedUrl)
                 .ReturnsForAnyArgs(mockedResponseJson);
             var repository = new EventRepository(telldusClient);
@@ -40,6 +42,8 @@ namespace Wolfberry.TelldusLive.Tests.Repositories
             };
             var mockedResponseJson = JsonUtil.Serialize(mockedResponse);
             var telldusClient = Substitute.For<ITelldusHttpClient>();
+            telldusClient.BaseUrl
+                .Returns(MockedUrl);
             telldusClient.GetAsJsonAsync(MockedUrl)
                 .ReturnsForAnyArgs(mockedResponseJson);
             var repository = new EventRepository(telldusClient);
@@ -53,6 +57,8 @@ namespace Wolfberry.TelldusLive.Tests.Repositories
         public async Task RemoveActionAsync_EmptyResponse_ThrowsException()
         {
             var telldusClient = Substitute.For<ITelldusHttpClient>();
+            telldusClient.BaseUrl
+                .Returns(MockedUrl);
             telldusClient.GetAsJsonAsync(Arg.Any<string>())
                 .ReturnsNull();
             var repository = new EventRepository(telldusClient);

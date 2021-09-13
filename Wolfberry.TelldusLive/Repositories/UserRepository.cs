@@ -208,6 +208,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/user/sendPushTest");
 
             urlBuilder.AddQuery("phoneId", phoneId);
+            // TODO: Check correct format of message (%21)
             urlBuilder.AddAsEscapedQuery("message", message);
 
             var url = urlBuilder.Build();
