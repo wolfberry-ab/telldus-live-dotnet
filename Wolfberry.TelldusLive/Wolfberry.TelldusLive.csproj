@@ -4,14 +4,15 @@
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <Company>Wolfberry AB</Company>
     <Authors>Mikael Johansson</Authors>
-    <PackageTags>Telldus Live</PackageTags>
+    <PackageTags>Telldus Live, Tellstick, Proove</PackageTags>
     <RepositoryUrl>https://github.com/wolfberry-ab/telldus-live-dotnet/</RepositoryUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0</Version>
-    <PackageReleaseNotes>Initial version</PackageReleaseNotes>
+    <PackageReleaseNotes>More amazing than previous release!</PackageReleaseNotes>
+    <Description>Telldus Live API library with full feature support of the all 180 methods. It allows you to manage clients (a.k.a. controllers), devices, events, groups, scheduler, sensors and your user accounts.</Description>
   </PropertyGroup>
 
   <ItemGroup>
