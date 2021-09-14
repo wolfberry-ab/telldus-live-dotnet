@@ -49,16 +49,3 @@ jobs:
 
     - name: PushNuget
       run: dotnet nuget push out/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate
-
-    # - name: Publish code coverage
-    #   uses: coverallsapp/github-action@master
-    #   with:
-    #     github-token: ${{ secrets.GITHUB_TOKEN }}
-    #     path-to-lcov: ${{ github.workspace }}/Wolfberry.TelldusLive/Wolfberry.TelldusLive.Tests/TestResults/coverage.net5.0.info
-
-    # - name: SonarCloud Scan
-    #   uses: sonarsource/sonarcloud-github-action@master
-    #   env:
-    #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-
