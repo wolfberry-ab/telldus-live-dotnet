@@ -24,7 +24,7 @@ namespace Wolfberry.TelldusLive.Tests.Utils
             const string id = "123";
             const string message = "New alarm!";
             urlBuilder.AddQuery("id", id);
-            urlBuilder.AddQuery("message", message);
+            urlBuilder.AddAsEscapedQuery("message", message);
             urlBuilder.AddQuery("delay", 1);
             urlBuilder.AddQuery("method", "push");
             urlBuilder.AddQuery("playSound", true);

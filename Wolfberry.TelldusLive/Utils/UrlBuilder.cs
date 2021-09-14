@@ -10,15 +10,14 @@ namespace Wolfberry.TelldusLive.Utils
     /// </summary>
     public class UrlBuilder
     {
-        private readonly UriBuilder _uriBuilder;
         private readonly NameValueCollection _query;
         private readonly string _url;
 
         public UrlBuilder(string url)
         {
             _url = url;
-            _uriBuilder = new UriBuilder(url);
-            _query = HttpUtility.ParseQueryString(_uriBuilder.Query);
+            var uriBuilder = new UriBuilder(url);
+            _query = HttpUtility.ParseQueryString(uriBuilder.Query);
         }
 
         /// <summary>
@@ -59,14 +58,6 @@ namespace Wolfberry.TelldusLive.Utils
             _query[name] = Uri.EscapeDataString(value);
         }
 
-        // TODO: Fix so that escaped strings are not double esecaped
-        // Messages like "New alarm!" is now received as "New%20alarm%21"
-        public string UriBuild()
-        {
-            _uriBuilder.Query = _query.ToString();
-            return _uriBuilder.ToString();
-        }
-
         public void AddQuery(string name, bool value)
         {
             var intValue = value ? 1 : 0;
@@ -83,7 +74,7 @@ namespace Wolfberry.TelldusLive.Utils
                     ? "?" 
                     : "&";
                 
-                url += $"{key}={Uri.EscapeDataString(_query[key])}";
+                url += $"{key}={_query[key]}";
                 i++;
             }
 

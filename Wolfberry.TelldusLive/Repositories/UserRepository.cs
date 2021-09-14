@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Models.User;
