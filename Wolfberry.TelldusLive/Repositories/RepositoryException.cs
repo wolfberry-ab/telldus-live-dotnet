@@ -3,6 +3,9 @@ using System.Runtime.Serialization;
 
 namespace Wolfberry.TelldusLive.Repositories
 {
+    /// <summary>
+    /// This exception is thrown when errors occurs in repositories
+    /// </summary>
     [Serializable]
     public class RepositoryException : Exception
     {

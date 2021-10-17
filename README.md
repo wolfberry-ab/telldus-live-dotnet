@@ -55,6 +55,12 @@ namespace ConsoleAppDotNet31
 }
 ```
 
+### Getting started with Telldus products
+
+- [Telldus Guides & concepts](https://start.telldus.com/help/guides)
+
+- [Telldus Manuals](https://start.telldus.com/help/manuals)
+
 ## Issues
 
 Please, report any issues in the Issues tab.
@@ -66,6 +72,10 @@ Especially the Events methods are limited tested.
 ## Contribute
 
 Your contribution is very welcome.
+
+## Third-Party licenses
+
+This library depends on Newtonsoft.Json and TinyOAuth1. See the _third-party-licenses folder ind the repo root.
 
 # Tags
 

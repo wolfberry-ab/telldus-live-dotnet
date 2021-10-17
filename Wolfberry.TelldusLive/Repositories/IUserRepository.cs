@@ -51,7 +51,8 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <summary>
         /// Change password. Must be called over HTTPS.
         /// </summary>
-        /// <param name="newPassword"></param>
+        /// <param name="currentPassword">Current password</param>
+        /// <param name="newPassword">New password</param>
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> ChangePasswordAsync(

@@ -1,6 +1,5 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
-using System.Text.RegularExpressions;
 using Wolfberry.TelldusLive.Models;
 using Wolfberry.TelldusLive.Utils;
 

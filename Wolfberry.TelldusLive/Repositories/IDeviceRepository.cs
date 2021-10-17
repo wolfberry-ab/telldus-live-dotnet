@@ -233,10 +233,10 @@ namespace Wolfberry.TelldusLive.Repositories
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
-        /// Set the setpoitn temperature and/or change the thermostat mode
+        /// Set the setpoint temperature and/or change the thermostat mode
         /// </summary>
-        /// <param name="deviceId"></param>
-        /// <param name="mode">E.g. "heat"</param>
+        /// <param name="deviceId">Device ID</param>
+        /// <param name="mode">Mode is eqvivalent to Scene. E.g. "heat". Not yet released according to Telldus 2021-10-04.</param>
         /// <param name="temperature">Optional. The temperature for the setpoint.
         /// If this is not set, only the mode is changed</param>
         /// <param name="scale">optional) The scale used. If the parameter temperature is
