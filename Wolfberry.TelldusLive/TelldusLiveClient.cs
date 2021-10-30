@@ -1,4 +1,5 @@
 ﻿using Wolfberry.TelldusLive.Authentication;
+using Wolfberry.TelldusLive.Configuration;
 using Wolfberry.TelldusLive.Repositories;
 
 namespace Wolfberry.TelldusLive
@@ -43,6 +44,8 @@ namespace Wolfberry.TelldusLive
                 AccessTokenSecret = accessTokenSecret
             };
 
+            ValidateConfiguration(config);
+
             var authenticator = new Authenticator(config);
             var client = new TelldusHttpClient(authenticator);
 
@@ -53,6 +56,29 @@ namespace Wolfberry.TelldusLive
             Scheduler = new SchedulerRepository(client);
             Sensors = new SensorRepository(client);
             User = new UserRepository(client);
+        }
+
+        private static void ValidateConfiguration(TelldusOAuth1Configuration config)
+        {
+            if (string.IsNullOrEmpty(config.ConsumerKey))
+            {
+                throw new ConfigurationException("No ConsumerKey found in configuration");
+            }
+
+            if (string.IsNullOrEmpty(config.ConsumerKeySecret))
+            {
+                throw new ConfigurationException("No ConsumerKeySecret found in configuration");
+            }
+
+            if (string.IsNullOrEmpty(config.AccessToken))
+            {
+                throw new ConfigurationException("No AccessToken found in configuration");
+            }
+
+            if (string.IsNullOrEmpty(config.AccessTokenSecret))
+            {
+                throw new ConfigurationException("No AccessToken found in configuration");
+            }
         }
 
         public UserRepository User { get; set; }
