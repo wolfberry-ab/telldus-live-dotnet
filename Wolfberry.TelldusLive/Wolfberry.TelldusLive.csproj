@@ -11,11 +11,15 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.0.0</Version>
-    <PackageReleaseNotes>More amazing than previous release!</PackageReleaseNotes>
+    <PackageReleaseNotes>More amazing than previous version!</PackageReleaseNotes>
     <Description>Telldus Live API library with full feature support of the all 180 methods. It allows you to manage clients (a.k.a. controllers), devices, events, groups, scheduler, sensors and your user accounts.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>PackageIcon.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="PackageIcon.png" Pack="true" PackagePath="\" />
+    <None Include="README.md" Pack="true" PackagePath="\" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
     <PackageReference Include="TinyOAuth1" Version="1.1.0" />
   </ItemGroup>
