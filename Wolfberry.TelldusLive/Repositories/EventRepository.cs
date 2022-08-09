@@ -13,7 +13,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             // Intentionally left blank
         }
-        
+
         public async Task<EventsResponse> GetEventsAsync(
             bool eventsOnly,
             string format = ResponseFormat.JsonFormat)

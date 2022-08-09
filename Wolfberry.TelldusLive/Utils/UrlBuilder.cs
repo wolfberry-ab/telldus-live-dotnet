@@ -71,9 +71,9 @@ namespace Wolfberry.TelldusLive.Utils
             foreach (string key in _query)
             {
                 url += i == 0
-                    ? "?" 
+                    ? "?"
                     : "&";
-                
+
                 url += $"{key}={_query[key]}";
                 i++;
             }

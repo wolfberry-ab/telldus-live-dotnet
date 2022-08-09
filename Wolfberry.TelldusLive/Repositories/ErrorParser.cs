@@ -37,12 +37,12 @@ namespace Wolfberry.TelldusLive.Repositories
                 return null;
             }
 
-            var found = jObject.TryGetValue("Error", 
-                    StringComparison.InvariantCultureIgnoreCase, 
+            var found = jObject.TryGetValue("Error",
+                    StringComparison.InvariantCultureIgnoreCase,
                     out var errorMessage);
 
-            return found 
-                ? errorMessage.ToString() 
+            return found
+                ? errorMessage.ToString()
                 : null;
         }
     }

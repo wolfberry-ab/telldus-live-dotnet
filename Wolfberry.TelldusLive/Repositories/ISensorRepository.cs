@@ -31,8 +31,8 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<SensorResponse> GetSensorInfoAsync(
-            string sensorId, 
-            bool includeUnit, 
+            string sensorId,
+            bool includeUnit,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>

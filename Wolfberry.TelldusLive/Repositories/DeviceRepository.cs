@@ -13,12 +13,12 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<StatusResponse> AddAsync(
-            string clientId, 
-            string name, 
-            string transport, 
+            string clientId,
+            string name,
+            string transport,
             string protocol,
-            string model, 
-            string parameters, 
+            string model,
+            string parameters,
             string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/device/add");
@@ -328,7 +328,7 @@ namespace Wolfberry.TelldusLive.Repositories
 
         public async Task<DevicesResponse> GetDevicesAsync(
             bool includeIgnored = false,
-            string supportedMethods = null, 
+            string supportedMethods = null,
             string extras = null,
             string format = ResponseFormat.JsonFormat)
         {

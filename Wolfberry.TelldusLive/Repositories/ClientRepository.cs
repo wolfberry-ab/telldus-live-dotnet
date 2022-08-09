@@ -16,7 +16,7 @@ namespace Wolfberry.TelldusLive.Repositories
 
         /// <inheritdoc cref="IClientRepository"/>
         public async Task<ClientsResponse> GetClientsAsync(
-            string extras = null, 
+            string extras = null,
             string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/clients/list");
@@ -29,10 +29,10 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<ClientInfoResponse> GetClientInfoAsync(
-            string clientId, 
-            string uuid = null, 
-            string code = null, 
-            string extras = null, 
+            string clientId,
+            string uuid = null,
+            string code = null,
+            string extras = null,
             string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/client/info");
@@ -48,7 +48,7 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<StatusResponse> RegisterAsync(
-            string clientId, 
+            string clientId,
             string uuid,
             string format = ResponseFormat.JsonFormat)
         {
@@ -75,9 +75,9 @@ namespace Wolfberry.TelldusLive.Repositories
             return await GetOrThrow<StatusResponse>(url);
         }
 
-        public async Task<StatusResponse> SetCoordinatesAsync(string clientId, 
-                                                        double longitude, 
-                                                        double latitude, 
+        public async Task<StatusResponse> SetCoordinatesAsync(string clientId,
+                                                        double longitude,
+                                                        double latitude,
                                                         string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/client/setCoordinates");
@@ -93,7 +93,7 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<StatusResponse> SetNameAsync(
-            string clientId, 
+            string clientId,
             string name,
             string format = ResponseFormat.JsonFormat)
         {
@@ -108,8 +108,8 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<StatusResponse> EnablePushAsync(
-            string clientId, 
-            bool enablePush, 
+            string clientId,
+            bool enablePush,
             string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/client/setPush");
@@ -123,8 +123,8 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<StatusResponse> SetTimezoneAsync(
-            string clientId, 
-            string timezone, 
+            string clientId,
+            string timezone,
             string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/client/setTimezone");

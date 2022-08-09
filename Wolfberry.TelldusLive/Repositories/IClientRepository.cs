@@ -71,8 +71,8 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetCoordinatesAsync(
-            string clientId, 
-            double longitude, 
+            string clientId,
+            double longitude,
             double latitude,
             string format = ResponseFormat.JsonFormat);
 
@@ -84,7 +84,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetNameAsync(
-            string clientId, 
+            string clientId,
             string name,
             string format = ResponseFormat.JsonFormat);
 
@@ -97,7 +97,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> EnablePushAsync(
-            string clientId, 
+            string clientId,
             bool enablePush,
             string format = ResponseFormat.JsonFormat);
 
@@ -110,7 +110,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> SetTimezoneAsync(
-            string clientId, 
+            string clientId,
             string timezone,
             string format = ResponseFormat.JsonFormat);
 

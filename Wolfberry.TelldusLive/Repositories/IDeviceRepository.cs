@@ -33,7 +33,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> BellAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -58,8 +58,8 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> DimAsync(
-            string deviceId, 
-            int level, 
+            string deviceId,
+            int level,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> DownAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -116,7 +116,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> LearnAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -126,7 +126,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> RemoveAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -229,7 +229,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> StopAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -263,7 +263,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> TurnOnAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -273,7 +273,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> TurnOffAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
@@ -283,7 +283,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<StatusResponse> UpAsync(
-            string deviceId, 
+            string deviceId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>

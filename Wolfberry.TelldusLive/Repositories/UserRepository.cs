@@ -200,8 +200,8 @@ namespace Wolfberry.TelldusLive.Repositories
         }
 
         public async Task<StatusResponse> SendPushTestAsync(
-            string phoneId, 
-            string message, 
+            string phoneId,
+            string message,
             string format = ResponseFormat.JsonFormat)
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/user/sendPushTest");

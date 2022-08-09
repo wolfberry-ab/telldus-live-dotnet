@@ -13,7 +13,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// <param name="format">json (default) or xml</param>
         /// <returns></returns>
         Task<JobResponse> GetJobAsync(
-            string jobId, 
+            string jobId,
             string format = ResponseFormat.JsonFormat);
 
         /// <summary>
