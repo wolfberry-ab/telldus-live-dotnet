@@ -56,7 +56,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/device/command");
 
             urlBuilder.AddQuery("id", deviceId);
-            urlBuilder.AddQuery("id", (int)method);
+            urlBuilder.AddQuery("method", (int)method);
             urlBuilder.AddOptionalQuery("value", value);
 
             var url = urlBuilder.Build();

@@ -155,7 +155,7 @@ namespace Wolfberry.TelldusLive.Repositories
 
             urlBuilder.AddOptionalQuery("actionId", actionId);
             urlBuilder.AddQuery("eventId", eventId);
-            urlBuilder.AddQuery("deviceID", deviceId);
+            urlBuilder.AddQuery("deviceId", deviceId);
             urlBuilder.AddQuery("method", (int)method);
             urlBuilder.AddOptionalQuery("value", value);
             urlBuilder.AddQuery("repeats", repeats);
