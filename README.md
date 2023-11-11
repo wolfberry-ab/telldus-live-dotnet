@@ -25,32 +25,29 @@ The library fits well in command line applications, back-ends, web apps, ...
   - E.g.: `dotnet add package Wolfberry.TelldusLive`
 - Example console application (Program.cs):
  ```c#
-using System;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Wolfberry.TelldusLive;
 
-namespace ConsoleAppDotNet31
+namespace ConsoleAppDotNet6;
+
+class Program
 {
-    class Program
+    static async Task Main(string[] args)
     {
-        static async Task Main(string[] args)
-        {
-            // Get your keys and tokens from https://api.telldus.com/keys/index
-            var consumerKey = "";
-            var consumerKeySecret = "";
-            var accessToken = "";
-            var accessTokenSecret = "";
+        // Get your keys and tokens from https://api.telldus.com/keys/index
+        var consumerKey = "";
+        var consumerKeySecret = "";
+        var accessToken = "";
+        var accessTokenSecret = "";
 
-            // Setup Telldus Live client
-            var telldusClient = new TelldusLiveClient(
-                    consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
+        // Setup Telldus Live client
+        var telldusClient = new TelldusLiveClient(
+            consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
 
-            // Example of getting clients (e.g. a Telldus Tellstick Znet Lite v2 controller)
-            var clients = await telldusClient.Clients.GetClientsAsync();
-            // Print out response in JSON format
-            Console.WriteLine(JsonConvert.SerializeObject(clients));
-        }
+        // Example of getting clients (e.g. a Telldus Tellstick Znet Lite v2 controller)
+        var clients = await telldusClient.Clients.GetClientsAsync();
+        // Print out response in JSON format
+        Console.WriteLine(JsonConvert.SerializeObject(clients));
     }
 }
 ```
