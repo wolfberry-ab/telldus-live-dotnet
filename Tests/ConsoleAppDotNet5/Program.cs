@@ -10,7 +10,9 @@ namespace ConsoleAppDotNet5
         static async Task Main(string[] args)
         {
             // Get your keys and tokens from https://api.telldus.com/keys/index
+            // Public key in Telldus API site
             var consumerKey = "";
+            /// Priate key in Telldus API site
             var consumerKeySecret = "";
             var accessToken = "";
             var accessTokenSecret = "";
