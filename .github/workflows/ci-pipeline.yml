@@ -32,6 +32,11 @@ jobs:
       with:
         dotnet-version: 5.0.x
 
+    - name: Setup .NET 6
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 6.0.x
+
     - name: Restore dependencies
       run: dotnet restore
 
@@ -48,13 +53,13 @@ jobs:
       run: dotnet pack -c Release -o out
 
     - name: Test & Coverage
-      run: dotnet test --no-build --verbosity normal --framework net5.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      run: dotnet test --no-build --verbosity normal --framework net6.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
 
     - name: Publish code coverage
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: ${{ github.workspace }}/Wolfberry.TelldusLive.Tests/TestResults/coverage.net5.0.info
+        path-to-lcov: ${{ github.workspace }}/Wolfberry.TelldusLive.Tests/TestResults/coverage.net6.0.info
 
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
