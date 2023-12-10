@@ -26,13 +26,14 @@ namespace Wolfberry.TelldusLive
     public class TelldusHttpClient : ITelldusHttpClient
     {
         /// <inheritdoc cref="ITelldusHttpClient"/>
-        public string BaseUrl { get; } = "http://api.telldus.com";
+        public string BaseUrl { get; }
         private readonly IAuthenticator _authenticator;
 
-        public TelldusHttpClient(IAuthenticator authenticator)
+        public TelldusHttpClient(IAuthenticator authenticator, string baseUrl)
         {
             _authenticator = authenticator;
             _authenticator.InitializeHttpClient();
+            BaseUrl = baseUrl;
         }
 
         public async Task<string> GetAsJsonAsync(string uri)

@@ -16,10 +16,12 @@ namespace ConsoleAppDotNet5
             var consumerKeySecret = "";
             var accessToken = "";
             var accessTokenSecret = "";
+            // Optional/custom API URL, set to null/empty to use default
+            var customApiBaseUrl = "https://api.telldus.com";
 
             ITelldusLiveClient client =
                 new TelldusLiveClient(
-                    consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
+                    consumerKey, consumerKeySecret, accessToken, accessTokenSecret, customApiBaseUrl);
 
             var clients = await client.Clients.GetClientsAsync();
 

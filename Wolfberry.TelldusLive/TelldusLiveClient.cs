@@ -27,17 +27,25 @@ namespace Wolfberry.TelldusLive
         /// <param name="consumerKeySecret">The Private Key in the API portal</param>
         /// <param name="accessToken">Named Token in the API portal</param>
         /// <param name="accessTokenSecret">Named Token Secret in the API portal</param>
+        /// <param name="customBaseUrl">Optional/custom API URL, set to null/empty to use default</param>
         public TelldusLiveClient(
             string consumerKey,
             string consumerKeySecret,
             string accessToken,
-            string accessTokenSecret)
+            string accessTokenSecret, 
+            string customBaseUrl = null)
         {
+            var baseUrl = "https://api.telldus.com";
+            if (!string.IsNullOrEmpty(customBaseUrl))
+            {
+                baseUrl = customBaseUrl.TrimEnd();
+            }
+
             var config = new TelldusOAuth1Configuration
             {
-                AccessTokenUrl = "https://api.telldus.com/oauth/accessToken",
-                AuthorizeTokenUrl = "https://api.telldus.com/oauth/authorize",
-                RequestTokenUrl = "https://api.telldus.com/oauth/requestToken",
+                AccessTokenUrl = $"{baseUrl}/oauth/accessToken",
+                AuthorizeTokenUrl = $"{baseUrl}/oauth/authorize",
+                RequestTokenUrl = $"{baseUrl}/oauth/requestToken",
                 ConsumerKey = consumerKey,
                 ConsumerKeySecret = consumerKeySecret,
                 AccessToken = accessToken,
@@ -47,7 +55,7 @@ namespace Wolfberry.TelldusLive
             ValidateConfiguration(config);
 
             var authenticator = new Authenticator(config);
-            var client = new TelldusHttpClient(authenticator);
+            var client = new TelldusHttpClient(authenticator, baseUrl);
 
             Clients = new ClientRepository(client);
             Devices = new DeviceRepository(client);
