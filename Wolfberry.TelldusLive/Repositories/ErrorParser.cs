@@ -12,7 +12,7 @@ namespace Wolfberry.TelldusLive.Repositories
         /// Try extract error message from JSON string.
         /// Empty or null strings are converted to ErrorResponse JSON strings.
         /// </summary>
-        /// <param name="json"></param>
+        /// <param name="json">JSON text string</param>
         /// <returns>JSON string if error, otherwise null</returns>
         public static string GetOrCreateErrorMessage(string json)
         {
@@ -21,6 +21,15 @@ namespace Wolfberry.TelldusLive.Repositories
                 return JsonUtil.Serialize(new ErrorResponse
                 {
                     Error = "Wolfberry.TelldusLive: Null or empty json string"
+                });
+            }
+
+            // Can be also be a non-valid JSON e.g. "error code: 1001" (DNS resolution error)
+            if (json.StartsWith("error", StringComparison.InvariantCultureIgnoreCase))
+            {
+                return JsonUtil.Serialize(new ErrorResponse
+                {
+                    Error = json
                 });
             }
 
