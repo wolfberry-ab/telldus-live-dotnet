@@ -21,10 +21,10 @@ jobs:
         # Disabling shallow clone is recommended for improving relevancy of reporting
         fetch-depth: 0
 
-    - name: Setup .NET 6
+    - name: Setup .NET 8
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: 8.0.x
 
     - name: Restore dependencies
       run: dotnet restore
@@ -37,7 +37,7 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Test & Coverage
-      run: dotnet test --no-build --verbosity normal --framework net6.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+      run: dotnet test --no-build --verbosity normal --framework net8.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
 
     - name: Create NuGet
       run: dotnet pack -p:PackageVersion=${{ steps.vars.outputs.release_version }} -c Release -o out
