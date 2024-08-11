@@ -94,9 +94,8 @@ namespace Wolfberry.TelldusLive.Repositories
             urlBuilder.AddQuery("includeKey", includeKey);
             urlBuilder.AddQuery("includeUnit", includeUnit);
             urlBuilder.AddQuery("includeHumanReadableDate", includeHumanReadableDate);
-            urlBuilder.AddOptionalQuery("fromTimestamp", fromTimestamp);
-            urlBuilder.AddOptionalQuery("toTimestamp", toTimestamp);
-            urlBuilder.AddOptionalQuery("fromTimestamp", fromTimestamp);
+            urlBuilder.AddOptionalQuery("from", fromTimestamp);
+            urlBuilder.AddOptionalQuery("to", toTimestamp);
 
             var url = urlBuilder.Build();
 
