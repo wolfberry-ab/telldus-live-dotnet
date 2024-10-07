@@ -21,7 +21,7 @@ namespace Wolfberry.TelldusLive.Repositories
             {
                 var exception = new RepositoryException(errorMessage);
                 exception.Data.Add("Url", url);
-                throw new RepositoryException(errorMessage);
+                throw exception;
             }
 
             var response = JsonUtil.Deserialize<T>(responseJson);
