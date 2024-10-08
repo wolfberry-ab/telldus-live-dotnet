@@ -21,7 +21,7 @@ namespace Wolfberry.TelldusLive.Repositories
         {
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/clients/list");
 
-            urlBuilder.AddOptionalQuery("extras", extras);
+            urlBuilder.AddOptionalEscapedQuery("extras", extras);
 
             var url = urlBuilder.Build();
 
@@ -40,7 +40,7 @@ namespace Wolfberry.TelldusLive.Repositories
             urlBuilder.AddQuery("id", clientId);
             urlBuilder.AddOptionalQuery("uuid", uuid);
             urlBuilder.AddOptionalQuery("code", code);
-            urlBuilder.AddOptionalQuery("extras", extras);
+            urlBuilder.AddOptionalEscapedQuery("extras", extras);
 
             var url = urlBuilder.Build();
 

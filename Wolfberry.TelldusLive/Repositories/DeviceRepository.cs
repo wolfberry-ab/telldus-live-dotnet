@@ -101,7 +101,7 @@ namespace Wolfberry.TelldusLive.Repositories
             urlBuilder.AddOptionalQuery("from", fromTimestamp.ToString());
             urlBuilder.AddOptionalQuery("to", toTimestamp.ToString());
             urlBuilder.AddOptionalQuery("lastFirst", lastFirst);
-            urlBuilder.AddOptionalQuery("extras", extras);
+            urlBuilder.AddOptionalEscapedQuery("extras", extras);
 
             var url = urlBuilder.Build();
 
@@ -120,7 +120,7 @@ namespace Wolfberry.TelldusLive.Repositories
             urlBuilder.AddQuery("id", deviceId);
             urlBuilder.AddOptionalQuery("uuid", uuid);
             urlBuilder.AddOptionalQuery("supportedMethods", supportedMethods);
-            urlBuilder.AddOptionalQuery("extras", extras);
+            urlBuilder.AddOptionalEscapedQuery("extras", extras);
 
             var url = urlBuilder.Build();
 
@@ -336,7 +336,7 @@ namespace Wolfberry.TelldusLive.Repositories
 
             urlBuilder.AddQuery("includeIgnored", includeIgnored);
             urlBuilder.AddOptionalQuery("supportedMethods", supportedMethods);
-            urlBuilder.AddOptionalQuery("extras", extras);
+            urlBuilder.AddOptionalEscapedQuery("extras", extras);
 
             var url = urlBuilder.Build();
 
