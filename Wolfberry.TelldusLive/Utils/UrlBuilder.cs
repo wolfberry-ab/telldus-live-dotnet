@@ -58,6 +58,14 @@ namespace Wolfberry.TelldusLive.Utils
             _query[name] = Uri.EscapeDataString(value);
         }
 
+        public void AddOptionalEscapedQuery(string name, string value)
+        {
+            if (value != null)
+            {
+                AddAsEscapedQuery(name, value);
+            }
+        }
+
         public void AddQuery(string name, bool value)
         {
             var intValue = value ? 1 : 0;
