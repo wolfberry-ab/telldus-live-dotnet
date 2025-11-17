@@ -1,3 +1,5 @@
+# TODO: Re-use CI pipelien between non-releases and releases
+#       This is actually CI+CD pipeline at the moment
 name: CD Pipeline
 
 on:
