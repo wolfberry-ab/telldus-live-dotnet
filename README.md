@@ -1,11 +1,12 @@
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=alert_status)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=code_smells)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=security_rating)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=sqale_index)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
-[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=wolfberry-ab_telldus-live-dotnet)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=bugs)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
 
 # Telldus Live .NET Library
 

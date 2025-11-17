@@ -12,11 +12,11 @@ namespace ConsoleAppDotNet8
         {
             // Get your keys and tokens from https://api.telldus.com/keys/index
             // Public key in Telldus API site
-            var consumerKey = "";
+            var consumerKey = "FEHUVEW84RAFR5SP22RABURUPHAFRUNU";
             /// Priate key in Telldus API site
-            var consumerKeySecret = "";
-            var accessToken = "";
-            var accessTokenSecret = "";
+            var consumerKeySecret = "ZUXEVEGA9USTAZEWRETHAQUBUR69U6EF";
+            var accessToken = "66731a835637f7ea1cbaab7a34be4fa305db0b53e";
+            var accessTokenSecret = "01008b2537a3e30b99998e927f488565";
             // Optional/custom API URL, set to null/empty to use default
             var customApiBaseUrl = "https://api.telldus.com";
 
