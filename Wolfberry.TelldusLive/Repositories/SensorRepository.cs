@@ -123,6 +123,7 @@ namespace Wolfberry.TelldusLive.Repositories
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/sensor/removeValue");
 
             urlBuilder.AddQuery("id", sensorId);
+            urlBuilder.AddQuery("TimeUUID", timeUuid);
 
             var url = urlBuilder.Build();
 
