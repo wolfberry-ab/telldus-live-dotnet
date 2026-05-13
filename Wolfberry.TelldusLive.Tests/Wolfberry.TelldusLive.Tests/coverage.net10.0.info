@@ -1,0 +1,2439 @@
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/TelldusHttpClient.cs
+FN:29,System.String Wolfberry.TelldusLive.TelldusHttpClient::get_BaseUrl()
+FNDA:1,System.String Wolfberry.TelldusLive.TelldusHttpClient::get_BaseUrl()
+DA:30,1
+FN:56,System.Void Wolfberry.TelldusLive.TelldusHttpClient::Dispose()
+FNDA:2,System.Void Wolfberry.TelldusLive.TelldusHttpClient::Dispose()
+DA:57,2
+DA:58,2
+DA:59,2
+FN:32,System.Void Wolfberry.TelldusLive.TelldusHttpClient::.ctor(Wolfberry.TelldusLive.Authentication.IAuthenticator,System.String)
+FNDA:7,System.Void Wolfberry.TelldusLive.TelldusHttpClient::.ctor(Wolfberry.TelldusLive.Authentication.IAuthenticator,System.String)
+DA:33,7
+DA:34,7
+DA:35,7
+DA:36,7
+DA:37,7
+DA:38,7
+FN:40,System.Void Wolfberry.TelldusLive.TelldusHttpClient/<GetAsJsonAsync>d__5::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.TelldusHttpClient/<GetAsJsonAsync>d__5::MoveNext()
+DA:41,2
+DA:42,2
+DA:45,2
+DA:46,2
+DA:47,2
+FN:49,System.Void Wolfberry.TelldusLive.TelldusHttpClient/<GetResponseAsType>d__6`1::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.TelldusHttpClient/<GetResponseAsType>d__6`1::MoveNext()
+DA:50,1
+DA:51,1
+DA:52,1
+DA:53,1
+DA:54,1
+LF:20
+LH:20
+BRF:0
+BRH:0
+FNF:5
+FNH:5
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/TelldusLiveClient.cs
+FN:73,System.Void Wolfberry.TelldusLive.TelldusLiveClient::ValidateConfiguration(Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration)
+FNDA:7,System.Void Wolfberry.TelldusLive.TelldusLiveClient::ValidateConfiguration(Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration)
+DA:74,7
+DA:75,7
+DA:76,1
+DA:77,1
+DA:80,6
+DA:81,1
+DA:82,1
+DA:85,5
+DA:86,1
+DA:87,1
+DA:90,4
+DA:91,1
+DA:92,1
+DA:94,3
+BRDA:75,14,0,1
+BRDA:75,14,1,6
+BRDA:80,41,0,1
+BRDA:80,41,1,5
+BRDA:85,68,0,1
+BRDA:85,68,1,4
+BRDA:90,95,0,1
+BRDA:90,95,1,3
+FN:95,Wolfberry.TelldusLive.Repositories.IUserRepository Wolfberry.TelldusLive.TelldusLiveClient::get_User()
+FNDA:1,Wolfberry.TelldusLive.Repositories.IUserRepository Wolfberry.TelldusLive.TelldusLiveClient::get_User()
+DA:96,1
+FN:97,Wolfberry.TelldusLive.Repositories.ISensorRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Sensors()
+FNDA:2,Wolfberry.TelldusLive.Repositories.ISensorRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Sensors()
+DA:98,2
+FN:99,Wolfberry.TelldusLive.Repositories.ISchedulerRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Scheduler()
+FNDA:1,Wolfberry.TelldusLive.Repositories.ISchedulerRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Scheduler()
+DA:100,1
+FN:101,Wolfberry.TelldusLive.Repositories.IGroupRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Groups()
+FNDA:1,Wolfberry.TelldusLive.Repositories.IGroupRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Groups()
+DA:102,1
+FN:103,Wolfberry.TelldusLive.Repositories.IEventRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Events()
+FNDA:1,Wolfberry.TelldusLive.Repositories.IEventRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Events()
+DA:104,1
+FN:105,Wolfberry.TelldusLive.Repositories.IClientRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Clients()
+FNDA:1,Wolfberry.TelldusLive.Repositories.IClientRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Clients()
+DA:106,1
+FN:107,Wolfberry.TelldusLive.Repositories.IDeviceRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Devices()
+FNDA:2,Wolfberry.TelldusLive.Repositories.IDeviceRepository Wolfberry.TelldusLive.TelldusLiveClient::get_Devices()
+DA:108,2
+FN:110,System.Void Wolfberry.TelldusLive.TelldusLiveClient::Dispose()
+FNDA:1,System.Void Wolfberry.TelldusLive.TelldusLiveClient::Dispose()
+DA:111,1
+DA:112,1
+DA:113,1
+FN:33,System.Void Wolfberry.TelldusLive.TelldusLiveClient::.ctor(System.String,System.String,System.String,System.String,System.String)
+FNDA:7,System.Void Wolfberry.TelldusLive.TelldusLiveClient::.ctor(System.String,System.String,System.String,System.String,System.String)
+DA:34,7
+DA:35,7
+DA:36,7
+DA:37,7
+DA:38,7
+DA:39,7
+DA:40,7
+DA:41,7
+DA:42,7
+DA:43,1
+DA:44,1
+DA:45,1
+DA:47,7
+DA:48,7
+DA:49,7
+DA:50,7
+DA:51,7
+DA:52,7
+DA:53,7
+DA:54,7
+DA:55,7
+DA:56,7
+DA:58,7
+DA:60,3
+DA:61,3
+DA:62,3
+DA:64,3
+DA:65,3
+DA:66,3
+DA:67,3
+DA:68,3
+DA:69,3
+DA:70,3
+DA:71,3
+BRDA:42,28,0,1
+BRDA:42,28,1,7
+LF:58
+LH:58
+BRF:10
+BRH:10
+FNF:10
+FNH:10
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Utils/JsonUtil.cs
+FN:10,T Wolfberry.TelldusLive.Utils.JsonUtil::Deserialize(System.String)
+FNDA:107,T Wolfberry.TelldusLive.Utils.JsonUtil::Deserialize(System.String)
+DA:11,107
+DA:12,107
+DA:13,107
+FN:15,System.String Wolfberry.TelldusLive.Utils.JsonUtil::Serialize(System.Object)
+FNDA:13,System.String Wolfberry.TelldusLive.Utils.JsonUtil::Serialize(System.Object)
+DA:16,13
+DA:17,13
+DA:18,13
+LF:6
+LH:6
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Utils/UrlBuilder.cs
+FN:28,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddQuery(System.String,System.String)
+FNDA:227,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddQuery(System.String,System.String)
+DA:29,227
+DA:30,227
+DA:31,227
+FN:38,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddQuery(System.String,System.Int32)
+FNDA:58,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddQuery(System.String,System.Int32)
+DA:39,58
+DA:40,58
+DA:41,58
+FN:43,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalQuery(System.String,System.String)
+FNDA:31,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalQuery(System.String,System.String)
+DA:44,31
+DA:45,31
+DA:46,10
+DA:47,10
+DA:48,10
+DA:49,31
+BRDA:45,7,0,10
+BRDA:45,7,1,31
+FN:56,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddAsEscapedQuery(System.String,System.String)
+FNDA:31,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddAsEscapedQuery(System.String,System.String)
+DA:57,31
+DA:58,31
+DA:59,31
+FN:61,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalEscapedQuery(System.String,System.String)
+FNDA:9,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalEscapedQuery(System.String,System.String)
+DA:62,9
+DA:63,9
+DA:64,1
+DA:65,1
+DA:66,1
+DA:67,9
+BRDA:63,7,0,1
+BRDA:63,7,1,9
+FN:69,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddQuery(System.String,System.Boolean)
+FNDA:30,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddQuery(System.String,System.Boolean)
+DA:70,30
+DA:71,30
+DA:72,30
+DA:73,30
+BRDA:71,2,0,11
+BRDA:71,2,1,19
+FN:75,System.String Wolfberry.TelldusLive.Utils.UrlBuilder::Build()
+FNDA:125,System.String Wolfberry.TelldusLive.Utils.UrlBuilder::Build()
+DA:76,125
+DA:77,125
+DA:78,125
+DA:79,1001
+DA:80,313
+DA:81,313
+DA:82,313
+DA:83,313
+DA:85,313
+DA:86,313
+DA:87,313
+DA:89,125
+DA:90,125
+BRDA:79,96,1,313
+BRDA:81,40,0,204
+BRDA:81,40,1,109
+BRDA:79,96,0,125
+FN:92,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalQuery(System.String,System.Nullable`1<System.Boolean>)
+FNDA:9,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalQuery(System.String,System.Nullable`1<System.Boolean>)
+DA:93,9
+DA:94,9
+DA:95,1
+DA:96,1
+DA:97,1
+DA:98,9
+BRDA:94,10,0,1
+BRDA:94,10,1,9
+FN:100,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalQuery(System.String,System.Nullable`1<System.Int32>)
+FNDA:9,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::AddOptionalQuery(System.String,System.Nullable`1<System.Int32>)
+DA:101,9
+DA:102,9
+DA:103,1
+DA:104,1
+DA:105,1
+DA:106,9
+BRDA:102,10,0,1
+BRDA:102,10,1,9
+FN:15,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::.ctor(System.String)
+FNDA:125,System.Void Wolfberry.TelldusLive.Utils.UrlBuilder::.ctor(System.String)
+DA:16,125
+DA:17,125
+DA:18,125
+DA:19,125
+DA:20,125
+DA:21,125
+LF:56
+LH:56
+BRF:14
+BRH:14
+FNF:10
+FNH:10
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/BaseRepository.cs
+FN:9,System.Void Wolfberry.TelldusLive.Repositories.BaseRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:140,System.Void Wolfberry.TelldusLive.Repositories.BaseRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:10,140
+DA:11,140
+DA:12,140
+DA:13,140
+FN:15,System.Void Wolfberry.TelldusLive.Repositories.BaseRepository/<GetOrThrow>d__2`1::MoveNext()
+FNDA:117,System.Void Wolfberry.TelldusLive.Repositories.BaseRepository/<GetOrThrow>d__2`1::MoveNext()
+DA:16,117
+DA:17,117
+DA:19,117
+DA:20,117
+DA:21,12
+DA:22,12
+DA:23,12
+DA:24,12
+DA:27,105
+DA:28,105
+DA:29,105
+BRDA:20,181,0,12
+BRDA:20,181,1,105
+LF:15
+LH:15
+BRF:2
+BRH:2
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/ClientRepository.cs
+FN:11,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:12,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:12,12
+DA:13,12
+DA:15,12
+FN:113,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<EnablePushAsync>d__7::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<EnablePushAsync>d__7::MoveNext()
+DA:114,1
+DA:115,1
+DA:117,1
+DA:118,1
+DA:120,1
+DA:122,1
+DA:123,1
+FN:36,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<GetClientInfoAsync>d__2::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<GetClientInfoAsync>d__2::MoveNext()
+DA:37,1
+DA:38,1
+DA:40,1
+DA:41,1
+DA:42,1
+DA:43,1
+DA:45,1
+DA:47,1
+DA:48,1
+FN:20,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<GetClientsAsync>d__1::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<GetClientsAsync>d__1::MoveNext()
+DA:21,1
+DA:22,1
+DA:24,1
+DA:26,1
+DA:28,1
+DA:29,1
+FN:53,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<RegisterAsync>d__3::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<RegisterAsync>d__3::MoveNext()
+DA:54,1
+DA:55,1
+DA:57,1
+DA:58,1
+DA:60,1
+DA:62,1
+DA:63,1
+FN:67,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<RemoveAsync>d__4::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<RemoveAsync>d__4::MoveNext()
+DA:68,1
+DA:69,1
+DA:71,1
+DA:73,1
+DA:75,1
+DA:76,1
+FN:81,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<SetCoordinatesAsync>d__5::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<SetCoordinatesAsync>d__5::MoveNext()
+DA:82,1
+DA:83,1
+DA:85,1
+DA:87,1
+DA:88,1
+DA:90,1
+DA:92,1
+DA:93,1
+FN:98,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<SetNameAsync>d__6::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<SetNameAsync>d__6::MoveNext()
+DA:99,1
+DA:100,1
+DA:102,1
+DA:103,1
+DA:105,1
+DA:107,1
+DA:108,1
+FN:128,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<SetTimezoneAsync>d__8::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<SetTimezoneAsync>d__8::MoveNext()
+DA:129,1
+DA:130,1
+DA:132,1
+DA:133,1
+DA:135,1
+DA:137,1
+DA:138,1
+FN:143,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<TransferAsync>d__9::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.ClientRepository/<TransferAsync>d__9::MoveNext()
+DA:144,1
+DA:145,1
+DA:147,1
+DA:148,1
+DA:150,1
+DA:152,1
+DA:153,1
+LF:67
+LH:67
+BRF:0
+BRH:0
+FNF:10
+FNH:10
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/DeviceRepository.cs
+FN:9,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:27,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:10,27
+DA:11,27
+DA:13,27
+FN:22,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<AddAsync>d__1::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<AddAsync>d__1::MoveNext()
+DA:23,1
+DA:24,1
+DA:27,1
+DA:28,1
+DA:29,1
+DA:30,1
+DA:31,1
+DA:32,1
+DA:34,1
+DA:36,1
+DA:37,1
+FN:39,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<BellAsync>d__2::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<BellAsync>d__2::MoveNext()
+DA:40,1
+DA:41,1
+DA:43,1
+DA:45,1
+DA:47,1
+DA:48,1
+FN:67,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<DimAsync>d__4::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<DimAsync>d__4::MoveNext()
+DA:68,1
+DA:69,1
+DA:71,1
+DA:72,1
+DA:74,1
+DA:76,1
+DA:77,1
+FN:79,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<DownAsync>d__5::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<DownAsync>d__5::MoveNext()
+DA:80,1
+DA:81,1
+DA:83,1
+DA:85,1
+DA:87,1
+DA:88,1
+FN:116,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<GetDeviceInfoAsync>d__7::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<GetDeviceInfoAsync>d__7::MoveNext()
+DA:117,1
+DA:118,1
+DA:120,1
+DA:121,1
+DA:122,1
+DA:123,1
+DA:125,1
+DA:127,1
+DA:128,1
+FN:333,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<GetDevicesAsync>d__22::MoveNext()
+FNDA:3,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<GetDevicesAsync>d__22::MoveNext()
+DA:334,3
+DA:335,3
+DA:337,3
+DA:338,3
+DA:339,3
+DA:341,3
+DA:343,3
+DA:344,1
+FN:96,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<GetHistoryAsync>d__6::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<GetHistoryAsync>d__6::MoveNext()
+DA:97,1
+DA:98,1
+DA:100,1
+DA:101,1
+DA:102,1
+DA:103,1
+DA:104,1
+DA:106,1
+DA:108,1
+DA:109,1
+FN:173,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<IgnoreAsync>d__11::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<IgnoreAsync>d__11::MoveNext()
+DA:174,1
+DA:175,1
+DA:177,1
+DA:178,1
+DA:180,1
+DA:182,1
+DA:183,1
+FN:130,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<LearnAsync>d__8::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<LearnAsync>d__8::MoveNext()
+DA:131,1
+DA:132,1
+DA:134,1
+DA:136,1
+DA:138,1
+DA:139,1
+FN:141,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<RemoveAsync>d__9::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<RemoveAsync>d__9::MoveNext()
+DA:142,1
+DA:143,1
+DA:145,1
+DA:147,1
+DA:149,1
+DA:150,1
+FN:54,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SendCommandAsync>d__3::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SendCommandAsync>d__3::MoveNext()
+DA:55,1
+DA:56,1
+DA:58,1
+DA:59,1
+DA:60,1
+DA:62,1
+DA:64,1
+DA:65,1
+FN:219,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetMetadataAsync>d__14::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetMetadataAsync>d__14::MoveNext()
+DA:220,1
+DA:221,1
+DA:223,1
+DA:224,1
+DA:225,1
+DA:227,1
+DA:229,1
+DA:230,1
+FN:203,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetModelAsync>d__13::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetModelAsync>d__13::MoveNext()
+DA:204,1
+DA:205,1
+DA:207,1
+DA:208,1
+DA:210,1
+DA:212,1
+DA:213,1
+FN:188,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetNameAsync>d__12::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetNameAsync>d__12::MoveNext()
+DA:189,1
+DA:190,1
+DA:192,1
+DA:193,1
+DA:195,1
+DA:197,1
+DA:198,1
+FN:251,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetParameterAsync>d__16::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetParameterAsync>d__16::MoveNext()
+DA:252,1
+DA:253,1
+DA:255,1
+DA:256,1
+DA:257,1
+DA:259,1
+DA:261,1
+DA:262,1
+FN:235,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetProtocolAsync>d__15::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetProtocolAsync>d__15::MoveNext()
+DA:236,1
+DA:237,1
+DA:239,1
+DA:240,1
+DA:242,1
+DA:244,1
+DA:245,1
+FN:156,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetRgbAsync>d__10::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetRgbAsync>d__10::MoveNext()
+DA:157,1
+DA:158,1
+DA:160,1
+DA:161,1
+DA:162,1
+DA:163,1
+DA:165,1
+DA:167,1
+DA:168,1
+FN:281,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetThermostatAsync>d__18::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<SetThermostatAsync>d__18::MoveNext()
+DA:282,1
+DA:283,1
+DA:285,1
+DA:286,1
+DA:287,1
+DA:288,1
+DA:289,1
+DA:291,1
+DA:293,1
+DA:294,1
+FN:264,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<StopAsync>d__17::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<StopAsync>d__17::MoveNext()
+DA:265,1
+DA:266,1
+DA:268,1
+DA:270,1
+DA:272,1
+DA:273,1
+FN:307,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<TurnOffAsync>d__20::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<TurnOffAsync>d__20::MoveNext()
+DA:308,1
+DA:309,1
+DA:311,1
+DA:313,1
+DA:315,1
+DA:316,1
+FN:296,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<TurnOnAsync>d__19::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<TurnOnAsync>d__19::MoveNext()
+DA:297,1
+DA:298,1
+DA:300,1
+DA:302,1
+DA:304,1
+DA:305,1
+FN:318,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<UpAsync>d__21::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.DeviceRepository/<UpAsync>d__21::MoveNext()
+DA:319,1
+DA:320,1
+DA:322,1
+DA:324,1
+DA:326,1
+DA:327,1
+LF:167
+LH:167
+BRF:0
+BRH:0
+FNF:23
+FNH:23
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/ErrorParser.cs
+FN:17,System.String Wolfberry.TelldusLive.Repositories.ErrorParser::GetOrCreateErrorMessage(System.String)
+FNDA:124,System.String Wolfberry.TelldusLive.Repositories.ErrorParser::GetOrCreateErrorMessage(System.String)
+DA:18,124
+DA:19,124
+DA:20,8
+DA:21,8
+DA:22,8
+DA:23,8
+DA:24,8
+DA:28,116
+DA:29,2
+DA:30,2
+DA:31,2
+DA:32,2
+DA:33,2
+DA:39,114
+DA:42,114
+DA:43,112
+DA:44,2
+DA:45,2
+DA:46,2
+DA:49,112
+DA:50,112
+DA:51,112
+DA:53,112
+DA:54,112
+DA:55,112
+DA:56,124
+BRDA:19,9,0,8
+BRDA:19,9,1,116
+BRDA:28,54,0,2
+BRDA:28,54,1,114
+BRDA:53,114,0,105
+BRDA:53,114,1,7
+LF:26
+LH:26
+BRF:6
+BRH:6
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/EventRepository.cs
+FN:11,System.Void Wolfberry.TelldusLive.Repositories.EventRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:46,System.Void Wolfberry.TelldusLive.Repositories.EventRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:12,46
+DA:13,46
+DA:15,46
+FN:34,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<GetEventGroupListAsync>d__2::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<GetEventGroupListAsync>d__2::MoveNext()
+DA:35,1
+DA:36,1
+DA:38,1
+DA:40,1
+DA:41,1
+FN:43,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<GetEventInfoAsync>d__3::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<GetEventInfoAsync>d__3::MoveNext()
+DA:44,1
+DA:45,1
+DA:47,1
+DA:49,1
+DA:51,1
+DA:52,1
+FN:19,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<GetEventsAsync>d__1::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<GetEventsAsync>d__1::MoveNext()
+DA:20,2
+DA:21,2
+DA:23,2
+DA:24,1
+DA:26,1
+DA:27,1
+DA:29,2
+DA:31,2
+DA:32,2
+BRDA:23,74,0,1
+BRDA:23,74,1,2
+FN:54,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveActionAsync>d__4::MoveNext()
+FNDA:3,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveActionAsync>d__4::MoveNext()
+DA:55,3
+DA:56,3
+DA:58,3
+DA:60,3
+DA:62,3
+DA:63,1
+FN:67,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveConditionAsync>d__5::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveConditionAsync>d__5::MoveNext()
+DA:68,1
+DA:69,1
+DA:71,1
+DA:73,1
+DA:75,1
+DA:76,1
+FN:80,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveEventAsync>d__6::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveEventAsync>d__6::MoveNext()
+DA:81,1
+DA:82,1
+DA:84,1
+DA:86,1
+DA:88,1
+DA:89,1
+FN:93,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveGroupAsync>d__7::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveGroupAsync>d__7::MoveNext()
+DA:94,1
+DA:95,1
+DA:97,1
+DA:99,1
+DA:101,1
+DA:102,1
+FN:106,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveTriggerAsync>d__8::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<RemoveTriggerAsync>d__8::MoveNext()
+DA:107,1
+DA:108,1
+DA:110,1
+DA:112,1
+DA:114,1
+DA:115,1
+FN:123,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetBlockHeaterTriggerAsync>d__9::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetBlockHeaterTriggerAsync>d__9::MoveNext()
+DA:124,1
+DA:125,1
+DA:127,1
+DA:128,1
+DA:129,1
+DA:130,1
+DA:131,1
+DA:133,1
+DA:135,1
+DA:136,1
+FN:147,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetDeviceActionAsync>d__10::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetDeviceActionAsync>d__10::MoveNext()
+DA:148,2
+DA:149,2
+DA:150,1
+DA:151,1
+DA:154,1
+DA:156,1
+DA:157,1
+DA:158,1
+DA:159,1
+DA:160,1
+DA:161,1
+DA:162,1
+DA:163,1
+DA:164,1
+DA:166,1
+DA:167,1
+BRDA:149,25,0,1
+BRDA:149,25,1,1
+BRDA:149,42,0,1
+BRDA:149,42,1,1
+FN:175,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetDeviceConditionAsync>d__11::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetDeviceConditionAsync>d__11::MoveNext()
+DA:176,1
+DA:177,1
+DA:179,1
+DA:180,1
+DA:181,1
+DA:182,1
+DA:183,1
+DA:184,1
+DA:186,1
+DA:187,1
+FN:194,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetDeviceTriggerAsync>d__12::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetDeviceTriggerAsync>d__12::MoveNext()
+DA:195,1
+DA:196,1
+DA:198,1
+DA:199,1
+DA:200,1
+DA:201,1
+DA:202,1
+DA:204,1
+DA:205,1
+FN:214,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetEmailActionAsync>d__13::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetEmailActionAsync>d__13::MoveNext()
+DA:215,1
+DA:216,1
+DA:218,1
+DA:219,1
+DA:220,1
+DA:221,1
+DA:222,1
+DA:223,1
+DA:224,1
+DA:226,1
+DA:227,1
+FN:235,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetEventAsync>d__14::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetEventAsync>d__14::MoveNext()
+DA:236,1
+DA:237,1
+DA:239,1
+DA:240,1
+DA:241,1
+DA:242,1
+DA:243,1
+DA:244,1
+DA:246,1
+DA:247,1
+FN:252,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetGroupAsync>d__15::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetGroupAsync>d__15::MoveNext()
+DA:253,1
+DA:254,1
+DA:256,1
+DA:257,1
+DA:258,1
+DA:260,1
+DA:261,1
+FN:272,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetModeActionAsync>d__16::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetModeActionAsync>d__16::MoveNext()
+DA:273,2
+DA:274,2
+DA:276,2
+DA:277,1
+DA:278,1
+DA:279,1
+DA:281,2
+DA:282,2
+DA:283,2
+DA:284,2
+DA:285,2
+DA:287,2
+DA:288,1
+DA:289,1
+DA:290,1
+DA:291,2
+DA:293,2
+DA:295,2
+DA:296,2
+BRDA:276,77,0,1
+BRDA:276,77,1,2
+BRDA:287,232,0,1
+BRDA:287,232,1,2
+FN:306,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetModeConditionAsync>d__17::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetModeConditionAsync>d__17::MoveNext()
+DA:307,2
+DA:308,2
+DA:310,2
+DA:311,1
+DA:312,1
+DA:313,1
+DA:315,2
+DA:317,2
+DA:318,1
+DA:319,1
+DA:320,1
+DA:322,2
+DA:323,2
+DA:324,2
+DA:326,2
+DA:328,2
+DA:329,2
+BRDA:310,77,0,1
+BRDA:310,77,1,2
+BRDA:317,138,0,1
+BRDA:317,138,1,2
+FN:337,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetModeTriggerAsync>d__18::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetModeTriggerAsync>d__18::MoveNext()
+DA:338,2
+DA:339,2
+DA:341,2
+DA:342,1
+DA:343,1
+DA:344,1
+DA:346,2
+DA:347,2
+DA:348,2
+DA:349,2
+DA:351,2
+DA:353,2
+DA:354,2
+BRDA:341,77,0,1
+BRDA:341,77,1,2
+FN:363,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetPushTriggerAsync>d__19::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetPushTriggerAsync>d__19::MoveNext()
+DA:364,2
+DA:365,2
+DA:367,2
+DA:368,1
+DA:369,1
+DA:370,1
+DA:372,2
+DA:373,2
+DA:374,2
+DA:376,2
+DA:377,1
+DA:378,1
+DA:379,1
+DA:381,2
+DA:383,2
+DA:385,2
+DA:386,2
+BRDA:367,77,0,1
+BRDA:367,77,1,2
+BRDA:376,186,0,1
+BRDA:376,186,1,2
+FN:432,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSensorConditionAsync>d__21::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSensorConditionAsync>d__21::MoveNext()
+DA:433,2
+DA:434,2
+DA:436,2
+DA:437,1
+DA:438,1
+DA:439,1
+DA:441,2
+DA:443,2
+DA:444,1
+DA:445,1
+DA:446,1
+DA:448,2
+DA:449,2
+DA:450,2
+DA:451,2
+DA:453,2
+DA:454,1
+DA:455,1
+DA:456,1
+DA:458,2
+DA:460,2
+DA:461,2
+BRDA:436,77,0,1
+BRDA:436,77,1,2
+BRDA:443,138,0,1
+BRDA:443,138,1,2
+BRDA:453,270,0,1
+BRDA:453,270,1,2
+FN:472,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSensorTriggerAsync>d__22::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSensorTriggerAsync>d__22::MoveNext()
+DA:473,2
+DA:474,2
+DA:476,2
+DA:477,1
+DA:478,1
+DA:479,1
+DA:481,2
+DA:482,2
+DA:483,2
+DA:484,2
+DA:485,2
+DA:486,2
+DA:488,2
+DA:489,1
+DA:490,1
+DA:491,1
+DA:493,2
+DA:495,2
+DA:496,2
+BRDA:476,77,0,1
+BRDA:476,77,1,2
+BRDA:488,253,0,1
+BRDA:488,253,1,2
+FN:396,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSmsActionAsync>d__20::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSmsActionAsync>d__20::MoveNext()
+DA:397,2
+DA:398,2
+DA:400,2
+DA:401,1
+DA:402,1
+DA:403,1
+DA:405,2
+DA:407,2
+DA:408,2
+DA:409,2
+DA:411,2
+DA:412,1
+DA:413,1
+DA:414,1
+DA:416,2
+DA:418,2
+DA:420,2
+DA:421,2
+BRDA:400,77,0,1
+BRDA:400,77,1,2
+BRDA:411,209,0,1
+BRDA:411,209,1,2
+FN:505,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSuntimeConditionAsync>d__23::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSuntimeConditionAsync>d__23::MoveNext()
+DA:506,2
+DA:507,2
+DA:509,2
+DA:510,1
+DA:511,1
+DA:512,1
+DA:514,2
+DA:515,2
+DA:516,2
+DA:517,2
+DA:518,2
+DA:520,2
+DA:522,2
+DA:523,2
+BRDA:509,77,0,1
+BRDA:509,77,1,2
+FN:531,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSuntimeTriggerAsync>d__24::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetSuntimeTriggerAsync>d__24::MoveNext()
+DA:532,2
+DA:533,2
+DA:535,2
+DA:536,1
+DA:537,1
+DA:538,1
+DA:540,2
+DA:541,2
+DA:542,2
+DA:543,2
+DA:545,2
+DA:547,2
+DA:548,2
+BRDA:535,77,0,1
+BRDA:535,77,1,2
+FN:558,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetTimeConditionAsync>d__25::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetTimeConditionAsync>d__25::MoveNext()
+DA:559,2
+DA:560,2
+DA:562,2
+DA:563,1
+DA:564,1
+DA:565,1
+DA:567,2
+DA:569,2
+DA:570,2
+DA:571,2
+DA:572,2
+DA:573,2
+DA:575,2
+DA:577,2
+DA:578,2
+BRDA:562,77,0,1
+BRDA:562,77,1,2
+FN:586,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetUrlActionAsync>d__26::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetUrlActionAsync>d__26::MoveNext()
+DA:587,2
+DA:588,2
+DA:590,2
+DA:591,1
+DA:592,1
+DA:593,1
+DA:595,2
+DA:597,2
+DA:599,2
+DA:600,1
+DA:601,1
+DA:602,1
+DA:604,2
+DA:606,2
+DA:608,2
+DA:609,2
+BRDA:590,77,0,1
+BRDA:590,77,1,2
+BRDA:599,163,0,1
+BRDA:599,163,1,2
+FN:616,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetWeekdayConditionAsync>d__27::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.EventRepository/<SetWeekdayConditionAsync>d__27::MoveNext()
+DA:617,2
+DA:618,2
+DA:620,2
+DA:621,1
+DA:622,1
+DA:623,1
+DA:625,2
+DA:626,2
+DA:627,2
+DA:629,2
+DA:631,2
+DA:632,2
+BRDA:620,77,0,1
+BRDA:620,77,1,2
+LF:321
+LH:321
+BRF:46
+BRH:46
+FNF:28
+FNH:28
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/GroupRepository.cs
+FN:8,System.Void Wolfberry.TelldusLive.Repositories.GroupRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:7,System.Void Wolfberry.TelldusLive.Repositories.GroupRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:9,7
+DA:10,7
+DA:12,7
+FN:18,System.Void Wolfberry.TelldusLive.Repositories.GroupRepository/<AddGroupAsync>d__1::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.GroupRepository/<AddGroupAsync>d__1::MoveNext()
+DA:19,2
+DA:20,2
+DA:22,2
+DA:23,2
+DA:24,2
+DA:26,2
+DA:28,2
+DA:29,1
+FN:33,System.Void Wolfberry.TelldusLive.Repositories.GroupRepository/<RemoveGroupAsync>d__2::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.GroupRepository/<RemoveGroupAsync>d__2::MoveNext()
+DA:34,2
+DA:35,2
+DA:37,2
+DA:39,2
+DA:41,2
+DA:42,1
+LF:17
+LH:17
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/RepositoryException.cs
+FN:12,System.Void Wolfberry.TelldusLive.Repositories.RepositoryException::.ctor()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.RepositoryException::.ctor()
+DA:13,1
+DA:14,2
+FN:14,System.Void Wolfberry.TelldusLive.Repositories.RepositoryException::.ctor(System.String)
+FNDA:39,System.Void Wolfberry.TelldusLive.Repositories.RepositoryException::.ctor(System.String)
+DA:15,39
+FN:16,System.Void Wolfberry.TelldusLive.Repositories.RepositoryException::.ctor(System.String,System.Exception)
+FNDA:3,System.Void Wolfberry.TelldusLive.Repositories.RepositoryException::.ctor(System.String,System.Exception)
+DA:17,3
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/SchedulerRepository.cs
+FN:10,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:11,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:11,11
+DA:12,11
+DA:14,11
+FN:18,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<GetJobAsync>d__1::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<GetJobAsync>d__1::MoveNext()
+DA:19,2
+DA:20,2
+DA:22,2
+DA:24,2
+DA:26,2
+DA:27,1
+FN:29,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<GetJobsAsync>d__2::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<GetJobsAsync>d__2::MoveNext()
+DA:30,2
+DA:31,2
+DA:33,2
+DA:35,2
+DA:36,1
+FN:40,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<RemoveJobAsync>d__3::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<RemoveJobAsync>d__3::MoveNext()
+DA:41,1
+DA:42,1
+DA:44,1
+DA:46,1
+DA:48,1
+DA:49,1
+FN:66,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<SetJobAsync>d__4::MoveNext()
+FNDA:3,System.Void Wolfberry.TelldusLive.Repositories.SchedulerRepository/<SetJobAsync>d__4::MoveNext()
+DA:67,3
+DA:68,3
+DA:69,1
+DA:70,1
+DA:73,2
+DA:75,2
+DA:76,2
+DA:77,2
+DA:78,2
+DA:79,2
+DA:80,2
+DA:81,2
+DA:82,2
+DA:83,2
+DA:84,2
+DA:85,2
+DA:86,2
+DA:87,2
+DA:88,2
+DA:89,2
+DA:91,2
+DA:93,2
+DA:94,2
+BRDA:68,24,0,2
+BRDA:68,24,1,1
+BRDA:68,40,0,1
+BRDA:68,40,1,2
+LF:43
+LH:43
+BRF:4
+BRH:4
+FNF:5
+FNH:5
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/SensorRepository.cs
+FN:9,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:15,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:10,15
+DA:11,15
+DA:13,15
+FN:89,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<GetHistoryAsync>d__5::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<GetHistoryAsync>d__5::MoveNext()
+DA:90,1
+DA:91,1
+DA:93,1
+DA:94,1
+DA:95,1
+DA:96,1
+DA:97,1
+DA:98,1
+DA:100,1
+DA:102,1
+DA:103,1
+FN:40,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<GetSensorInfoAsync>d__2::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<GetSensorInfoAsync>d__2::MoveNext()
+DA:41,1
+DA:42,1
+DA:44,1
+DA:45,1
+DA:47,1
+DA:49,1
+DA:50,1
+FN:21,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<GetSensorsAsync>d__1::MoveNext()
+FNDA:3,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<GetSensorsAsync>d__1::MoveNext()
+DA:22,3
+DA:23,3
+DA:25,3
+DA:26,3
+DA:27,3
+DA:28,3
+DA:30,3
+DA:32,3
+DA:33,1
+DA:34,1
+FN:55,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<IgnoreAsync>d__3::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<IgnoreAsync>d__3::MoveNext()
+DA:56,1
+DA:57,1
+DA:59,1
+DA:60,1
+DA:62,1
+DA:64,1
+DA:65,1
+FN:107,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<RemoveHistoryAsync>d__6::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<RemoveHistoryAsync>d__6::MoveNext()
+DA:108,1
+DA:109,1
+DA:111,1
+DA:113,1
+DA:115,1
+DA:116,1
+FN:121,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<RemoveValueAsync>d__7::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<RemoveValueAsync>d__7::MoveNext()
+DA:122,1
+DA:123,1
+DA:125,1
+DA:126,1
+DA:128,1
+DA:130,1
+DA:131,1
+FN:136,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<ResetMaxMin>d__8::MoveNext()
+FNDA:2,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<ResetMaxMin>d__8::MoveNext()
+DA:137,2
+DA:138,2
+DA:140,2
+DA:142,2
+DA:143,1
+DA:144,1
+DA:145,1
+DA:147,2
+DA:149,2
+DA:151,2
+DA:152,2
+BRDA:142,100,0,1
+BRDA:142,100,1,2
+FN:157,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<SetKeepHistoryAsync>d__9::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<SetKeepHistoryAsync>d__9::MoveNext()
+DA:158,1
+DA:159,1
+DA:161,1
+DA:162,1
+DA:164,1
+DA:166,1
+DA:167,1
+FN:70,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<SetNameAsync>d__4::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.SensorRepository/<SetNameAsync>d__4::MoveNext()
+DA:71,1
+DA:72,1
+DA:74,1
+DA:75,1
+DA:77,1
+DA:79,1
+DA:80,1
+LF:76
+LH:76
+BRF:2
+BRH:2
+FNF:10
+FNH:10
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Repositories/UserRepository.cs
+FN:11,System.Void Wolfberry.TelldusLive.Repositories.UserRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+FNDA:22,System.Void Wolfberry.TelldusLive.Repositories.UserRepository::.ctor(Wolfberry.TelldusLive.ITelldusHttpClient)
+DA:12,22
+DA:13,22
+DA:15,22
+FN:34,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<AcceptEulaAsync>d__2::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<AcceptEulaAsync>d__2::MoveNext()
+DA:35,1
+DA:36,1
+DA:38,1
+DA:40,1
+DA:42,1
+DA:43,1
+FN:47,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ActivateCouponAsync>d__3::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ActivateCouponAsync>d__3::MoveNext()
+DA:48,1
+DA:49,1
+DA:51,1
+DA:53,1
+DA:55,1
+DA:56,1
+FN:124,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<AddLinkedAccountAsync>d__9::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<AddLinkedAccountAsync>d__9::MoveNext()
+DA:125,1
+DA:126,1
+DA:128,1
+DA:129,1
+DA:131,1
+DA:133,1
+DA:134,1
+FN:60,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ChangeEmailAsync>d__4::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ChangeEmailAsync>d__4::MoveNext()
+DA:61,1
+DA:62,1
+DA:64,1
+DA:66,1
+DA:68,1
+DA:69,1
+FN:73,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ChangeLocaleAsync>d__5::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ChangeLocaleAsync>d__5::MoveNext()
+DA:74,1
+DA:75,1
+DA:77,1
+DA:79,1
+DA:81,1
+DA:82,1
+FN:87,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ChangePasswordAsync>d__6::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<ChangePasswordAsync>d__6::MoveNext()
+DA:88,1
+DA:89,1
+DA:91,1
+DA:92,1
+DA:94,1
+DA:96,1
+DA:97,1
+FN:101,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<DeletePushTokenAsync>d__7::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<DeletePushTokenAsync>d__7::MoveNext()
+DA:102,1
+DA:103,1
+DA:105,1
+DA:107,1
+DA:109,1
+DA:110,1
+FN:112,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetEulaAsync>d__8::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetEulaAsync>d__8::MoveNext()
+DA:113,1
+DA:114,1
+DA:116,1
+DA:118,1
+DA:119,1
+FN:136,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetLinkedAccountsAsync>d__10::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetLinkedAccountsAsync>d__10::MoveNext()
+DA:137,1
+DA:138,1
+DA:140,1
+DA:142,1
+DA:143,1
+FN:158,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetPhonesAsync>d__12::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetPhonesAsync>d__12::MoveNext()
+DA:159,1
+DA:160,1
+DA:162,1
+DA:164,1
+DA:165,1
+FN:167,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetProfileAsync>d__13::MoveNext()
+FNDA:3,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetProfileAsync>d__13::MoveNext()
+DA:168,3
+DA:169,3
+DA:171,3
+DA:173,3
+DA:174,1
+FN:17,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetSmsHistoryAsync>d__1::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<GetSmsHistoryAsync>d__1::MoveNext()
+DA:18,1
+DA:19,1
+DA:21,1
+DA:23,1
+DA:26,1
+DA:27,1
+DA:28,1
+DA:29,1
+DA:30,1
+FN:184,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<RegisterPushTokenAsync>d__14::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<RegisterPushTokenAsync>d__14::MoveNext()
+DA:185,1
+DA:186,1
+DA:188,1
+DA:189,1
+DA:190,1
+DA:191,1
+DA:192,1
+DA:193,1
+DA:194,1
+DA:195,1
+DA:197,1
+DA:199,1
+DA:200,1
+FN:147,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<RemoveLinkedAccountAsync>d__11::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<RemoveLinkedAccountAsync>d__11::MoveNext()
+DA:148,1
+DA:149,1
+DA:151,1
+DA:153,1
+DA:155,1
+DA:156,1
+FN:205,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<SendPushTestAsync>d__15::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<SendPushTestAsync>d__15::MoveNext()
+DA:206,1
+DA:207,1
+DA:209,1
+DA:211,1
+DA:213,1
+DA:215,1
+DA:216,1
+FN:221,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<SetNameAsync>d__16::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<SetNameAsync>d__16::MoveNext()
+DA:222,1
+DA:223,1
+DA:225,1
+DA:226,1
+DA:228,1
+DA:230,1
+DA:231,1
+FN:235,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<UnregisterPushToken>d__17::MoveNext()
+FNDA:1,System.Void Wolfberry.TelldusLive.Repositories.UserRepository/<UnregisterPushToken>d__17::MoveNext()
+DA:236,1
+DA:237,1
+DA:239,1
+DA:241,1
+DA:243,1
+DA:244,1
+LF:115
+LH:115
+BRF:0
+BRH:0
+FNF:18
+FNH:18
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Action.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Action::get_Id()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Action::get_Id()
+DA:5,2
+FN:8,System.String Wolfberry.TelldusLive.Models.Action::get_Type()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Action::get_Type()
+DA:9,1
+FN:9,System.String Wolfberry.TelldusLive.Models.Action::get_Delay()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Action::get_Delay()
+DA:10,2
+FN:10,System.String Wolfberry.TelldusLive.Models.Action::get_DelayPolicy()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Action::get_DelayPolicy()
+DA:11,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:4
+FNH:4
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Condition.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Condition::get_DeviceId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Condition::get_DeviceId()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.Condition::get_Method()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Condition::get_Method()
+DA:6,2
+FN:6,System.String Wolfberry.TelldusLive.Models.Condition::get_Id()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Condition::get_Id()
+DA:7,2
+FN:7,System.String Wolfberry.TelldusLive.Models.Condition::get_Type()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Condition::get_Type()
+DA:8,1
+FN:8,System.String Wolfberry.TelldusLive.Models.Condition::get_Group()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Condition::get_Group()
+DA:9,2
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:5
+FNH:5
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/DeviceTrigger.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.DeviceTrigger::get_DeviceId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.DeviceTrigger::get_DeviceId()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.DeviceTrigger::get_Method()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.DeviceTrigger::get_Method()
+DA:6,1
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/ErrorResponse.cs
+FN:7,System.String Wolfberry.TelldusLive.Models.ErrorResponse::get_Error()
+FNDA:34,System.String Wolfberry.TelldusLive.Models.ErrorResponse::get_Error()
+DA:8,34
+FN:20,System.Int32 Wolfberry.TelldusLive.Models.ErrorResponse::get_Code()
+FNDA:16,System.Int32 Wolfberry.TelldusLive.Models.ErrorResponse::get_Code()
+DA:21,16
+FN:26,System.String Wolfberry.TelldusLive.Models.ErrorResponse::get_SubCode()
+FNDA:16,System.String Wolfberry.TelldusLive.Models.ErrorResponse::get_SubCode()
+DA:27,16
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/PushAction.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.PushAction::get_PhoneId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.PushAction::get_PhoneId()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.PushAction::get_Message()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.PushAction::get_Message()
+DA:6,1
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/SensorTrigger.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_SensorId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_SensorId()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_Value()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_Value()
+DA:6,1
+FN:6,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_Edge()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_Edge()
+DA:7,2
+FN:11,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_ValueType()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_ValueType()
+DA:12,2
+FN:16,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_ReloadValue()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_ReloadValue()
+DA:17,2
+FN:21,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_Scale()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.SensorTrigger::get_Scale()
+DA:22,2
+LF:6
+LH:6
+BRF:0
+BRH:0
+FNF:6
+FNH:6
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/StatusResponse.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.StatusResponse::get_Status()
+FNDA:236,System.String Wolfberry.TelldusLive.Models.StatusResponse::get_Status()
+DA:5,236
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Trigger.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Trigger::get_Id()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Trigger::get_Id()
+DA:5,2
+FN:9,System.String Wolfberry.TelldusLive.Models.Trigger::get_Type()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Trigger::get_Type()
+DA:10,1
+FN:10,System.String Wolfberry.TelldusLive.Models.Trigger::get_ClientId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Trigger::get_ClientId()
+DA:11,2
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/User/Phone.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Id()
+FNDA:5,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Id()
+DA:5,5
+FN:5,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Token()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Token()
+DA:6,2
+FN:6,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Name()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Name()
+DA:7,4
+FN:7,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Model()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Model()
+DA:8,2
+FN:8,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Manufacturer()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Manufacturer()
+DA:9,2
+FN:9,System.String Wolfberry.TelldusLive.Models.User.Phone::get_OsVersion()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_OsVersion()
+DA:10,2
+FN:10,System.String Wolfberry.TelldusLive.Models.User.Phone::get_DeviceId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_DeviceId()
+DA:11,2
+FN:11,System.String Wolfberry.TelldusLive.Models.User.Phone::get_PushServiceId()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_PushServiceId()
+DA:12,2
+FN:12,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Active()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_Active()
+DA:13,2
+FN:13,System.String Wolfberry.TelldusLive.Models.User.Phone::get_DisplayName()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.Phone::get_DisplayName()
+DA:14,2
+LF:10
+LH:10
+BRF:0
+BRH:0
+FNF:10
+FNH:10
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/User/PhonesResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.User.Phone> Wolfberry.TelldusLive.Models.User.PhonesResponse::get_Phone()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.User.Phone> Wolfberry.TelldusLive.Models.User.PhonesResponse::get_Phone()
+DA:7,7
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/User/ProfileResponse.cs
+FN:7,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Uuid()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Uuid()
+DA:8,2
+FN:8,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Firstname()
+FNDA:6,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Firstname()
+DA:9,6
+FN:9,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Lastname()
+FNDA:5,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Lastname()
+DA:10,5
+FN:10,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Email()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Email()
+DA:11,4
+FN:11,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Credits()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Credits()
+DA:12,2
+FN:12,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Pro()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Pro()
+DA:13,2
+FN:13,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Subscription()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Subscription()
+DA:14,2
+FN:18,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Locale()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Locale()
+DA:19,2
+FN:19,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Admin()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Admin()
+DA:20,2
+FN:20,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Eula()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Eula()
+DA:21,2
+FN:21,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Permission()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.ProfileResponse::get_Permission()
+DA:22,2
+LF:11
+LH:11
+BRF:0
+BRH:0
+FNF:11
+FNH:11
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/User/SmsHistoryEntry.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_Id()
+FNDA:5,System.String Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_Id()
+DA:5,5
+FN:5,System.Int32 Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_Date()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_Date()
+DA:6,2
+FN:10,System.String Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_To()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_To()
+DA:11,4
+FN:15,System.Int32 Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_Status()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.SmsHistoryEntry::get_Status()
+DA:16,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:4
+FNH:4
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/User/SmsHistoryEntryResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.User.SmsHistoryEntry> Wolfberry.TelldusLive.Models.User.SmsHistoryEntryResponse::get_History()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.User.SmsHistoryEntry> Wolfberry.TelldusLive.Models.User.SmsHistoryEntryResponse::get_History()
+DA:7,4
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/User/Uela.cs
+FN:4,System.Int32 Wolfberry.TelldusLive.Models.User.Uela::get_Version()
+FNDA:8,System.Int32 Wolfberry.TelldusLive.Models.User.Uela::get_Version()
+DA:5,8
+FN:5,System.Int32 Wolfberry.TelldusLive.Models.User.Uela::get_Date()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.User.Uela::get_Date()
+DA:6,2
+FN:6,System.String Wolfberry.TelldusLive.Models.User.Uela::get_Text()
+FNDA:5,System.String Wolfberry.TelldusLive.Models.User.Uela::get_Text()
+DA:7,5
+LF:3
+LH:3
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Sensor/HistoryData.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Name()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Name()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Value()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Value()
+DA:6,1
+FN:6,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Scale()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Scale()
+DA:7,2
+FN:7,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Unit()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryData::get_Unit()
+DA:8,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:4
+FNH:4
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Sensor/HistoryEntry.cs
+FN:6,System.Int32 Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Ts()
+FNDA:5,System.Int32 Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Ts()
+DA:7,5
+FN:7,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Uuid()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Uuid()
+DA:8,4
+FN:8,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Date()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Date()
+DA:9,2
+FN:9,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.HistoryData> Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Data()
+FNDA:2,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.HistoryData> Wolfberry.TelldusLive.Models.Sensor.HistoryEntry::get_Data()
+DA:10,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:4
+FNH:4
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Sensor/Sensor.cs
+FN:6,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Id()
+FNDA:12,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Id()
+DA:7,12
+FN:7,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_ClientName()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_ClientName()
+DA:8,4
+FN:8,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Name()
+FNDA:8,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Name()
+DA:9,8
+FN:9,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_LastUpdated()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_LastUpdated()
+DA:10,4
+FN:10,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Ignored()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Ignored()
+DA:11,4
+FN:11,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Editable()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Editable()
+DA:12,4
+FN:12,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.SensorData> Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Data()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.SensorData> Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Data()
+DA:13,4
+FN:13,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Client()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Client()
+DA:14,4
+FN:14,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Online()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Online()
+DA:15,4
+FN:15,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Battery()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Battery()
+DA:16,4
+FN:16,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_KeepHistory()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Sensor.Sensor::get_KeepHistory()
+DA:17,4
+FN:17,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Protocol()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Protocol()
+DA:18,4
+FN:18,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Model()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Model()
+DA:19,4
+FN:19,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_SensorId()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_SensorId()
+DA:20,4
+FN:20,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_MiscValues()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_MiscValues()
+DA:21,4
+FN:21,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Temp()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Temp()
+DA:22,4
+FN:22,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Humidity()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Sensor.Sensor::get_Humidity()
+DA:23,4
+LF:17
+LH:17
+BRF:0
+BRH:0
+FNF:17
+FNH:17
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Sensor/SensorData.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Name()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Name()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Value()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Value()
+DA:6,1
+FN:6,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Scale()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Scale()
+DA:7,2
+FN:7,System.Int32 Wolfberry.TelldusLive.Models.Sensor.SensorData::get_LastUpdated()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Sensor.SensorData::get_LastUpdated()
+DA:8,2
+FN:8,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Max()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Max()
+DA:9,2
+FN:9,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_MaxTime()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_MaxTime()
+DA:10,2
+FN:10,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Min()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Min()
+DA:11,2
+FN:11,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_MinTime()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_MinTime()
+DA:12,2
+FN:12,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Unit()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Sensor.SensorData::get_Unit()
+DA:13,2
+LF:9
+LH:9
+BRF:0
+BRH:0
+FNF:9
+FNH:9
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Sensor/SensorHistoryResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.HistoryEntry> Wolfberry.TelldusLive.Models.Sensor.SensorHistoryResponse::get_History()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.HistoryEntry> Wolfberry.TelldusLive.Models.Sensor.SensorHistoryResponse::get_History()
+DA:7,7
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Sensor/SensorsResponse.cs
+FN:9,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.Sensor> Wolfberry.TelldusLive.Models.Sensor.TelldusSensorsResponse::get_Sensor()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.Sensor> Wolfberry.TelldusLive.Models.Sensor.TelldusSensorsResponse::get_Sensor()
+DA:10,7
+FN:22,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.Sensor> Wolfberry.TelldusLive.Models.Sensor.SensorsResponse::get_Sensors()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.Sensor> Wolfberry.TelldusLive.Models.Sensor.SensorsResponse::get_Sensors()
+DA:23,4
+FN:17,System.Void Wolfberry.TelldusLive.Models.Sensor.SensorsResponse::.ctor(System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.Sensor>)
+FNDA:2,System.Void Wolfberry.TelldusLive.Models.Sensor.SensorsResponse::.ctor(System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Sensor.Sensor>)
+DA:18,2
+DA:19,2
+DA:20,2
+DA:21,2
+LF:6
+LH:6
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Scheduler/Job.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Id()
+FNDA:12,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Id()
+DA:5,12
+FN:5,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_DeviceId()
+FNDA:9,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_DeviceId()
+DA:6,9
+FN:6,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Method()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Method()
+DA:7,4
+FN:7,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_MethodValue()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_MethodValue()
+DA:8,4
+FN:8,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_NextRunTime()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_NextRunTime()
+DA:9,4
+FN:9,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Type()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Type()
+DA:10,4
+FN:10,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Hour()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Hour()
+DA:11,4
+FN:11,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Minute()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Minute()
+DA:12,4
+FN:12,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Offset()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Offset()
+DA:13,4
+FN:13,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_RandomInterval()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_RandomInterval()
+DA:14,4
+FN:14,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Retries()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Retries()
+DA:15,4
+FN:15,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_RetryInterval()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_RetryInterval()
+DA:16,4
+FN:16,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Reps()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Reps()
+DA:17,4
+FN:17,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Active()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Scheduler.Job::get_Active()
+DA:18,4
+FN:18,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Weekdays()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Scheduler.Job::get_Weekdays()
+DA:19,4
+LF:15
+LH:15
+BRF:0
+BRH:0
+FNF:15
+FNH:15
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Scheduler/JobsResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Scheduler.Job> Wolfberry.TelldusLive.Models.Scheduler.JobsResponse::get_Job()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Scheduler.Job> Wolfberry.TelldusLive.Models.Scheduler.JobsResponse::get_Job()
+DA:7,7
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/CreatedResponse.cs
+FN:8,System.String Wolfberry.TelldusLive.Models.Event.CreatedResponse::get_Id()
+FNDA:97,System.String Wolfberry.TelldusLive.Models.Event.CreatedResponse::get_Id()
+DA:9,97
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/DelayPolicy.cs
+FN:7,System.Void Wolfberry.TelldusLive.Models.Event.DelayPolicy::.cctor()
+FNDA:1,System.Void Wolfberry.TelldusLive.Models.Event.DelayPolicy::.cctor()
+DA:8,1
+DA:13,1
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/Event.cs
+FN:6,System.String Wolfberry.TelldusLive.Models.Event.Event::get_Id()
+FNDA:11,System.String Wolfberry.TelldusLive.Models.Event.Event::get_Id()
+DA:7,11
+FN:7,System.String Wolfberry.TelldusLive.Models.Event.Event::get_Group()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Event.Event::get_Group()
+DA:8,4
+FN:8,System.String Wolfberry.TelldusLive.Models.Event.Event::get_Description()
+FNDA:7,System.String Wolfberry.TelldusLive.Models.Event.Event::get_Description()
+DA:9,7
+FN:9,System.Int32 Wolfberry.TelldusLive.Models.Event.Event::get_MinRepeatInterval()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Event.Event::get_MinRepeatInterval()
+DA:10,4
+FN:10,System.Int32 Wolfberry.TelldusLive.Models.Event.Event::get_Active()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Event.Event::get_Active()
+DA:11,4
+FN:11,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Trigger> Wolfberry.TelldusLive.Models.Event.Event::get_Trigger()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Trigger> Wolfberry.TelldusLive.Models.Event.Event::get_Trigger()
+DA:12,4
+FN:12,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Condition> Wolfberry.TelldusLive.Models.Event.Event::get_Condition()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Condition> Wolfberry.TelldusLive.Models.Event.Event::get_Condition()
+DA:13,4
+FN:13,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Action> Wolfberry.TelldusLive.Models.Event.Event::get_Action()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Action> Wolfberry.TelldusLive.Models.Event.Event::get_Action()
+DA:14,4
+LF:8
+LH:8
+BRF:0
+BRH:0
+FNF:8
+FNH:8
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/EventGroup.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Event.EventGroup::get_Id()
+FNDA:5,System.String Wolfberry.TelldusLive.Models.Event.EventGroup::get_Id()
+DA:5,5
+FN:5,System.String Wolfberry.TelldusLive.Models.Event.EventGroup::get_Name()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Event.EventGroup::get_Name()
+DA:6,4
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/EventGroupsResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Event.EventGroup> Wolfberry.TelldusLive.Models.Event.EventGroupsResponse::get_EventGroup()
+FNDA:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Event.EventGroup> Wolfberry.TelldusLive.Models.Event.EventGroupsResponse::get_EventGroup()
+DA:7,6
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/EventsResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Event.Event> Wolfberry.TelldusLive.Models.Event.EventsResponse::get_Event()
+FNDA:10,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Event.Event> Wolfberry.TelldusLive.Models.Event.EventsResponse::get_Event()
+DA:7,10
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Event/SetGroupResponse.cs
+FN:7,System.String Wolfberry.TelldusLive.Models.Event.SetGroupResponse::get_Id()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Event.SetGroupResponse::get_Id()
+DA:8,2
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Device/Device.cs
+FN:6,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Id()
+FNDA:12,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Id()
+DA:7,12
+FN:7,System.String Wolfberry.TelldusLive.Models.Device.Device::get_ClientDeviceId()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_ClientDeviceId()
+DA:8,4
+FN:8,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Name()
+FNDA:9,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Name()
+DA:9,9
+FN:9,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_State()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_State()
+DA:10,4
+FN:10,System.String Wolfberry.TelldusLive.Models.Device.Device::get_StateValue()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_StateValue()
+DA:11,4
+FN:11,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.StateValue> Wolfberry.TelldusLive.Models.Device.Device::get_StateValues()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.StateValue> Wolfberry.TelldusLive.Models.Device.Device::get_StateValues()
+DA:12,4
+FN:12,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_Methods()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_Methods()
+DA:13,4
+FN:13,System.String Wolfberry.TelldusLive.Models.Device.Device::get_MetadataHash()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_MetadataHash()
+DA:14,4
+FN:14,System.String Wolfberry.TelldusLive.Models.Device.Device::get_ParametersHash()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_ParametersHash()
+DA:15,4
+FN:39,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Type()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Type()
+DA:40,4
+FN:40,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Client()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Client()
+DA:41,4
+FN:41,System.String Wolfberry.TelldusLive.Models.Device.Device::get_ClientName()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_ClientName()
+DA:42,4
+FN:42,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Online()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Online()
+DA:43,4
+FN:43,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_Editable()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_Editable()
+DA:44,4
+FN:44,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_Ignored()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_Ignored()
+DA:45,4
+FN:48,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Timezone()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Timezone()
+DA:49,4
+FN:52,System.Double Wolfberry.TelldusLive.Models.Device.Device::get_Longitute()
+FNDA:4,System.Double Wolfberry.TelldusLive.Models.Device.Device::get_Longitute()
+DA:53,4
+FN:56,System.Double Wolfberry.TelldusLive.Models.Device.Device::get_Latitute()
+FNDA:4,System.Double Wolfberry.TelldusLive.Models.Device.Device::get_Latitute()
+DA:57,4
+FN:60,System.String Wolfberry.TelldusLive.Models.Device.Device::get_DeviceType()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_DeviceType()
+DA:61,4
+FN:64,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.Parameter> Wolfberry.TelldusLive.Models.Device.Device::get_Parameter()
+FNDA:4,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.Parameter> Wolfberry.TelldusLive.Models.Device.Device::get_Parameter()
+DA:65,4
+FN:68,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Transport()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Transport()
+DA:69,4
+FN:72,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_TzOffset()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Device.Device::get_TzOffset()
+DA:73,4
+FN:76,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Uuid()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Device.Device::get_Uuid()
+DA:77,4
+LF:23
+LH:23
+BRF:0
+BRH:0
+FNF:23
+FNH:23
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Device/DevicesResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.Device> Wolfberry.TelldusLive.Models.Device.DevicesResponse::get_Device()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.Device> Wolfberry.TelldusLive.Models.Device.DevicesResponse::get_Device()
+DA:7,7
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Device/HistoryEntry.cs
+FN:4,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_Ts()
+FNDA:5,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_Ts()
+DA:5,5
+FN:5,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_State()
+FNDA:4,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_State()
+DA:6,4
+FN:6,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_StateValue()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_StateValue()
+DA:7,2
+FN:11,System.String Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_Origin()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_Origin()
+DA:12,2
+FN:12,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_SuccessStatus()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryEntry::get_SuccessStatus()
+DA:13,2
+LF:5
+LH:5
+BRF:0
+BRH:0
+FNF:5
+FNH:5
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Device/HistoryResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.HistoryEntry> Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_History()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Device.HistoryEntry> Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_History()
+DA:7,7
+FN:7,System.String Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_Timezone()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_Timezone()
+DA:8,2
+FN:8,System.Boolean Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_TimezoneAutDetected()
+FNDA:2,System.Boolean Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_TimezoneAutDetected()
+DA:9,2
+FN:9,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_TzOffset()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Device.HistoryResponse::get_TzOffset()
+DA:10,2
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:4
+FNH:4
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Device/Parameter.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Device.Parameter::get_Name()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Device.Parameter::get_Name()
+DA:5,2
+FN:5,System.String Wolfberry.TelldusLive.Models.Device.Parameter::get_Value()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Device.Parameter::get_Value()
+DA:6,1
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Device/StateValue.cs
+FN:7,System.String Wolfberry.TelldusLive.Models.Device.StateValue::get_State()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Device.StateValue::get_State()
+DA:8,2
+FN:12,System.String Wolfberry.TelldusLive.Models.Device.StateValue::get_Value()
+FNDA:1,System.String Wolfberry.TelldusLive.Models.Device.StateValue::get_Value()
+DA:13,1
+LF:2
+LH:2
+BRF:0
+BRH:0
+FNF:2
+FNH:2
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Client/Client.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Id()
+FNDA:6,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Id()
+DA:5,6
+FN:8,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Uuid()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Uuid()
+DA:9,2
+FN:9,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Name()
+FNDA:3,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Name()
+DA:10,3
+FN:10,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Online()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Online()
+DA:11,2
+FN:11,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Editable()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Editable()
+DA:12,2
+FN:12,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Extensions()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Extensions()
+DA:13,2
+FN:13,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Version()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Version()
+DA:14,2
+FN:14,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Type()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Type()
+DA:15,2
+FN:15,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Ip()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Ip()
+DA:16,2
+FN:16,System.Double Wolfberry.TelldusLive.Models.Client.Client::get_Longitute()
+FNDA:2,System.Double Wolfberry.TelldusLive.Models.Client.Client::get_Longitute()
+DA:17,2
+FN:17,System.Double Wolfberry.TelldusLive.Models.Client.Client::get_Latitute()
+FNDA:2,System.Double Wolfberry.TelldusLive.Models.Client.Client::get_Latitute()
+DA:18,2
+FN:18,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Features()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Features()
+DA:19,2
+FN:19,System.Boolean Wolfberry.TelldusLive.Models.Client.Client::get_Insured()
+FNDA:2,System.Boolean Wolfberry.TelldusLive.Models.Client.Client::get_Insured()
+DA:20,2
+FN:20,System.String Wolfberry.TelldusLive.Models.Client.Client::get_LatestVersion()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_LatestVersion()
+DA:21,2
+FN:21,System.String Wolfberry.TelldusLive.Models.Client.Client::get_DownloadUrl()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_DownloadUrl()
+DA:22,2
+FN:22,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Sunrise()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Sunrise()
+DA:23,2
+FN:23,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Sunset()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_Sunset()
+DA:24,2
+FN:24,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Timezone()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Timezone()
+DA:25,2
+FN:25,System.Boolean Wolfberry.TelldusLive.Models.Client.Client::get_TimezoneAutodetected()
+FNDA:2,System.Boolean Wolfberry.TelldusLive.Models.Client.Client::get_TimezoneAutodetected()
+DA:26,2
+FN:26,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Transports()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.Client::get_Transports()
+DA:27,2
+FN:27,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_TzOffset()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.Client::get_TzOffset()
+DA:28,2
+LF:21
+LH:21
+BRF:0
+BRH:0
+FNF:21
+FNH:21
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Client/ClientInfoResponse.cs
+FN:4,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Id()
+FNDA:6,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Id()
+DA:5,6
+FN:5,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Ip()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Ip()
+DA:6,2
+FN:9,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Uuid()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Uuid()
+DA:10,2
+FN:10,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Name()
+FNDA:4,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Name()
+DA:11,4
+FN:11,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Online()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Online()
+DA:12,2
+FN:12,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Editable()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Editable()
+DA:13,2
+FN:13,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Extensions()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Extensions()
+DA:14,2
+FN:14,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Version()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Version()
+DA:15,2
+FN:15,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Type()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Type()
+DA:16,2
+FN:16,System.Double Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Longitude()
+FNDA:2,System.Double Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Longitude()
+DA:17,2
+FN:17,System.Double Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Latitude()
+FNDA:2,System.Double Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Latitude()
+DA:18,2
+FN:18,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Sunrise()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Sunrise()
+DA:19,2
+FN:19,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Sunset()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Sunset()
+DA:20,2
+FN:20,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Timezone()
+FNDA:2,System.String Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_Timezone()
+DA:21,2
+FN:21,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_TzOffset()
+FNDA:2,System.Int32 Wolfberry.TelldusLive.Models.Client.ClientInfoResponse::get_TzOffset()
+DA:22,2
+LF:15
+LH:15
+BRF:0
+BRH:0
+FNF:15
+FNH:15
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Models/Client/ClientsResponse.cs
+FN:6,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Client.Client> Wolfberry.TelldusLive.Models.Client.ClientsResponse::get_Client()
+FNDA:7,System.Collections.Generic.List`1<Wolfberry.TelldusLive.Models.Client.Client> Wolfberry.TelldusLive.Models.Client.ClientsResponse::get_Client()
+DA:7,7
+LF:1
+LH:1
+BRF:0
+BRH:0
+FNF:1
+FNH:1
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Configuration/ConfigurationException.cs
+FN:12,System.Void Wolfberry.TelldusLive.Configuration.ConfigurationException::.ctor()
+FNDA:1,System.Void Wolfberry.TelldusLive.Configuration.ConfigurationException::.ctor()
+DA:13,1
+DA:14,2
+FN:14,System.Void Wolfberry.TelldusLive.Configuration.ConfigurationException::.ctor(System.String)
+FNDA:15,System.Void Wolfberry.TelldusLive.Configuration.ConfigurationException::.ctor(System.String)
+DA:15,15
+FN:16,System.Void Wolfberry.TelldusLive.Configuration.ConfigurationException::.ctor(System.String,System.Exception)
+FNDA:3,System.Void Wolfberry.TelldusLive.Configuration.ConfigurationException::.ctor(System.String,System.Exception)
+DA:17,3
+LF:4
+LH:4
+BRF:0
+BRH:0
+FNF:3
+FNH:3
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Authentication/Authenticator.cs
+FN:36,System.Net.Http.HttpClient Wolfberry.TelldusLive.Authentication.Authenticator::get_HttpClient()
+FNDA:9,System.Net.Http.HttpClient Wolfberry.TelldusLive.Authentication.Authenticator::get_HttpClient()
+DA:37,9
+FN:63,System.Void Wolfberry.TelldusLive.Authentication.Authenticator::InitializeHttpClient()
+FNDA:5,System.Void Wolfberry.TelldusLive.Authentication.Authenticator::InitializeHttpClient()
+DA:64,5
+DA:65,5
+DA:66,5
+DA:67,5
+DA:68,5
+DA:69,5
+FN:80,System.Void Wolfberry.TelldusLive.Authentication.Authenticator::Dispose()
+FNDA:3,System.Void Wolfberry.TelldusLive.Authentication.Authenticator::Dispose()
+DA:81,3
+DA:82,3
+DA:83,3
+BRDA:82,8,0,1
+BRDA:82,8,1,2
+FN:38,System.Void Wolfberry.TelldusLive.Authentication.Authenticator::.ctor(Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration)
+FNDA:7,System.Void Wolfberry.TelldusLive.Authentication.Authenticator::.ctor(Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration)
+DA:39,7
+DA:40,7
+DA:41,7
+DA:42,7
+DA:43,7
+DA:44,7
+DA:45,7
+DA:46,7
+DA:47,7
+DA:48,7
+DA:49,7
+DA:50,7
+LF:22
+LH:22
+BRF:2
+BRH:2
+FNF:4
+FNH:4
+end_of_record
+SF:/Users/dev/Desktop/repos/wolf/telldus-live-dotnet/Wolfberry.TelldusLive/Authentication/TelldusOAuth1Configuration.cs
+FN:4,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AccessTokenUrl()
+FNDA:19,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AccessTokenUrl()
+DA:5,19
+FN:6,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AuthorizeTokenUrl()
+FNDA:19,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AuthorizeTokenUrl()
+DA:7,19
+FN:8,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_RequestTokenUrl()
+FNDA:19,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_RequestTokenUrl()
+DA:9,19
+FN:13,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_ConsumerKey()
+FNDA:27,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_ConsumerKey()
+DA:14,27
+FN:18,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_ConsumerKeySecret()
+FNDA:26,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_ConsumerKeySecret()
+DA:19,26
+FN:20,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AccessToken()
+FNDA:22,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AccessToken()
+DA:21,22
+FN:22,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AccessTokenSecret()
+FNDA:21,System.String Wolfberry.TelldusLive.Authentication.TelldusOAuth1Configuration::get_AccessTokenSecret()
+DA:23,21
+LF:7
+LH:7
+BRF:0
+BRH:0
+FNF:7
+FNH:7
+end_of_record

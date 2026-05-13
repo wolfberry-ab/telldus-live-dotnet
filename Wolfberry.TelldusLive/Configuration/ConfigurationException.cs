@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace Wolfberry.TelldusLive.Configuration
@@ -14,6 +15,7 @@ namespace Wolfberry.TelldusLive.Configuration
         public ConfigurationException(string message) : base(message) { }
         public ConfigurationException(string message, Exception innerException)
             : base(message, innerException) { }
+        [ExcludeFromCodeCoverage]
         protected ConfigurationException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

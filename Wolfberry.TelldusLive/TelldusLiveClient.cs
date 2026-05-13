@@ -109,7 +109,7 @@ namespace Wolfberry.TelldusLive
 
         public void Dispose()
         {
-            _httpClient?.Dispose();
+            _httpClient.Dispose();
         }
     }
 }

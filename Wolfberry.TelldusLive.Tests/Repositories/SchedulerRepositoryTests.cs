@@ -102,5 +102,31 @@ namespace Wolfberry.TelldusLive.Tests.Repositories
             await Assert.ThrowsAsync<RepositoryException>(
                 () => repository.GetJobAsync("10"));
         }
+
+        [Fact]
+        public async Task SetJobAsync_OnlyDeviceId_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISchedulerRepository repository = new SchedulerRepository(client);
+
+            var result = await repository.SetJobAsync(null, "100", "1", null, "time",
+                8, 0, 0, 0, 3, 5, 1, true, "1,2,3,4,5");
+
+            Assert.Equal("success", result.Status);
+        }
+
+        [Fact]
+        public async Task SetJobAsync_OnlyJobId_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISchedulerRepository repository = new SchedulerRepository(client);
+
+            var result = await repository.SetJobAsync("10", null, "1", null, "time",
+                8, 0, 0, 0, 3, 5, 1, true, "1,2,3,4,5");
+
+            Assert.Equal("success", result.Status);
+        }
     }
 }

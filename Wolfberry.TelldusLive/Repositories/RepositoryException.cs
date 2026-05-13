@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Serialization;
 
 namespace Wolfberry.TelldusLive.Repositories
@@ -14,6 +15,7 @@ namespace Wolfberry.TelldusLive.Repositories
         public RepositoryException(string message) : base(message) { }
         public RepositoryException(string message, Exception innerException)
             : base(message, innerException) { }
+        [ExcludeFromCodeCoverage]
         protected RepositoryException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {

@@ -103,5 +103,84 @@ namespace Wolfberry.TelldusLive.Tests.Repositories
             await Assert.ThrowsAsync<RepositoryException>(
                 () => repository.GetSensorsAsync(false, false));
         }
+
+        [Fact]
+        public async Task GetHistoryAsync_ReturnsHistory()
+        {
+            var mockedResponse = new SensorHistoryResponse
+            {
+                History = new List<HistoryEntry>
+                {
+                    new HistoryEntry { Ts = 1000, Uuid = "uuid-1" }
+                }
+            };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISensorRepository repository = new SensorRepository(client);
+
+            var result = await repository.GetHistoryAsync("123", true, true, true);
+
+            Assert.NotNull(result);
+            Assert.Single(result.History);
+        }
+
+        [Fact]
+        public async Task RemoveHistoryAsync_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISensorRepository repository = new SensorRepository(client);
+
+            var result = await repository.RemoveHistoryAsync("123");
+
+            Assert.Equal("success", result.Status);
+        }
+
+        [Fact]
+        public async Task RemoveValueAsync_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISensorRepository repository = new SensorRepository(client);
+
+            var result = await repository.RemoveValueAsync("123", "uuid-abc");
+
+            Assert.Equal("success", result.Status);
+        }
+
+        [Fact]
+        public async Task ResetMaxMin_WithNullType_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISensorRepository repository = new SensorRepository(client);
+
+            var result = await repository.ResetMaxMin("123", null);
+
+            Assert.Equal("success", result.Status);
+        }
+
+        [Fact]
+        public async Task ResetMaxMin_WithType_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISensorRepository repository = new SensorRepository(client);
+
+            var result = await repository.ResetMaxMin("123", "temperature");
+
+            Assert.Equal("success", result.Status);
+        }
+
+        [Fact]
+        public async Task SetKeepHistoryAsync_ReturnsSuccess()
+        {
+            var mockedResponse = new StatusResponse { Status = "success" };
+            var client = CreateMockClient(JsonConvert.SerializeObject(mockedResponse));
+            ISensorRepository repository = new SensorRepository(client);
+
+            var result = await repository.SetKeepHistoryAsync("123", true);
+
+            Assert.Equal("success", result.Status);
+        }
     }
 }

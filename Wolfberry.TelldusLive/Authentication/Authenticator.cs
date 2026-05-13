@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Net.Http;
 using System.Threading.Tasks;
 using TinyOAuth1;
@@ -49,6 +50,7 @@ namespace Wolfberry.TelldusLive.Authentication
         }
 
         /// <inheritdoc cref="IAuthenticator"/>
+        [ExcludeFromCodeCoverage]
         public async Task<string> GetAuthorizationUrlAsync()
         {
             _tinyOAuth = new TinyOAuth(_tinyConfig);
@@ -67,6 +69,7 @@ namespace Wolfberry.TelldusLive.Authentication
         }
 
         /// <inheritdoc cref="IAuthenticator"/>
+        [ExcludeFromCodeCoverage]
         public async Task<AccessTokenInfo> FinalizeAuthorizationAsync()
         {
             var accessTokenInfo = await _tinyOAuth.GetAccessTokenAsync(_requestTokenInfo.RequestToken, _requestTokenInfo.RequestTokenSecret, "");

@@ -55,7 +55,7 @@ namespace Wolfberry.TelldusLive
 
         public void Dispose()
         {
-            _authenticator?.Dispose();
+            _authenticator.Dispose();
         }
     }
 }
