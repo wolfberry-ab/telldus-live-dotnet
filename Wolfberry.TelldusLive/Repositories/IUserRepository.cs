@@ -6,6 +6,11 @@ namespace Wolfberry.TelldusLive.Repositories
 {
     public interface IUserRepository
     {
+        /// <summary>
+        /// Get SMS history for the current user
+        /// </summary>
+        /// <param name="format">json (default) or xml</param>
+        /// <returns></returns>
         Task<SmsHistoryEntryResponse> GetSmsHistoryAsync(string format = ResponseFormat.JsonFormat);
 
         /// <summary>

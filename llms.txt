@@ -1,0 +1,151 @@
+# Wolfberry.TelldusLive
+
+A .NET library (netstandard2.0) for the [Telldus Live API](https://api.telldus.com). Covers all 180 public API methods. Compatible with .NET Framework 4.6.1+ and .NET 5–10.
+
+## Install
+
+```
+dotnet add package Wolfberry.TelldusLive
+```
+
+## Authentication
+
+Credentials are obtained from https://api.telldus.com/keys/index. Four values are required:
+
+- `consumerKey` — Public Key in the API portal
+- `consumerKeySecret` — Private Key in the API portal
+- `accessToken` — Token in the API portal
+- `accessTokenSecret` — Token Secret in the API portal
+
+```csharp
+var client = new TelldusLiveClient(consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
+```
+
+The client implements `IDisposable`. Dispose it when done, or register it as a singleton in a DI container.
+
+## Repositories
+
+The client exposes 7 repositories as properties:
+
+| Property | Type | Purpose |
+|---|---|---|
+| `client.Devices` | `IDeviceRepository` | Control and query devices |
+| `client.Sensors` | `ISensorRepository` | Read sensor values and history |
+| `client.Clients` | `IClientRepository` | Manage controllers (e.g. Tellstick Znet Lite) |
+| `client.Events` | `IEventRepository` | Manage automation events |
+| `client.Scheduler` | `ISchedulerRepository` | Manage scheduled jobs |
+| `client.Groups` | `IGroupRepository` | Manage device groups |
+| `client.User` | `IUserRepository` | Manage user account |
+
+All methods are async and return strongly typed response objects. All methods accept an optional `format` parameter (`"json"` default or `"xml"`).
+
+## Devices
+
+```csharp
+// List all devices
+var devices = await client.Devices.GetDevicesAsync();
+
+// Get device details
+var device = await client.Devices.GetDeviceInfoAsync(deviceId);
+
+// Control power
+await client.Devices.TurnOnAsync(deviceId);
+await client.Devices.TurnOffAsync(deviceId);
+
+// Dim to level 0–255
+await client.Devices.DimAsync(deviceId, level: 128);
+
+// Set RGB color
+await client.Devices.SetRgbAsync(deviceId, red: 255, green: 0, blue: 0);
+
+// Bell / up / down / stop (for blinds etc.)
+await client.Devices.BellAsync(deviceId);
+await client.Devices.UpAsync(deviceId);
+await client.Devices.DownAsync(deviceId);
+await client.Devices.StopAsync(deviceId);
+
+// Get command history
+var history = await client.Devices.GetHistoryAsync(deviceId);
+```
+
+## Sensors
+
+```csharp
+// List all sensors with current values
+var sensors = await client.Sensors.GetSensorsAsync(
+    includeIgnored: false,
+    includeValues: true,
+    includeScale: true,
+    includeUnit: true);
+
+// Get a specific sensor
+var sensor = await client.Sensors.GetSensorInfoAsync(sensorId, includeUnit: true);
+
+// Get sensor history (max poll: once per 10 minutes)
+var history = await client.Sensors.GetHistoryAsync(
+    sensorId,
+    includeKey: true,
+    includeUnit: true,
+    includeHumanReadableDate: true);
+```
+
+## Clients (Controllers)
+
+```csharp
+// List all controllers
+var clients = await client.Clients.GetClientsAsync();
+
+// Get controller details
+var info = await client.Clients.GetClientInfoAsync(clientId);
+```
+
+## Events (Automations)
+
+```csharp
+// List all events and groups
+var events = await client.Events.GetEventsAsync(eventsOnly: false);
+
+// Get full event details (triggers, conditions, actions)
+var eventInfo = await client.Events.GetEventInfoAsync(eventId);
+```
+
+## Scheduler
+
+```csharp
+// List all scheduled jobs
+var jobs = await client.Scheduler.GetJobsAsync();
+
+// Get a specific job
+var job = await client.Scheduler.GetJobAsync(jobId);
+```
+
+## Error Handling
+
+All repository methods throw `RepositoryException` on API errors. Wrap calls in try/catch:
+
+```csharp
+try
+{
+    await client.Devices.TurnOnAsync(deviceId);
+}
+catch (RepositoryException ex)
+{
+    Console.WriteLine($"API error: {ex.Message}");
+}
+```
+
+Configuration errors (missing credentials) throw `ConfigurationException` at client construction time.
+
+## MCP Server
+
+An MCP server wrapping this library is available in the `Wolfberry.TelldusLive.MCP` project. It exposes 17 tools covering devices, sensors, clients, events, scheduler, and user — ready to use with Claude, Cursor, and any MCP-compatible agent.
+
+Configure via environment variables:
+- `TELLDUS_CONSUMER_KEY`
+- `TELLDUS_CONSUMER_KEY_SECRET`
+- `TELLDUS_ACCESS_TOKEN`
+- `TELLDUS_ACCESS_TOKEN_SECRET`
+
+## Source
+
+https://github.com/wolfberry-ab/telldus-live-dotnet
