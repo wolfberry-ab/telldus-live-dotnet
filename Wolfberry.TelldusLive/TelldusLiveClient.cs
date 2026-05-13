@@ -89,7 +89,7 @@ namespace Wolfberry.TelldusLive
 
             if (string.IsNullOrEmpty(config.AccessTokenSecret))
             {
-                throw new ConfigurationException("No AccessToken found in configuration");
+                throw new ConfigurationException("No AccessTokenSecret found in configuration");
             }
         }
 
