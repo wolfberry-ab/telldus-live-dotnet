@@ -98,8 +98,8 @@ namespace Wolfberry.TelldusLive.Repositories
             var urlBuilder = new UrlBuilder($"{_httpClient.BaseUrl}/{format}/device/history");
 
             urlBuilder.AddQuery("id", deviceId);
-            urlBuilder.AddOptionalQuery("from", fromTimestamp.ToString());
-            urlBuilder.AddOptionalQuery("to", toTimestamp.ToString());
+            urlBuilder.AddOptionalQuery("from", fromTimestamp);
+            urlBuilder.AddOptionalQuery("to", toTimestamp);
             urlBuilder.AddOptionalQuery("lastFirst", lastFirst);
             urlBuilder.AddOptionalEscapedQuery("extras", extras);
 
