@@ -1,3 +1,6 @@
+[![CI Pipeline](https://github.com/wolfberry-ab/telldus-live-dotnet/actions/workflows/ci-pipeline.yml/badge.svg)](https://github.com/wolfberry-ab/telldus-live-dotnet/actions/workflows/ci-pipeline.yml)
+[![NuGet](https://img.shields.io/nuget/v/Wolfberry.TelldusLive)](https://www.nuget.org/packages/Wolfberry.TelldusLive/)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Wolfberry.TelldusLive)](https://www.nuget.org/packages/Wolfberry.TelldusLive/)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=bugs)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=wolfberry-ab_telldus-live-dotnet&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=wolfberry-ab_telldus-live-dotnet)
@@ -10,71 +13,50 @@
 
 # Telldus Live .NET Library
 
-This is a library for [Telldus Live API](https://api.telldus.com) with full feature support of the public API (180 methods!).
-It allows you to manage clients (a.k.a. controllers), devices, events, groups, scheduler, sensors and your user accounts.
+A .NET library for the [Telldus Live API](https://api.telldus.com) with full coverage of the public API (180 methods).
+Manage clients (controllers), devices, events, groups, scheduler, sensors, and user accounts.
 
-It's written in C# (targeting netstandard2.0) and is available as open-source and as NuGet. Since it can be used
-in .NET Core it can be run from any platform where .NET Core runtime can execute (Windows, Mac & Linux).
+Targets `netstandard2.0` — compatible with .NET Framework 4.6.1+ and all .NET versions up to .NET 10. Runs on Windows, Mac, and Linux.
 
-The library fits well in command line applications, back-ends, web apps, ...
+## Requirements
+
+- .NET Framework 4.6.1+ or .NET Core 2.0+ (including .NET 5–10)
+- A [Telldus Live](https://live.telldus.com/default/index) account with API credentials
 
 ## Getting started
 
-- Create an account and setup your system at: https://live.telldus.com/default/index
-- Create credentials at https://api.telldus.com/.
-- Install the [Wolfberry.TelldusLive NuGet package](https://www.nuget.org/packages/Wolfberry.TelldusLive/) into your project.
-  - E.g.: `dotnet add package Wolfberry.TelldusLive`
-- Example console application (Program.cs):
- ```c#
-using Newtonsoft.Json;
-using Wolfberry.TelldusLive;
+1. Create an account at https://live.telldus.com/default/index
+2. Generate API credentials at https://api.telldus.com/keys/index
+3. Install the package:
+   ```
+   dotnet add package Wolfberry.TelldusLive
+   ```
+4. Use the client:
+   ```csharp
+   using Newtonsoft.Json;
+   using Wolfberry.TelldusLive;
 
-namespace ConsoleAppDotNet6;
+   var telldusClient = new TelldusLiveClient(
+       consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
 
-class Program
-{
-    static async Task Main(string[] args)
-    {
-        // Get your keys and tokens from https://api.telldus.com/keys/index
-        var consumerKey = "";
-        var consumerKeySecret = "";
-        var accessToken = "";
-        var accessTokenSecret = "";
+   // Get all controllers (e.g. Tellstick Znet Lite v2)
+   var clients = await telldusClient.Clients.GetClientsAsync();
+   Console.WriteLine(JsonConvert.SerializeObject(clients));
+   ```
 
-        // Setup Telldus Live client
-        var telldusClient = new TelldusLiveClient(
-            consumerKey, consumerKeySecret, accessToken, accessTokenSecret);
+### Telldus product resources
 
-        // Example of getting clients (e.g. a Telldus Tellstick Znet Lite v2 controller)
-        var clients = await telldusClient.Clients.GetClientsAsync();
-        // Print out response in JSON format
-        Console.WriteLine(JsonConvert.SerializeObject(clients));
-    }
-}
-```
-
-### Getting started with Telldus products
-
-- [Telldus Guides & concepts](https://start.telldus.com/help/guides)
-
-- [Telldus Manuals](https://start.telldus.com/help/manuals)
+- [Guides & concepts](https://start.telldus.com/help/guides)
+- [Manuals](https://start.telldus.com/help/manuals)
 
 ## Issues
 
-Please, report any issues in the Issues tab.
-
-### Known Issues
-
-Especially the Events methods are limited tested.
+Please report issues in the [Issues tab](https://github.com/wolfberry-ab/telldus-live-dotnet/issues).
 
 ## Contribute
 
-Your contribution is very welcome.
+Contributions are very welcome.
 
-## Third-Party licenses
+## Third-party licenses
 
-This library depends on Newtonsoft.Json and TinyOAuth1. See the _third-party-licenses folder ind the repo root.
-
-# Tags
-
-Internet Of Things (IoT), Homeautomation, Home Automation, smart home, domotics, Telldus, SmartHome, Microsoft, DotNet, csharp, NuGet, MSIoT, Innovation, DotNetCore, SmartaHem, IIoT, Ligting
+This library depends on Newtonsoft.Json and TinyOAuth1. See the `_third-party-licenses` folder in the repo root.
