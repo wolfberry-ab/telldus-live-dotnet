@@ -7,13 +7,13 @@ namespace Wolfberry.TelldusLive
 {
     public interface ITelldusLiveClient : IDisposable
     {
-        UserRepository User { get; set; }
-        SensorRepository Sensors { get; set; }
-        SchedulerRepository Scheduler { get; set; }
-        GroupRepository Groups { get; set; }
-        EventRepository Events { get; set; }
-        ClientRepository Clients { get; set; }
-        DeviceRepository Devices { get; set; }
+        IUserRepository User { get; }
+        ISensorRepository Sensors { get; }
+        ISchedulerRepository Scheduler { get; }
+        IGroupRepository Groups { get; }
+        IEventRepository Events { get; }
+        IClientRepository Clients { get; }
+        IDeviceRepository Devices { get; }
     }
 
     /// <summary>
@@ -93,19 +93,19 @@ namespace Wolfberry.TelldusLive
             }
         }
 
-        public UserRepository User { get; set; }
+        public IUserRepository User { get; }
 
-        public SensorRepository Sensors { get; set; }
+        public ISensorRepository Sensors { get; }
 
-        public SchedulerRepository Scheduler { get; set; }
+        public ISchedulerRepository Scheduler { get; }
 
-        public GroupRepository Groups { get; set; }
+        public IGroupRepository Groups { get; }
 
-        public EventRepository Events { get; set; }
+        public IEventRepository Events { get; }
 
-        public ClientRepository Clients { get; set; }
+        public IClientRepository Clients { get; }
 
-        public DeviceRepository Devices { get; set; }
+        public IDeviceRepository Devices { get; }
 
         public void Dispose()
         {
