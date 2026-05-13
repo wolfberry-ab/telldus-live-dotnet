@@ -54,7 +54,7 @@ jobs:
         path-to-lcov: ${{ github.workspace }}/Wolfberry.TelldusLive.Tests/TestResults/coverage.net10.0.info
 
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: SonarSource/sonarqube-scan-action@v5
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
