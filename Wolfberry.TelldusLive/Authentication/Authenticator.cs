@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 using TinyOAuth1;
 
@@ -7,7 +8,7 @@ namespace Wolfberry.TelldusLive.Authentication
     /// <summary>
     /// Handles the authentication
     /// </summary>
-    public interface IAuthenticator
+    public interface IAuthenticator : IDisposable
     {
         HttpClient HttpClient { get; set; }
 
@@ -71,6 +72,11 @@ namespace Wolfberry.TelldusLive.Authentication
             var accessTokenInfo = await _tinyOAuth.GetAccessTokenAsync(_requestTokenInfo.RequestToken, _requestTokenInfo.RequestTokenSecret, "");
 
             return accessTokenInfo;
+        }
+
+        public void Dispose()
+        {
+            HttpClient?.Dispose();
         }
     }
 }
