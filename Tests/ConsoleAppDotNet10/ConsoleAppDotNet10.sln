@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppDotNet8", "ConsoleAppDotNet8.csproj", "{1AF41331-D609-4184-AFBF-9E45A0ECB963}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppDotNet10", "ConsoleAppDotNet10.csproj", "{1AF41331-D609-4184-AFBF-9E45A0ECB963}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Wolfberry.TelldusLive", "..\..\Wolfberry.TelldusLive\Wolfberry.TelldusLive.csproj", "{815D32E1-444E-414B-9B58-E786F17A3CD2}"
 EndProject

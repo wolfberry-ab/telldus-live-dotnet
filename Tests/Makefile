@@ -1,5 +1,5 @@
 
-PROJECTS = ConsoleAppDotNet5/ConsoleAppDotNet5.csproj ConsoleAppDotNet31/ConsoleAppDotNet31.csproj
+PROJECTS = ConsoleAppDotNet10/ConsoleAppDotNet10.csproj
 
 all:
 	$(foreach project,$(PROJECTS),\
