@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Wolfberry.TelldusLive.Authentication;
 using Wolfberry.TelldusLive.Utils;
 
@@ -7,7 +8,7 @@ namespace Wolfberry.TelldusLive
     /// <summary>
     /// Handles HTTP calls
     /// </summary>
-    public interface ITelldusHttpClient
+    public interface ITelldusHttpClient : IDisposable
     {
         /// <summary>
         /// The actual call should be performed at: https://api.telldus.com/{format}/{function}
@@ -50,6 +51,11 @@ namespace Wolfberry.TelldusLive
             var responseJson = await GetAsJsonAsync(url);
             var response = JsonUtil.Deserialize<T>(responseJson);
             return response;
+        }
+
+        public void Dispose()
+        {
+            _authenticator?.Dispose();
         }
     }
 }

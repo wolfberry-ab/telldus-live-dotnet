@@ -1,10 +1,11 @@
-﻿using Wolfberry.TelldusLive.Authentication;
+﻿using System;
+using Wolfberry.TelldusLive.Authentication;
 using Wolfberry.TelldusLive.Configuration;
 using Wolfberry.TelldusLive.Repositories;
 
 namespace Wolfberry.TelldusLive
 {
-    public interface ITelldusLiveClient
+    public interface ITelldusLiveClient : IDisposable
     {
         UserRepository User { get; set; }
         SensorRepository Sensors { get; set; }
@@ -20,6 +21,8 @@ namespace Wolfberry.TelldusLive
     /// </summary>
     public class TelldusLiveClient : ITelldusLiveClient
     {
+        private readonly ITelldusHttpClient _httpClient;
+
         /// <summary>
         /// Create a Telldus Live client
         /// </summary>
@@ -32,7 +35,7 @@ namespace Wolfberry.TelldusLive
             string consumerKey,
             string consumerKeySecret,
             string accessToken,
-            string accessTokenSecret, 
+            string accessTokenSecret,
             string customBaseUrl = null)
         {
             var baseUrl = "https://api.telldus.com";
@@ -56,6 +59,7 @@ namespace Wolfberry.TelldusLive
 
             var authenticator = new Authenticator(config);
             var client = new TelldusHttpClient(authenticator, baseUrl);
+            _httpClient = client;
 
             Clients = new ClientRepository(client);
             Devices = new DeviceRepository(client);
@@ -102,5 +106,10 @@ namespace Wolfberry.TelldusLive
         public ClientRepository Clients { get; set; }
 
         public DeviceRepository Devices { get; set; }
+
+        public void Dispose()
+        {
+            _httpClient?.Dispose();
+        }
     }
 }
